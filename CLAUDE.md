@@ -16,12 +16,14 @@ does **not** invent league content. The single source of truth for that corpus i
 Pipeline: **Local Claude Code → GitHub (public) → Vercel → publish as MCP connector.** Each
 phase is gated on an observed result before the next begins.
 
-> Status: **Phase 1 complete, all gates green.** 1a content import (`validate-content.mjs` 22/22);
+> Status: **Phase 3 complete, all gates green.** 1a content import (`validate-content.mjs` 22/22);
 > 1b Sleeper sync (champions resolve: 2025 = AJk12, 2024 = flamezdawson); 1c MCP server — 13 public
 > tools + 15 resources all execute over Streamable HTTP, admin endpoint returns 401 on bad/missing
-> token and 200 on the good one, `next build` + `tsc --noEmit` clean. **Next: Phase 2 (git init +
-> full-tree secret scan before first push).** Approved plan at
-> `~/.claude/plans/project-fantasyx-mcp-fantasy-peppy-globe.md`. Keep this file matching reality.
+> token and 200 on the good one, `next build` + `tsc --noEmit` clean. Phase 2: repo pushed to GitHub
+> (`allsxxing/fantasyx-mcp`, private). Phase 3: deployed to Vercel production —
+> `https://fantasyx-mcp.vercel.app` — both env vars set, SSO protection off, `initialize` returns
+> valid JSON-RPC. **Next: Phase 4 — publish as claude.ai connector + `claude mcp add --transport http`.**
+> Approved plan at `~/.claude/plans/project-fantasyx-mcp-fantasy-peppy-globe.md`. Keep this file matching reality.
 
 ## The three-way data split drives every decision
 
@@ -147,8 +149,8 @@ risk** — do not `npm audit fix --force`. The security-relevant pin (SDK ≥ 1.
 1. ✅ **1a** content import; `validate-content.mjs` passes; `rules.md` matches V4. ✅ **1b**
    Sleeper sync; 2025 champion resolves to a real manager. ✅ **1c** MCP server; every tool
    executes, admin rejects a bad token and accepts a good one.
-2. **GitHub** (next) public repo; secret scan of the full tree before first push; diff-by-diff
-   review. Repo is not yet `git init`'d — do that here, and confirm `.gitignore` covers `.env*`,
-   `node_modules/`, `.next/`, and `src/generated/` before the first `git add`.
-3. **Vercel** both env vars set as Production; Inspector connects to the public URL.
-4. **Publish** as a claude.ai connector and via `claude mcp add --transport http`.
+2. ✅ **GitHub** repo pushed to `allsxxing/fantasyx-mcp` (private); secret scan clean; `.gitignore`
+   covers `.env*`, `node_modules/`, `.next/`, `src/generated/`.
+3. ✅ **Vercel** deployed to `https://fantasyx-mcp.vercel.app`; both env vars set as Production;
+   SSO protection off; `initialize` returns valid JSON-RPC over SSE.
+4. **Publish** as a claude.ai connector and via `claude mcp add --transport http https://fantasyx-mcp.vercel.app/api/mcp`.

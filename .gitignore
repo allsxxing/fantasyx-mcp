@@ -21,3 +21,4 @@ src/generated/
 .DS_Store
 *.log
 .vercel
+.env*
