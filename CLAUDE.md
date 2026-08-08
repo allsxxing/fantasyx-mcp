@@ -16,14 +16,14 @@ does **not** invent league content. The single source of truth for that corpus i
 Pipeline: **Local Claude Code → GitHub (public) → Vercel → publish as MCP connector.** Each
 phase is gated on an observed result before the next begins.
 
-> Status: **Phase 3 complete, all gates green.** 1a content import (`validate-content.mjs` 22/22);
-> 1b Sleeper sync (champions resolve: 2025 = AJk12, 2024 = flamezdawson); 1c MCP server — 13 public
-> tools + 15 resources all execute over Streamable HTTP, admin endpoint returns 401 on bad/missing
-> token and 200 on the good one, `next build` + `tsc --noEmit` clean. Phase 2: repo pushed to GitHub
-> (`allsxxing/fantasyx-mcp`, private). Phase 3: deployed to Vercel production —
-> `https://fantasyx-mcp.vercel.app` — both env vars set, SSO protection off, `initialize` returns
-> valid JSON-RPC. **Next: Phase 4 — publish as claude.ai connector + `claude mcp add --transport http`.**
-> Approved plan at `~/.claude/plans/project-fantasyx-mcp-fantasy-peppy-globe.md`. Keep this file matching reality.
+> Status: **✅ ALL PHASES COMPLETE.** Phase 1: content import (`validate-content.mjs` 22/22 ✓),
+> Sleeper sync (champions resolve: 2025 = AJk12, 2024 = flamezdawson ✓), MCP server — 13 public
+> tools + 15 resources execute over Streamable HTTP, admin endpoint returns 401/200 per token ✓,
+> `next build` + `tsc --noEmit` clean ✓. Phase 2: repo pushed to GitHub (`allsxxing/fantasyx-mcp`,
+> private ✓). Phase 3: deployed to Vercel production `https://fantasyx-mcp.vercel.app` — both env
+> vars set, SSO protection off, `initialize` returns valid JSON-RPC ✓. Phase 4: published as
+> claude.ai connector + `claude mcp add --transport http https://fantasyx-mcp.vercel.app/api/mcp` ✓
+> Approved plan at `~/.claude/plans/project-fantasyx-mcp-fantasy-peppy-globe.md`.
 
 ## The three-way data split drives every decision
 
