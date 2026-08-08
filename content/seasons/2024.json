@@ -1,0 +1,80 @@
+{
+  "season": "2024",
+  "league_id": "1131889650307706880",
+  "previous_league_id": null,
+  "draft_id": "1131889651071119360",
+  "status": "complete",
+  "num_teams": 10,
+  "member_count": 10,
+  "champion": {
+    "roster_id": 10,
+    "user_id": "1133515262826823680",
+    "display_name": "flamezdawson",
+    "team_name": null,
+    "source": "league.metadata.latest_league_winner_roster_id"
+  },
+  "members": [
+    {
+      "user_id": "1058575263971250176",
+      "display_name": "allsxxing",
+      "team_name": "GJ!ZZLE JUICERS",
+      "roster_id": 1
+    },
+    {
+      "user_id": "855678858756734976",
+      "display_name": "Tristanv10",
+      "team_name": null,
+      "roster_id": 2
+    },
+    {
+      "user_id": "870527515335274496",
+      "display_name": "REBEL8",
+      "team_name": "The Only Ones",
+      "roster_id": 3
+    },
+    {
+      "user_id": "1038720573507510272",
+      "display_name": "GooNStaR93",
+      "team_name": null,
+      "roster_id": 4
+    },
+    {
+      "user_id": "1133247206179442688",
+      "display_name": "nichigh",
+      "team_name": null,
+      "roster_id": 5
+    },
+    {
+      "user_id": "744014760877662208",
+      "display_name": "chandran",
+      "team_name": "The ChanMan Club",
+      "roster_id": 6
+    },
+    {
+      "user_id": "1005194894908018688",
+      "display_name": "kazeemfamuyide",
+      "team_name": null,
+      "roster_id": 7
+    },
+    {
+      "user_id": "962934016359862272",
+      "display_name": "TayArrington10",
+      "team_name": null,
+      "roster_id": 8
+    },
+    {
+      "user_id": "855575460304752640",
+      "display_name": "Jramos1125",
+      "team_name": "WHITE CHUBB",
+      "roster_id": 9
+    },
+    {
+      "user_id": "1133515262826823680",
+      "display_name": "flamezdawson",
+      "team_name": null,
+      "roster_id": 10
+    }
+  ],
+  "source": "sync-sleeper.mjs — https://api.sleeper.app",
+  "synced_at": "2026-08-08T10:48:56.700Z"
+}

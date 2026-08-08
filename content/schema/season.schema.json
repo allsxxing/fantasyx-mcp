@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "season.schema.json",
+  "title": "Season",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["season", "league_id", "status"],
+  "properties": {
+    "season": { "type": "string" },
+    "league_id": { "type": "string" },
+    "previous_league_id": { "type": ["string", "null"] },
+    "draft_id": { "type": ["string", "null"] },
+    "status": { "type": "string", "enum": ["complete", "in_season", "upcoming"] },
+    "champion": {
+      "type": ["object", "null"],
+      "additionalProperties": true,
+      "properties": {
+        "roster_id": { "type": ["number", "string"] },
+        "user_id": { "type": ["string", "null"] },
+        "display_name": { "type": ["string", "null"] },
+        "team_name": { "type": ["string", "null"] },
+        "source": { "type": "string" }
+      }
+    },
+    "source": { "type": "string" }
+  }
+}

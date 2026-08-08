@@ -1,0 +1,152 @@
+#!/usr/bin/env node
+// sync-sleeper.mjs — pulls live league state from the OFFICIAL Sleeper API
+// (https://docs.sleeper.com, base https://api.sleeper.app/v1). Public, unauthenticated,
+// no credentials, 1000 req/min.
+//
+// Walks the season chain back from the 2026 league via previous_league_id, resolving
+// each season's champion and roster membership, and writes content/seasons/<year>.json.
+// For the newest (upcoming) season it diffs membership against the prior season to derive
+// departures / additions / open spots — no hardcoded roster changes.
+//
+// Does NOT fetch /players/nfl — that ~5MB map is a build-time concern (build-content.mjs),
+// trimmed to {player_id, full_name, position, team} and never runtime-cached.
+
+import { writeFile, mkdir, readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const CONTENT = join(__dirname, '..', 'content');
+const SEASONS = join(CONTENT, 'seasons');
+
+const API = 'https://api.sleeper.app/v1';
+const START_LEAGUE = process.env.FANTASYX_LEAGUE_2026 || '1370188155843526656';
+
+const log = (...a) => console.log('[sync]', ...a);
+const warn = (...a) => console.warn('[sync] WARN', ...a);
+
+async function getJson(path) {
+  const res = await fetch(`${API}${path}`);
+  if (!res.ok) throw new Error(`GET ${path} → ${res.status} ${res.statusText}`);
+  return res.json();
+}
+
+const STATUS_MAP = { pre_draft: 'upcoming', drafting: 'upcoming', in_season: 'in_season', complete: 'complete' };
+
+async function fetchBundle(leagueId) {
+  const [league, users, rosters] = await Promise.all([
+    getJson(`/league/${leagueId}`),
+    getJson(`/league/${leagueId}/users`),
+    getJson(`/league/${leagueId}/rosters`),
+  ]);
+  let winnersBracket = null;
+  try { winnersBracket = await getJson(`/league/${leagueId}/winners_bracket`); } catch { /* not available pre-playoffs */ }
+  return { league, users, rosters, winnersBracket };
+}
+
+function membersOf({ users, rosters }) {
+  const rosterByOwner = new Map(rosters.map(r => [r.owner_id, r.roster_id]));
+  return users.map(u => ({
+    user_id: u.user_id,
+    display_name: u.display_name,
+    team_name: u.metadata?.team_name ?? null,
+    roster_id: rosterByOwner.get(u.user_id) ?? null,
+  })).sort((a, b) => (a.roster_id ?? 99) - (b.roster_id ?? 99));
+}
+
+function resolveChampion({ league, users, rosters, winnersBracket }) {
+  let rosterId = league.metadata?.latest_league_winner_roster_id
+    ? Number(league.metadata.latest_league_winner_roster_id)
+    : null;
+  if (!rosterId && Array.isArray(winnersBracket) && winnersBracket.length) {
+    // championship match is the highest round with a winner in slot p===1
+    const final = winnersBracket.filter(m => m.p === 1).sort((a, b) => b.r - a.r)[0];
+    if (final?.w) rosterId = final.w;
+  }
+  if (!rosterId) return null;
+  const roster = rosters.find(r => r.roster_id === rosterId);
+  const user = roster ? users.find(u => u.user_id === roster.owner_id) : null;
+  return {
+    roster_id: rosterId,
+    user_id: user?.user_id ?? null,
+    display_name: user?.display_name ?? null,
+    team_name: user?.metadata?.team_name ?? null,
+    source: league.metadata?.latest_league_winner_roster_id ? 'league.metadata.latest_league_winner_roster_id' : 'winners_bracket',
+  };
+}
+
+async function walkChain(startId, maxDepth = 6) {
+  const chain = [];
+  let id = startId;
+  let depth = 0;
+  while (id && depth < maxDepth) {
+    log('fetch league', id);
+    const bundle = await fetchBundle(id);
+    chain.push(bundle);
+    id = bundle.league.previous_league_id;
+    depth++;
+  }
+  return chain; // newest → oldest
+}
+
+function diffMembers(prevMembers, currMembers) {
+  const prevIds = new Set(prevMembers.map(m => m.user_id));
+  const currIds = new Set(currMembers.map(m => m.user_id));
+  return {
+    departures: prevMembers.filter(m => !currIds.has(m.user_id))
+      .map(m => ({ user_id: m.user_id, display_name: m.display_name, prior_roster_id: m.roster_id, status: 'to_be_filled', note: 'In prior season, not in current roster; spot to be filled before Draft Day.' })),
+    additions: currMembers.filter(m => !prevIds.has(m.user_id))
+      .map(m => ({ user_id: m.user_id, display_name: m.display_name, roster_id: m.roster_id })),
+  };
+}
+
+async function main() {
+  await mkdir(SEASONS, { recursive: true });
+  const chain = await walkChain(START_LEAGUE);
+  log(`chain length: ${chain.length} season(s)`);
+
+  const written = [];
+  for (let i = 0; i < chain.length; i++) {
+    const bundle = chain[i];
+    const lg = bundle.league;
+    const season = lg.season;
+    const status = STATUS_MAP[lg.status] ?? lg.status;
+    const members = membersOf(bundle);
+    const champion = status === 'complete' ? resolveChampion(bundle) : null;
+
+    const out = {
+      season,
+      league_id: lg.league_id,
+      previous_league_id: lg.previous_league_id ?? null,
+      draft_id: lg.draft_id ?? null,
+      status,
+      num_teams: lg.settings?.num_teams ?? null,
+      member_count: members.length,
+      champion,
+      members,
+      source: 'sync-sleeper.mjs — https://api.sleeper.app',
+      synced_at: new Date().toISOString(),
+    };
+
+    // For the newest season, diff against the prior season to surface roster changes.
+    if (i === 0 && chain[1]) {
+      const prevMembers = membersOf(chain[1]);
+      const { departures, additions } = diffMembers(prevMembers, members);
+      out.roster_changes = {
+        vs_season: chain[1].league.season,
+        departures,
+        additions,
+        open_spots: (lg.settings?.num_teams ?? members.length) - members.length,
+      };
+    }
+
+    await writeFile(join(SEASONS, `${season}.json`), JSON.stringify(out, null, 2) + '\n', 'utf8');
+    written.push(`${season} (${status}${champion ? `, champ: ${champion.display_name}` : ''})`);
+    log('wrote', `seasons/${season}.json`);
+  }
+
+  log('done:', written.join(' | '));
+}
+
+main().catch(err => { console.error('[sync] FAILED', err); process.exit(1); });

@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "managers.schema.json",
+  "title": "Managers",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["season", "source_league_id", "managers"],
+  "properties": {
+    "season": { "type": "string" },
+    "source_league_id": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "managers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["user_id", "display_name", "roster_id"],
+        "properties": {
+          "user_id": { "type": "string" },
+          "display_name": { "type": "string" },
+          "team_name": { "type": ["string", "null"] },
+          "roster_id": { "type": "number" },
+          "is_commissioner": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

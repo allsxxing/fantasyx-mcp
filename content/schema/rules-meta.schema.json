@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "rules-meta.schema.json",
+  "title": "Rules metadata — tracks the provisional status of rules.md",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "status", "locked", "last_updated", "source_file", "note"],
+  "properties": {
+    "version": { "type": "string" },
+    "status": { "type": "string", "enum": ["draft", "work_in_progress", "locked"] },
+    "locked": { "type": "boolean" },
+    "last_updated": { "type": "string" },
+    "source_file": { "type": "string" },
+    "source_doc_url": { "type": ["string", "null"] },
+    "supersedes": { "type": "array", "items": { "type": "string" } },
+    "note": { "type": "string" },
+    "update_workflow": { "type": "string" }
+  }
+}

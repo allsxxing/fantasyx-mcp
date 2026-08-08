@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "dues.schema.json",
+  "title": "Dues (public, no private handles)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["buy_in_base_usd", "structure", "multiplier", "payment_method", "note"],
+  "properties": {
+    "buy_in_base_usd": { "type": "number" },
+    "structure": { "type": "string" },
+    "multiplier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "options", "resolved"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pending_vote", "resolved"] },
+        "options": { "type": "array", "items": { "type": "string" } },
+        "resolved": { "type": ["string", "null"] }
+      }
+    },
+    "payment_method": { "type": "string" },
+    "note": { "type": "string" }
+  }
+}

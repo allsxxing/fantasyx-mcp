@@ -1,0 +1,32 @@
+{
+  "name": "fantasyx-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "League HQ for the Sleeper league 🔟 FOR $10❌, served as a remote MCP server.",
+  "scripts": {
+    "dev": "npm run build:content && next dev",
+    "build:content": "node scripts/build-content.mjs",
+    "prebuild": "node scripts/build-content.mjs",
+    "build": "next build",
+    "start": "next start",
+    "import:icloud": "node scripts/import-icloud.mjs",
+    "sync:sleeper": "node scripts/sync-sleeper.mjs",
+    "validate": "node scripts/validate-content.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "mcp-handler": "^1.0.2",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/react": "^19.0.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

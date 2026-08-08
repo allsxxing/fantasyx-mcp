@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "links.schema.json",
+  "title": "Links",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["sleeper_invite"],
+  "properties": {
+    "sleeper_invite": { "type": "string" },
+    "sleeper_league_2025": { "type": "string" },
+    "sleeper_league_2026": { "type": "string" },
+    "fantasypros_myplaybook": { "type": "string" },
+    "leaguesafe": { "type": ["string", "null"] },
+    "related_sleeper_leagues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["league_id", "url"],
+        "properties": {
+          "league_id": { "type": "string" },
+          "url": { "type": "string" },
+          "label": { "type": "string" }
+        }
+      }
+    }
+  }
+}

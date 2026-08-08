@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "x-champion-log.schema.json",
+  "title": "X Champion Log — the belt lineage",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["description", "rules_ref", "seasons"],
+  "properties": {
+    "description": { "type": "string" },
+    "rules_ref": { "type": "string" },
+    "seasons": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["status", "weeks"],
+        "properties": {
+          "status": { "type": "string", "enum": ["not_started", "in_progress", "complete"] },
+          "weeks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["week", "holder_user_id"],
+              "properties": {
+                "week": { "type": "number" },
+                "holder_user_id": { "type": ["string", "null"] },
+                "holder_display_name": { "type": ["string", "null"] },
+                "crowned_by": { "type": "string", "enum": ["high_score", "beat_prior_holder"] },
+                "locked_player_id": { "type": ["string", "null"] },
+                "locked_player_name": { "type": ["string", "null"] },
+                "locked_into_opponent_user_id": { "type": ["string", "null"] },
+                "declared_at": { "type": ["string", "null"] },
+                "declared_on_time": { "type": ["boolean", "null"] },
+                "result": { "type": ["string", "null"], "enum": ["held", "lost", null] },
+                "notes": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

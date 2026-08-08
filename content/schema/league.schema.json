@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "league.schema.json",
+  "title": "League",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["name", "display_name", "sport", "platform", "commissioner", "season_chain", "settings"],
+  "properties": {
+    "name": { "type": "string" },
+    "display_name": { "type": "string" },
+    "sport": { "type": "string", "enum": ["nfl"] },
+    "platform": { "type": "string", "enum": ["sleeper"] },
+    "invite_url": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "generated_by": { "type": "string" },
+    "commissioner": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["display_name", "user_id"],
+      "properties": {
+        "display_name": { "type": "string" },
+        "user_id": { "type": "string" },
+        "team_name": { "type": "string" },
+        "real_name": { "type": "string" },
+        "handle": { "type": "string" }
+      }
+    },
+    "season_chain": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["season", "league_id", "status"],
+        "properties": {
+          "season": { "type": "string" },
+          "league_id": { "type": "string" },
+          "draft_id": { "type": "string" },
+          "status": { "type": "string", "enum": ["complete", "in_season", "upcoming"] }
+        }
+      }
+    },
+    "settings": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["num_teams", "roster_positions"],
+      "properties": {
+        "num_teams": { "type": "number" },
+        "roster_positions": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "scoring_settings": { "type": "object", "additionalProperties": true }
+  }
+}

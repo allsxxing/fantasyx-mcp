@@ -1,0 +1,10 @@
+{
+  "description": "Weekly X Champion belt lineage — the league's signature mechanic. Week 1 crowns the highest-scoring team; every week after, the holder forces one FLEX-eligible player into their opponent's starting lineup (sabotage), declared in league chat by Friday 11:59 PM CT. The belt transfers to whoever beats the holder. Nothing else — not Sleeper, not Flaim — tracks this, which is why this file exists.",
+  "rules_ref": "rules.md",
+  "seasons": {
+    "2026": {
+      "status": "not_started",
+      "weeks": []
+    }
+  }
+}

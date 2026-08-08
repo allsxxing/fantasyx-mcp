@@ -1,0 +1,23 @@
+# deps
+node_modules/
+
+# next
+.next/
+out/
+next-env.d.ts
+
+# typescript incremental build cache
+*.tsbuildinfo
+
+# generated at build (compiled from content/)
+src/generated/
+
+# env — private data NEVER committed
+.env
+.env.*
+!.env.example
+
+# misc
+.DS_Store
+*.log
+.vercel
