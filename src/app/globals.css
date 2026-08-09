@@ -3,13 +3,13 @@
    utility layer was stripped; only its hand-written design classes are kept). */
 
 :root {
-  --bg-color: #0d0d0d;
+  --bg-color: #181818;
   --surface: #1a1a1a;
-  --accent-retro: #ff4d00;
+  --accent-retro: #1f80ff;
   --text-primary: #ffffff;
   --text-secondary: #999999;
   --border-color: #333333;
-  --retro-shadow: 4px 4px 0px #ff4d00;
+  --retro-shadow: 4px 4px 0px #1f80ff;
 }
 
 * {
