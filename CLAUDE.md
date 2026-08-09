@@ -107,10 +107,20 @@ Next.js App Router · `mcp-handler@^1` · `@modelcontextprotocol/sdk@^1.26` · `
 Pin per the **official mcp-handler install line** — the SDK **must be ≥ 1.26.0** (fixes a prior
 security advisory) and mcp-handler expects **zod v3**, not v4 (zod v4's schema shape breaks
 `inputSchema`). The package is `@modelcontextprotocol/sdk` (not `.../server`). Route exports
-`{ handler as GET, handler as POST }`. Tools registered with `server.registerTool(name,
+`{ withCors as GET, withCors as POST }`. Tools registered with `server.registerTool(name,
 { title, description, inputSchema }, handler)` where `inputSchema` is a **plain object of zod
 validators**, not a `z.object()`. Vercel: Fluid compute on; Deployment Protection **off** in
 production (it blocks MCP clients — the bearer is the gate).
+
+Two non-obvious workarounds in `src/app/api/mcp/route.ts` that must not be removed:
+1. **CORS wrapper** — `mcp-handler` adds no CORS headers on the main route (only on OAuth metadata
+   endpoints). Browser-based MCP clients (e.g. Gemini custom connected apps) fetch the URL directly
+   from the browser page and are blocked by the browser before the request reaches Vercel without
+   `Access-Control-Allow-Origin: *`. The `withCors` wrapper adds these headers to every response.
+2. **Explicit HEAD export** — without it, Next.js derives HEAD from GET and routes it into
+   `mcp-handler`, which hangs indefinitely on a bodyless request. Any client that probes reachability
+   with HEAD (common before opening a full MCP session) sees the URL as unreachable. The explicit
+   `export function HEAD()` returns 200 immediately.
 
 ## Key league facts (recovered — do not re-derive)
 
