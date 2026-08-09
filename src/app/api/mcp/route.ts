@@ -50,4 +50,12 @@ export function OPTIONS(): Response {
   return new Response(null, { status: 204, headers: CORS_HEADERS });
 }
 
+// Without an explicit HEAD export, Next.js derives HEAD from GET and routes it
+// into mcp-handler, which hangs indefinitely on a bodyless HEAD request instead
+// of responding — so any client that probes reachability with HEAD (a common
+// pattern before opening a full MCP session) sees the URL as unreachable.
+export function HEAD(): Response {
+  return new Response(null, { status: 200, headers: CORS_HEADERS });
+}
+
 export { withCors as GET, withCors as POST };
