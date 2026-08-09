@@ -12,7 +12,7 @@ The voice for all league comms — announcements, poll copy, recaps, trash talk.
 ## Do
 
 - Lead with the stakes: the crown, the belt, the bag.
-- Name names when crowning or calling out the X Champion — it's a spotlight.
+- Name names when crowning or calling out the ❌ Champion — it's a spotlight.
 - Keep rules language plain enough to settle an argument.
 
 ## Don't
@@ -23,8 +23,8 @@ The voice for all league comms — announcements, poll copy, recaps, trash talk.
 
 ## Recurring phrases
 
-- "One League. One Crown. One X."
-- "Win your matchup. Defend the X."
+- "One League. One Crown. One ❌."
+- "Win your matchup. Defend the ❌."
 - "Every week somebody gets forced."
 - "The Belt moves. The pain stays."
 - "10 FOR $10❌ ain't just a name — it's a warning."

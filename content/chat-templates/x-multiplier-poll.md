@@ -3,7 +3,7 @@ title: X Multiplier Poll (Buy-in Vote)
 variables: []
 ---
 
-🗳️ **THE X VOTE — SET THE BAG** 🗳️
+🗳️ **THE ❌ VOTE — SET THE BAG** 🗳️
 
 How much skin are we putting in the game this season? Higher X = fatter winner's bag.
 
