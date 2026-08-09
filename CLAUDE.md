@@ -74,11 +74,12 @@ content/     league facts. Markdown → MCP resources; JSON → MCP tools.
              JSON Schema per content type. archive/ holds superseded sources.
 src/
   app/page.tsx                 async Server Component — retro-brutalist landing page
-                               reads live league data from @/lib/content (build-time bundle)
+                               reads generated league data from @/lib/content (build-time bundle)
   app/globals.css              retro-brutalist skin (plain CSS, no Tailwind) — CRT scanlines,
-                               dot grid, window frames, marquee; fonts via next/font/google
-                               (Space_Mono + Syne). Never add Tailwind — incompatible with
-                               mcp-handler's pinned Next 15.
+                               dot grid, window frames, marquee; consumes font variables from layout.tsx.
+                               Never add Tailwind — incompatible with mcp-handler's pinned Next 15.
+  app/layout.tsx               configures next/font/google (Space_Mono + Syne); generates CSS
+                               variables consumed by globals.css
   components/retro-chrome.tsx  "use client" — live SYS_UP clock + scroll-to-top button;
                                all browser-only effects isolated here so page.tsx stays a
                                Server Component.
