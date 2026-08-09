@@ -109,16 +109,16 @@ export default async function Home() {
           <div className="window-frame">
             <div className="window-header">
               <span>LEAGUE_HQ.SYS</span>
-              <div className="window-controls">
-                <button className="window-btn" aria-label="Minimize">
+              <div className="window-controls" aria-hidden="true">
+                <span className="window-btn">
                   <span className="minimize-icon"></span>
-                </button>
-                <button className="window-btn" aria-label="Maximize">
+                </span>
+                <span className="window-btn">
                   <span className="maximize-icon"></span>
-                </button>
-                <button className="window-btn window-close" aria-label="Close">
+                </span>
+                <span className="window-btn window-close">
                   <span className="close-icon"></span>
-                </button>
+                </span>
               </div>
             </div>
             <img src="/hero-trophy.svg" alt="League trophy" className="hero-image" />
@@ -153,16 +153,16 @@ export default async function Home() {
               <div className="project-card" key={season.season}>
                 <div className="window-header" style={{ background: "#333", color: "#fff" }}>
                   <span>SEASON_{season.season}</span>
-                  <div className="window-controls">
-                    <button className="window-btn" aria-label="Minimize">
+                  <div className="window-controls" aria-hidden="true">
+                    <span className="window-btn">
                       <span className="minimize-icon"></span>
-                    </button>
-                    <button className="window-btn" aria-label="Maximize">
+                    </span>
+                    <span className="window-btn">
                       <span className="maximize-icon"></span>
-                    </button>
-                    <button className="window-btn window-close" aria-label="Close">
+                    </span>
+                    <span className="window-btn window-close">
                       <span className="close-icon"></span>
-                    </button>
+                    </span>
                   </div>
                 </div>
                 <div className="project-info">

@@ -27,6 +27,7 @@ export function RetroChrome() {
       setShowScrollTop(window.scrollY > 500);
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
 
     return () => {
       clearInterval(interval);
@@ -35,7 +36,8 @@ export function RetroChrome() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
   };
 
   if (!showScrollTop) return null;

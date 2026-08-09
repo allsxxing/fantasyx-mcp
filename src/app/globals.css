@@ -454,7 +454,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 0.3s ease-in;
+  animation: fade-in 0.3s ease-in;
 }
 
 .scroll-to-top:hover {
@@ -468,7 +468,7 @@ footer {
   font-family: var(--font-space-mono), "Space Mono", monospace;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -487,9 +487,12 @@ footer {
   }
 
   header {
+    padding: 15px;
+  }
+
+  header > .container {
     flex-direction: column;
     gap: 15px;
-    padding: 15px;
   }
 
   .logo {
@@ -726,5 +729,20 @@ footer {
 
   .footer-logo h2 {
     font-size: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-text {
+    animation: none;
+  }
+
+  .cursor-blink {
+    animation: none;
+    opacity: 1;
+  }
+
+  .scroll-to-top {
+    animation: none;
   }
 }
