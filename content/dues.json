@@ -7,5 +7,5 @@
     "resolved": null
   },
   "payment_method": "LeagueSafe",
-  "note": "Buy-in scales with the X multiplier once the poll resolves (1X=$10, 2.5X=$25, 5X=$50, 10X=$100). Paid/unpaid status, payment handles, and contacts are private and are served only via the admin endpoint from FANTASYX_PRIVATE_DATA — never committed to git. No LeagueSafe join URL has been verified; do not invent one."
+  "note": "Buy-in scales with the ❌ multiplier once the poll resolves (1X=$10, 2.5X=$25, 5X=$50, 10X=$100). Paid/unpaid status, payment handles, and contacts are private and are served only via the admin endpoint from FANTASYX_PRIVATE_DATA — never committed to git. LeagueSafe join link: see links.json."
 }

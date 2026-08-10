@@ -1,3 +1,5 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { getData, getDocument, manifest, requireData } from "@/lib/content";
 import { RetroChrome } from "@/components/retro-chrome";
 
@@ -7,9 +9,13 @@ interface League {
   season_chain: Array<{ season: string; status: string }>;
   settings: {
     num_teams: number;
+    type: string;
     playoff_teams: number;
+    playoff_week_start: number;
+    trade_deadline_week: number;
     waiver_budget_faab: number;
     max_keepers: number;
+    roster_positions: string[];
   };
 }
 
@@ -51,6 +57,7 @@ interface Dues {
 
 interface Links {
   sleeper_invite: string;
+  leaguesafe?: string | null;
 }
 
 export default async function Home() {
@@ -71,6 +78,9 @@ export default async function Home() {
   const xWeeks = xLog.seasons[currentXSeason]?.weeks ?? [];
 
   const inviteUrl = links?.sleeper_invite ?? league.invite_url;
+  const duesUrl = links?.leaguesafe ?? "#";
+  const currentSeason = seasons.find((s) => s.season === currentXSeason);
+  const rulesBody = rulesDoc?.body.replace(/^#\s+.+\n/, "") ?? "";
 
   return (
     <>
@@ -81,7 +91,7 @@ export default async function Home() {
           <div className="logo">{league.display_name}</div>
           <nav className="nav-links">
             <a href="#champions">CHAMPIONS</a>
-            <a href="#x-belt">X-BELT</a>
+            <a href="#x-belt">❌-BELT</a>
             <a href="#rules">RULES</a>
             <a href="#connect">CONNECT</a>
           </nav>
@@ -99,12 +109,20 @@ export default async function Home() {
             </h1>
             <p>
               A remote Model Context Protocol server for the Sleeper fantasy football league{" "}
-              {league.display_name}. Bylaws, the X Champion sabotage mechanic, dues, and season history —
+              {league.display_name}. Bylaws, the ❌ Champion sabotage mechanic, dues, and season history —
               all queryable, all versioned.
             </p>
-            <a href="#connect" className="btn-retro">
-              CONNECT
-            </a>
+            <div className="btn-group">
+              <a href="#connect" className="btn-retro">
+                CONNECT
+              </a>
+              <a href={inviteUrl} className="btn-retro btn-retro--ghost">
+                LEAGUE
+              </a>
+              <a href={duesUrl} className="btn-retro btn-retro--ghost">
+                PAY DUES
+              </a>
+            </div>
           </div>
           <div className="window-frame">
             <div className="window-header">
@@ -132,8 +150,8 @@ export default async function Home() {
             <div className="stat-label">Teams</div>
           </div>
           <div className="stat-item">
-            <div className="stat-val">${league.settings.waiver_budget_faab}</div>
-            <div className="stat-label">FAAB Budget</div>
+            <div className="stat-val">${dues.buy_in_base_usd}</div>
+            <div className="stat-label">Buy-in</div>
           </div>
           <div className="stat-item">
             <div className="stat-val">{league.settings.playoff_teams}</div>
@@ -149,7 +167,7 @@ export default async function Home() {
         <section id="champions">
           <h2 className="section-title">Season Champions</h2>
           <div className="portfolio-grid">
-            {seasons.map((season) => (
+            {[...seasons].reverse().map((season) => (
               <div className="project-card" key={season.season}>
                 <div className="window-header" style={{ background: "#333", color: "#fff" }}>
                   <span>SEASON_{season.season}</span>
@@ -198,7 +216,9 @@ export default async function Home() {
 
       <div className="container">
         {/* X Champion Belt terminal */}
-        <section className="terminal-section" id="x-belt">
+        <section id="x-belt">
+          <h2 className="section-title">❌-BELT</h2>
+          <div className="terminal-section">
           <div className="terminal-header">X_CHAMPION_BELT.LOG</div>
           <div className="terminal-row">
             <span className="prompt">{"guest@league:~$"}</span>
@@ -234,18 +254,67 @@ export default async function Home() {
               <span className="cursor-blink">_</span>
             </span>
           </div>
+          </div>
         </section>
 
         {/* Rules strip */}
         {rulesMeta && rulesDoc && (
           <section id="rules" style={{ marginBottom: "100px" }}>
             <h2 className="section-title">Rules</h2>
-            <div className="window-frame" style={{ padding: "20px" }}>
+            <div className="window-frame" style={{ padding: "20px", marginBottom: "40px" }}>
               <p style={{ color: "var(--accent-retro)", fontWeight: 700, marginBottom: "10px" }}>
                 ⚠️ PROVISIONAL — {rulesMeta.version} ({rulesMeta.status})
               </p>
               <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", lineHeight: 1.6 }}>{rulesMeta.note}</p>
             </div>
+
+            <h3 style={{ marginBottom: "4px" }}>2026 NFL Season — League Rules</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", marginBottom: "30px" }}>
+              Version: {rulesMeta.version}
+            </p>
+            <div className="markdown-body" style={{ marginBottom: "40px" }}>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{rulesBody}</ReactMarkdown>
+            </div>
+
+            {currentSeason && (
+              <div className="terminal-section">
+                <div className="terminal-header">SEASON_{currentSeason.season}.CFG</div>
+                <div className="terminal-row">
+                  <span className="prompt">{"guest@league:~$"}</span>
+                  <span className="command">describe season {currentSeason.season}</span>
+                </div>
+                <div className="terminal-row">
+                  <span className="output">{`> Teams: ${league.settings.num_teams}`}</span>
+                </div>
+                <div className="terminal-row">
+                  <span className="output">{`> Type: ${league.settings.type}`}</span>
+                </div>
+                <div className="terminal-row">
+                  <span className="output">{`> Playoff teams: ${league.settings.playoff_teams} (starting wk ${league.settings.playoff_week_start})`}</span>
+                </div>
+                <div className="terminal-row">
+                  <span className="output">{`> Trade deadline: wk ${league.settings.trade_deadline_week}`}</span>
+                </div>
+                <div className="terminal-row">
+                  <span className="output">{`> FAAB budget: $${league.settings.waiver_budget_faab}`}</span>
+                </div>
+                <div className="terminal-row">
+                  <span className="output">{`> Keepers: ${league.settings.max_keepers}`}</span>
+                </div>
+                <div className="terminal-row">
+                  <span className="output">{`> Roster: ${league.settings.roster_positions.join("/")}`}</span>
+                </div>
+                <div className="terminal-row">
+                  <span className="output">{`> Draft date: TBD`}</span>
+                </div>
+                <div className="terminal-row">
+                  <span className="output">
+                    {`> Status: ${currentSeason.status} `}
+                    <span className="cursor-blink">_</span>
+                  </span>
+                </div>
+              </div>
+            )}
           </section>
         )}
 
@@ -258,25 +327,46 @@ export default async function Home() {
               <br />
               ENDPOINTS
             </h2>
+            <div className="btn-group" style={{ marginTop: "20px" }}>
+              <a href={inviteUrl} className="btn-retro">
+                JOIN ON SLEEPER
+              </a>
+              <a href={duesUrl} className="btn-retro btn-retro--ghost">
+                PAY DUES
+              </a>
+            </div>
+            <p style={{ marginTop: "20px", color: "var(--text-secondary)", fontSize: "0.85rem" }}>
+              Dues: ${dues.buy_in_base_usd} base, {dues.structure.replace(/_/g, " ")} — multiplier{" "}
+              {dues.multiplier.status.replace(/_/g, " ")}
+            </p>
           </div>
           <div style={{ textAlign: "right", maxWidth: "480px" }}>
             <p style={{ marginBottom: "10px" }}>
-              <code>/api/mcp</code> — public, Streamable HTTP, no auth
+              <strong>Option A — MCP config (copy-paste)</strong>
             </p>
+            <pre style={{ textAlign: "left", overflowX: "auto", marginBottom: "20px" }}>
+              <code>{`{
+  "mcpServers": {
+    "fantasyx": {
+      "type": "http",
+      "url": "https://fantasyx.allsxxing.com/api/mcp"
+    }
+  }
+}`}</code>
+            </pre>
             <p style={{ marginBottom: "10px" }}>
+              <strong>Option B — Streamable HTTP (curl)</strong>
+            </p>
+            <pre style={{ textAlign: "left", overflowX: "auto", marginBottom: "20px" }}>
+              <code>{`claude mcp add --transport http https://fantasyx.allsxxing.com/api/mcp
+
+curl -N -H "Content-Type: application/json" \\
+  -H "Accept: application/json, text/event-stream" \\
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' \\
+  https://fantasyx.allsxxing.com/api/mcp`}</code>
+            </pre>
+            <p style={{ marginBottom: "20px", color: "var(--text-secondary)", fontSize: "0.85rem" }}>
               <code>/api/admin/mcp</code> — requires a bearer token
-            </p>
-            <p style={{ marginBottom: "20px", color: "var(--text-secondary)", fontSize: "0.85rem" }}>
-              <code>claude mcp add --transport http https://fantasyx-mcp.vercel.app/api/mcp</code>
-            </p>
-            <p style={{ marginBottom: "10px" }}>
-              <a href={inviteUrl} style={{ color: "var(--text-primary)" }}>
-                SLEEPER INVITE
-              </a>
-            </p>
-            <p style={{ marginBottom: "20px", color: "var(--text-secondary)", fontSize: "0.85rem" }}>
-              Dues: ${dues.buy_in_base_usd} base, {dues.structure.replace(/_/g, " ")} — multiplier{" "}
-              {dues.multiplier.status.replace(/_/g, " ")}
             </p>
             <p className="copyright">LEAGUE FACTS ARE VERSIONED CONTENT. LIVE STANDINGS VIA SLEEPER.</p>
           </div>

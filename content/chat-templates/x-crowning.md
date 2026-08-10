@@ -3,7 +3,7 @@ title: X Champion Crowning (Monday)
 variables: [week, holder_team, holder_name, high_score, next_opponent_team]
 ---
 
-👑❌ **THE X CHAMPION IS CROWNED** ❌👑
+👑❌ **THE ❌ CHAMPION IS CROWNED** ❌👑
 
 After Week {{week}}, the belt goes to **{{holder_team}}** ({{holder_name}}) — league-high **{{high_score}}** points.
 
