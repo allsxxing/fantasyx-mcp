@@ -8,8 +8,7 @@ note: >-
   Locked V5 ruleset for the 2026 season. Synced from published Drive source.
 ---
 
-# 🗓️ '26 NFL SEASON: LEAGUE RULES
-# — 🔟 FOR $10❌
+# 🗓️ '26 NFL SEASON: LEAGUE RULES — 🔟 FOR $10❌
 
 **League:** Sleeper (http://sleeper.com/i/kMgwLBWeYeXdk)  
 **Commissioner:** ⚡️ [@allsxxing](https://x.com/allsxxing) (GJ)  
@@ -17,7 +16,7 @@ note: >-
 
 ---
 
-## 📌Latest Commish Note
+## 📌LATEST COMMISH NOTE
 
 CommissionerNote_Latest.md
 
