@@ -1,13 +1,14 @@
 {
-  "version": "V4",
-  "status": "work_in_progress",
-  "locked": false,
-  "last_updated": "2026-08-08",
-  "source_file": "10_FOR_10X_League_Rules_2026-08-08.md",
+  "version": "V5",
+  "status": "locked",
+  "locked": true,
+  "last_updated": "2026-08-11",
+  "source_file": "10_FOR_10X_League_Rules_2026-08-11.md",
   "source_doc_url": "https://docs.google.com/document/d/1CbuFAKtUaUjPJO-zElmR9QaJ_FF7QwKrHRnnNAdmsbE/edit",
   "supersedes": [
-    "10_FOR_10X_LEAGUE_RULES_2026 (1).md"
+    "10_FOR_10X_LEAGUE_RULES_2026 (1).md",
+    "10_FOR_10X_League_Rules_2026-08-08.md"
   ],
-  "note": "Provisional working guideline for the 2026 season. Subject to change as the season approaches; this is a rough draft of the new rules to implement, not a final locked ruleset.",
+  "note": "Locked V5 ruleset for the 2026 season. Draft date and pick timer confirmed against live Sleeper draft data.",
   "update_workflow": "Edit the source doc, then run `node scripts/import-icloud.mjs` and commit the diff."
 }

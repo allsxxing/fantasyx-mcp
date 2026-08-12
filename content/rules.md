@@ -1,25 +1,19 @@
 ---
-version: V4
-status: work_in_progress
-locked: false
-last_updated: 2026-08-08
-source_file: 10_FOR_10X_League_Rules_2026-08-08.md
-provisional: true
+version: V5
+status: locked
+locked: true
+last_updated: 2026-08-11
+source_file: 10_FOR_10X_League_Rules_2026-08-11.md
 note: >-
-  Provisional working guideline for the 2026 season. Subject to change as the
-  season approaches. Update via scripts/import-icloud.mjs.
+  Locked V5 ruleset for the 2026 season. Supersedes V4. Update via
+  scripts/import-icloud.mjs.
 ---
-
-> ⚠️ **Provisional — work in progress.** These 2026 rules are a rough working
-> guideline to get the new mechanics on paper. They are **not locked** and will
-> change as the season approaches. See `rules.meta.json` for status; re-sync with
-> `node scripts/import-icloud.mjs`.
 
 # 🏈 10 FOR $10❌ — 2026 NFL SEASON RULES
 
 **League:** Sleeper (http://sleeper.com/i/kMgwLBWeYeXdk)  
 **Commissioner:** GJ Bordallo (@allsxxing)  
-**Version:** V4 — Updated August 8, 2026  
+**Version:** V5 — Locked August 11, 2026  
 **Status:** Preseason — Draft Day Pending
 
 ---
@@ -48,7 +42,7 @@ Higher multiplier = bigger winner bag. League decides the skin in the game.
 
 ### 2. WEEKLY X CHAMPION (THE MAIN FEATURE)
 
-This is the league’s signature mechanic. It creates weekly drama and stops any team from running away after a hot Week 1.
+This is the league's signature mechanic. It creates weekly drama and stops any team from running away after a hot Week 1.
 
 **Week 1 — Crown the First X Champion**
 - Highest scoring team in the entire league becomes the first X Champion.
@@ -56,12 +50,12 @@ This is the league’s signature mechanic. It creates weekly drama and stops any
 
 **Week 2 and Beyond — The X Lock (Forced FLEX)**
 
-The X Champion gets to **force one of their opponent’s FLEX players to start**.
+The X Champion gets to **force one of their opponent's FLEX players to start**.
 
 - The X Champion selects **ONE player** who is eligible for a FLEX spot on the team they are matched up against that week.
-- That player is **locked into the opponent’s starting FLEX lineup**.
-- The opponent **cannot bench** that player, even if it’s a bad matchup or the player is in a slump.
-- The X Champion is essentially saying: “You’re starting this one. No hiding him.”
+- That player is **locked into the opponent's starting FLEX lineup**.
+- The opponent **cannot bench** that player, even if it's a bad matchup or the player is in a slump.
+- The X Champion is essentially saying: "You're starting this one. No hiding him."
 
 **Declaration Rule:**
 - X Champion must publicly name the locked player in the league chat **by Friday 11:59 PM CT**.
@@ -75,7 +69,7 @@ The X Champion gets to **force one of their opponent’s FLEX players to start**
 
 ## WHY THIS WORKS
 
-- It’s sabotage, not theft.
+- It's sabotage, not theft.
 - Clean to administer (announcement + enforcement).
 - Creates real weekly storylines and pressure.
 - The title moves every time the champion loses, so nobody coasts.
@@ -97,9 +91,9 @@ The X Champion gets to **force one of their opponent’s FLEX players to start**
 
 - **Teams:** 10
 - **Type:** Re-Draft
-- **Draft Date:** Sunday, September 6 @ 5:00 PM CT (Tentative)
+- **Draft Date:** Sunday, September 6, 2026 · 5:00 PM CT
 - **Draft Type:** Snake
-- **Time Per Pick:** 60 seconds
+- **Time Per Pick:** 90 seconds
 - **Draft Order:** Randomized in Sleeper
 - **Scoring:** Standard Sleeper PPR
 - **Playoffs:** 6 teams
@@ -116,6 +110,6 @@ The X Champion gets to **force one of their opponent’s FLEX players to start**
 
 ---
 
-**H-Town rules. We don’t play soft.**
+**H-Town rules. We don't play soft.**
 
 The X is coming.

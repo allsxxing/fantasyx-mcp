@@ -31,16 +31,15 @@ export function registerContentTools(server: McpServer): void {
     {
       title: "Get league rules",
       description:
-        "The canonical V4 rules for 🔟 FOR $10❌, including the X Champion sabotage mechanic. " +
-        "Rules are PROVISIONAL (work in progress) — the response leads with that status. Use this " +
-        "for any rules question, especially the sabotage-vs-theft distinction.",
+        "The canonical, LOCKED V5 rules for 🔟 FOR $10❌, including the X Champion sabotage mechanic. " +
+        "Use this for any rules question, especially the sabotage-vs-theft distinction.",
     },
     async () => {
       const doc = getDocument("rules");
       const meta = getData<RulesMeta>("rules.meta");
       if (!doc) return errorResult("rules.md not found in bundled content.");
       const banner = meta
-        ? `⚠️ PROVISIONAL RULES — status: ${meta.status} (version ${meta.version}, locked: ${meta.locked}). ${meta.note}\n\n---\n\n`
+        ? `${meta.locked ? "✅ LOCKED" : "⚠️ PROVISIONAL"} RULES — status: ${meta.status} (version ${meta.version}, locked: ${meta.locked}). ${meta.note}\n\n---\n\n`
         : "";
       return textResult(banner + doc.body);
     },

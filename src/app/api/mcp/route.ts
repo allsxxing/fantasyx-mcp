@@ -15,10 +15,10 @@ const handler = createMcpHandler(
     capabilities: { tools: {}, resources: {} },
     instructions:
       "League HQ for the Sleeper fantasy football league 🔟 FOR $10❌. Use fx_get_rules for any " +
-      "rules question (rules are provisional and the X mechanic is SABOTAGE — forcing a player " +
-      "into the opponent's lineup — not theft). fx_get_x_champion_log is the only source for the " +
-      "weekly X Champion belt. Dues paid/unpaid status and contacts are not available here; they " +
-      "require the admin endpoint.",
+      "rules question (rules are the LOCKED V5 ruleset; the X mechanic is SABOTAGE — forcing a " +
+      "player into the opponent's lineup — not theft). fx_get_x_champion_log is the only source " +
+      "for the weekly X Champion belt. Dues paid/unpaid status and contacts are not available " +
+      "here; they require the admin endpoint.",
   },
   {
     basePath: "/api",

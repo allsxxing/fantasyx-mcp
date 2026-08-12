@@ -2,6 +2,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getData, getDocument, manifest, requireData } from "@/lib/content";
 import { RetroChrome } from "@/components/retro-chrome";
+import { ConnectTabs } from "@/components/connect-tabs";
 
 interface League {
   display_name: string;
@@ -15,6 +16,7 @@ interface League {
     trade_deadline_week: number;
     waiver_budget_faab: number;
     max_keepers: number;
+    reserve_slots: number;
     roster_positions: string[];
   };
 }
@@ -45,7 +47,12 @@ interface XChampionLog {
 interface RulesMeta {
   version: string;
   status: string;
+  locked: boolean;
   note: string;
+}
+
+interface SeasonDraft {
+  date_ct?: string;
 }
 
 interface Dues {
@@ -81,6 +88,16 @@ export default async function Home() {
   const duesUrl = links?.leaguesafe ?? "#";
   const currentSeason = seasons.find((s) => s.season === currentXSeason);
   const rulesBody = rulesDoc?.body.replace(/^#\s+.+\n/, "") ?? "";
+
+  const seasonDraft = getData<{ draft?: SeasonDraft }>(`seasons/${currentXSeason}`)?.draft;
+  const draftDateCt = seasonDraft?.date_ct ?? "TBD";
+
+  const benchCount = league.settings.roster_positions.filter((p) => p === "BN").length;
+  const nonBenchPositions = league.settings.roster_positions.filter((p) => p !== "BN");
+  const rosterDisplay =
+    benchCount > 0
+      ? `${nonBenchPositions.join("/")} + (${benchCount}x) BN`
+      : league.settings.roster_positions.join("/");
 
   return (
     <>
@@ -255,6 +272,11 @@ export default async function Home() {
             </span>
           </div>
           </div>
+          {getDocument("X-Belt") && (
+            <div className="markdown-body" style={{ marginTop: "40px" }}>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{getDocument("X-Belt")!.body}</ReactMarkdown>
+            </div>
+          )}
         </section>
 
         {/* Rules strip */}
@@ -263,7 +285,7 @@ export default async function Home() {
             <h2 className="section-title">Rules</h2>
             <div className="window-frame" style={{ padding: "20px", marginBottom: "40px" }}>
               <p style={{ color: "var(--accent-retro)", fontWeight: 700, marginBottom: "10px" }}>
-                ⚠️ PROVISIONAL — {rulesMeta.version} ({rulesMeta.status})
+                {rulesMeta.locked ? "✅ LOCKED" : "⚠️ PROVISIONAL"} — {rulesMeta.version} ({rulesMeta.status})
               </p>
               <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", lineHeight: 1.6 }}>{rulesMeta.note}</p>
             </div>
@@ -296,16 +318,16 @@ export default async function Home() {
                   <span className="output">{`> Trade deadline: wk ${league.settings.trade_deadline_week}`}</span>
                 </div>
                 <div className="terminal-row">
-                  <span className="output">{`> FAAB budget: $${league.settings.waiver_budget_faab}`}</span>
-                </div>
-                <div className="terminal-row">
                   <span className="output">{`> Keepers: ${league.settings.max_keepers}`}</span>
                 </div>
                 <div className="terminal-row">
-                  <span className="output">{`> Roster: ${league.settings.roster_positions.join("/")}`}</span>
+                  <span className="output">{`> Roster: ${rosterDisplay}`}</span>
                 </div>
                 <div className="terminal-row">
-                  <span className="output">{`> Draft date: TBD`}</span>
+                  <span className="output">{`> IR slots: ${league.settings.reserve_slots}`}</span>
+                </div>
+                <div className="terminal-row">
+                  <span className="output">{`> Draft date: ${draftDateCt}`}</span>
                 </div>
                 <div className="terminal-row">
                   <span className="output">
@@ -327,48 +349,18 @@ export default async function Home() {
               <br />
               ENDPOINTS
             </h2>
-            <div className="btn-group" style={{ marginTop: "20px" }}>
-              <a href={inviteUrl} className="btn-retro">
-                JOIN ON SLEEPER
-              </a>
-              <a href={duesUrl} className="btn-retro btn-retro--ghost">
-                PAY DUES
-              </a>
-            </div>
-            <p style={{ marginTop: "20px", color: "var(--text-secondary)", fontSize: "0.85rem" }}>
-              Dues: ${dues.buy_in_base_usd} base, {dues.structure.replace(/_/g, " ")} — multiplier{" "}
-              {dues.multiplier.status.replace(/_/g, " ")}
-            </p>
           </div>
-          <div style={{ textAlign: "right", maxWidth: "480px" }}>
-            <p style={{ marginBottom: "10px" }}>
-              <strong>Option A — MCP config (copy-paste)</strong>
+          <div style={{ maxWidth: "560px", width: "100%" }}>
+            <ConnectTabs
+              inviteUrl={inviteUrl}
+              duesUrl={duesUrl}
+              buyIn={dues.buy_in_base_usd}
+              structure={dues.structure}
+              multiplierStatus={dues.multiplier.status}
+            />
+            <p className="copyright" style={{ marginTop: "20px" }}>
+              LEAGUE FACTS ARE VERSIONED CONTENT. LIVE STANDINGS VIA SLEEPER.
             </p>
-            <pre style={{ textAlign: "left", overflowX: "auto", marginBottom: "20px" }}>
-              <code>{`{
-  "mcpServers": {
-    "fantasyx": {
-      "type": "http",
-      "url": "https://fantasyx.allsxxing.com/api/mcp"
-    }
-  }
-}`}</code>
-            </pre>
-            <p style={{ marginBottom: "10px" }}>
-              <strong>Option B — Streamable HTTP (curl)</strong>
-            </p>
-            <pre style={{ textAlign: "left", overflowX: "auto", marginBottom: "20px" }}>
-              <code>{`claude mcp add --transport http https://fantasyx.allsxxing.com/api/mcp
-
-curl -N -H "Content-Type: application/json" \\
-  -H "Accept: application/json, text/event-stream" \\
-  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' \\
-  https://fantasyx.allsxxing.com/api/mcp`}</code>
-            </pre>
-            <p style={{ marginBottom: "20px", color: "var(--text-secondary)", fontSize: "0.85rem" }}>
-              <code>/api/admin/mcp</code> — requires a bearer token
-            </p>
-            <p className="copyright">LEAGUE FACTS ARE VERSIONED CONTENT. LIVE STANDINGS VIA SLEEPER.</p>
           </div>
         </footer>
       </div>

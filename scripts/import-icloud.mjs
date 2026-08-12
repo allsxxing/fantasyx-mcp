@@ -6,13 +6,12 @@
 // archived superseded rules). Hand-authored files (voice, chat-templates,
 // commissioner docs, x-champion-log, dues, links, seasons) are NOT touched here.
 //
-// This is also the RULES RE-SYNC path. The V4 rules are a provisional working
-// guideline, still subject to change as the season approaches. To update them:
+// This is also the RULES RE-SYNC path. The V5 rules are locked for the 2026
+// season. To update them:
 //   1. Edit the source doc (Google Doc / iCloud .md).
 //   2. Run:  node scripts/import-icloud.mjs
 //   3. Review the diff and commit.
-// rules.meta.json records the version/status so downstream tools can flag them as
-// provisional rather than final.
+// rules.meta.json records the version/status so downstream tools can reflect it.
 //
 // Live Sleeper state (rosters, standings, season chain) is NOT imported here — that
 // is sync-sleeper.mjs, which uses the official public API at https://api.sleeper.app.
@@ -33,7 +32,7 @@ const CORPUS = process.env.FANTASYX_CORPUS ||
 const HISTORY_2025 = join(CORPUS, '🗓️LeagueHistory', '2025_LeagueHistory');
 
 const SRC = {
-  rulesV4:        join(CORPUS, '10_FOR_10X_League_Rules_2026-08-08.md'),
+  rulesV4:        join(CORPUS, '10_FOR_10X_League_Rules_2026-08-11.md'),
   rulesSuperseded: join(CORPUS, '10_FOR_10X_LEAGUE_RULES_2026 (1).md'),
   league2025:     join(HISTORY_2025, '10For10_2025-1214028632419217409.json'),
   users2025:      join(HISTORY_2025, '10For10_2025-SleeperAPI-users.json'),
@@ -41,14 +40,14 @@ const SRC = {
 };
 
 const RULES_META = {
-  version: 'V4',
-  status: 'work_in_progress',
-  locked: false,
-  last_updated: '2026-08-08',
-  source_file: '10_FOR_10X_League_Rules_2026-08-08.md',
+  version: 'V5',
+  status: 'locked',
+  locked: true,
+  last_updated: '2026-08-11',
+  source_file: '10_FOR_10X_League_Rules_2026-08-11.md',
   source_doc_url: 'https://docs.google.com/document/d/1CbuFAKtUaUjPJO-zElmR9QaJ_FF7QwKrHRnnNAdmsbE/edit',
-  supersedes: ['10_FOR_10X_LEAGUE_RULES_2026 (1).md'],
-  note: 'Provisional working guideline for the 2026 season. Subject to change as the season approaches; this is a rough draft of the new rules to implement, not a final locked ruleset.',
+  supersedes: ['10_FOR_10X_LEAGUE_RULES_2026 (1).md', '10_FOR_10X_League_Rules_2026-08-08.md'],
+  note: 'Locked V5 ruleset for the 2026 season. Draft date and pick timer confirmed against live Sleeper draft data.',
   update_workflow: 'Edit the source doc, then run `node scripts/import-icloud.mjs` and commit the diff.',
 };
 
@@ -75,7 +74,7 @@ async function writeText(relPath, text) {
 
 // --- rules ------------------------------------------------------------------
 async function importRules() {
-  if (!existsSync(SRC.rulesV4)) { warn('V4 rules source not found, skipping:', SRC.rulesV4); return; }
+  if (!existsSync(SRC.rulesV4)) { warn('V5 rules source not found, skipping:', SRC.rulesV4); return; }
   const body = await readFile(SRC.rulesV4, 'utf8');
   const frontmatter = [
     '---',
@@ -84,16 +83,9 @@ async function importRules() {
     `locked: ${RULES_META.locked}`,
     `last_updated: ${RULES_META.last_updated}`,
     `source_file: ${RULES_META.source_file}`,
-    'provisional: true',
     'note: >-',
-    '  Provisional working guideline for the 2026 season. Subject to change as the',
-    '  season approaches. Update via scripts/import-icloud.mjs.',
+    '  Locked V5 ruleset for the 2026 season. Update via scripts/import-icloud.mjs.',
     '---',
-    '',
-    '> ⚠️ **Provisional — work in progress.** These 2026 rules are a rough working',
-    "> guideline to get the new mechanics on paper. They are **not locked** and will",
-    '> change as the season approaches. See `rules.meta.json` for status; re-sync with',
-    '> `node scripts/import-icloud.mjs`.',
     '',
   ].join('\n');
   await writeText('rules.md', frontmatter + '\n' + body.replace(/\r\n/g, '\n'));
@@ -104,12 +96,12 @@ async function importRules() {
     const header = [
       '---',
       'status: superseded',
-      'superseded_by: rules.md (V4, 2026-08-08)',
+      'superseded_by: rules.md (V5, 2026-08-11)',
       '---',
       '',
       '> 🗄️ **SUPERSEDED.** This is the earlier rules draft. Its X mechanic — *steal*',
       "> an opponent's player into your OWN flex, declare before Sunday 1pm ET — was",
-      '> replaced by V4, where the X is **sabotage** (force a FLEX-eligible player into',
+      '> replaced by V5, where the X is **sabotage** (force a FLEX-eligible player into',
       "> the *opponent's* lineup, declare by Friday 11:59 PM CT). Kept for history only.",
       '> Do not answer rules questions from this file.',
       '',

@@ -63,6 +63,15 @@
       "roster_id": 10
     }
   ],
+  "draft": {
+    "draft_id": "1370188155851907072",
+    "start_time": 1788732043000,
+    "date_ct": "Sunday, September 6, 2026 · 5:00 PM CT",
+    "type": "snake",
+    "pick_timer_seconds": 90,
+    "rounds": 18,
+    "source": "Sleeper /v1/draft (confirmed)"
+  },
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
   "synced_at": "2026-08-08T10:48:56.697Z",
   "roster_changes": {

@@ -426,6 +426,78 @@ footer {
   color: var(--text-secondary);
 }
 
+.connect-tabs {
+  border: 2px solid var(--border-color);
+}
+
+.tab-buttons {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 14px 10px;
+  background: var(--bg-color);
+  color: var(--text-secondary);
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: none;
+  border-right: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tab-btn:last-child {
+  border-right: none;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.tab-btn.active {
+  background: var(--accent-retro);
+  color: var(--bg-color);
+}
+
+.tab-panel {
+  padding: 25px;
+  text-align: left;
+}
+
+.code-block-wrap {
+  position: relative;
+}
+
+.code-block-wrap pre {
+  margin: 0;
+  padding-right: 90px;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--bg-color);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  padding: 6px 10px;
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.copy-btn:hover {
+  background: var(--accent-retro);
+  color: var(--bg-color);
+  border-color: var(--accent-retro);
+}
+
 .cursor-blink {
   animation: blink 1s step-end infinite;
 }

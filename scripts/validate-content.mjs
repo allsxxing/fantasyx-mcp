@@ -128,11 +128,11 @@ async function main() {
     }
   }
 
-  // rules.md must exist and be provisional
+  // rules.md must exist and declare a known status
   if (existsSync(join(CONTENT, 'rules.md'))) {
     const rules = await readFile(join(CONTENT, 'rules.md'), 'utf8');
     checked++;
-    if (!/status:\s*work_in_progress/.test(rules)) { failures++; console.error('✗ rules.md: expected status: work_in_progress in frontmatter'); }
+    if (!/status:\s*(draft|work_in_progress|locked)/.test(rules)) { failures++; console.error('✗ rules.md: expected a status: draft|work_in_progress|locked in frontmatter'); }
     else console.log('✓ rules.md');
   } else { failures++; console.error('✗ rules.md: missing (run import-icloud.mjs)'); }
 
