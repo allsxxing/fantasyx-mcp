@@ -9,12 +9,11 @@ note: >-
   scripts/import-icloud.mjs.
 ---
 
-# 🏈 10 FOR $10❌ — 2026 NFL SEASON RULES
+# 🗓️ '26 NFL SEASON: LEAGUE RULES — 🔟 FOR $10❌
 
 **League:** Sleeper (http://sleeper.com/i/kMgwLBWeYeXdk)  
-**Commissioner:** GJ Bordallo (@allsxxing)  
-**Version:** V5 — Locked August 11, 2026  
-**Status:** Preseason — Draft Day Pending
+**Commissioner:** ⚡️ [@allsxxing](https://x.com/allsxxing) (GJ)  
+**Version:** V5 — Updated 2026-08-11
 
 ---
 
@@ -27,6 +26,7 @@ Commissioner posts a poll for all managers.
 **Timing:** Pre-draft, during draft, or right after draft.
 
 **Options:**
+
 - **1X** — $10
 - **2.5X** — $25
 - **5X** — $50
@@ -45,6 +45,7 @@ Higher multiplier = bigger winner bag. League decides the skin in the game.
 This is the league's signature mechanic. It creates weekly drama and stops any team from running away after a hot Week 1.
 
 **Week 1 — Crown the First X Champion**
+
 - Highest scoring team in the entire league becomes the first X Champion.
 - **Tiebreaker:** Head-to-head from Week 1 → bench points → coin flip by commissioner.
 
@@ -58,10 +59,12 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 - The X Champion is essentially saying: "You're starting this one. No hiding him."
 
 **Declaration Rule:**
+
 - X Champion must publicly name the locked player in the league chat **by Friday 11:59 PM CT**.
 - No declaration = no X Lock that week.
 
 **Title Transfer:**
+
 - Win your matchup → keep the title.
 - Lose your matchup → the team that beat you takes the X Champion title for the next week.
 
@@ -80,6 +83,7 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 ## ADMINISTRATION
 
 **Commissioner Workflow:**
+
 1. Monday after scores finalize → announce the new X Champion.
 2. X Champion declares locked player by Friday 11:59 PM CT.
 3. If opponent tries to bench the locked player → commissioner notes it in the Monday recap (or league honors the lock).
@@ -87,15 +91,15 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 
 ---
 
-## CURRENT SEASON DETAILS
+## LATEST SEASON DETAILS
 
 - **Teams:** 10
 - **Type:** Re-Draft
-- **Draft Date:** Sunday, September 6, 2026 · 5:00 PM CT
+- **Draft Date:** Sunday, September 6 @ 5:00 PM CT (Tentative)
 - **Draft Type:** Snake
 - **Time Per Pick:** 90 seconds
 - **Draft Order:** Randomized in Sleeper
-- **Scoring:** Standard Sleeper PPR
+- **Scoring:** Sleeper PPR
 - **Playoffs:** 6 teams
 - **Prizing:** Winner Take All (additional side pots possible via league vote)
 
@@ -105,8 +109,9 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 
 - One League. One Crown. One X.
 - Win your matchup. Defend the X.
-- Every week somebody gets forced.
-- The Belt moves. The pain stays.
+- Get the X-Belt \<or\> get the belt-2-a$$.
+
+**Swangin' and bangin' all szn long — ❌ marks the spot.**
 
 ---
 
