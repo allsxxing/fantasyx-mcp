@@ -17,6 +17,44 @@ note: >-
 
 ---
 
+## COMMISSIONER_NOTE_LATEST.md
+
+```cfg
+# SEASON_2026.CFG // X_CHAMPION_BELT.LOG
+# Source: https://docs.google.com/document/d/1shUD0FCC3kMTanhcp69UNHWenhME8GZ6g7pjUvO3l8U/edit?usp=sharing
+
+[LEAGUE]
+teams          = 10
+type           = Re-Draft
+hq             = https://fantasyx-mcp.vercel.app
+
+[DRAFT]
+date           = Sunday, September 6 @ 5:00 PM CT
+type           = Snake
+pick_timer     = 90 seconds
+order          = Randomized in Sleeper
+
+[DUES]
+buyin          = $10
+deadline       = 9/9 7:20PM (SleeperSafe)
+primary        = LeagueSafe
+bonus_x        = TBD
+bonus_deadline = 10/1/26
+
+[PRIZING]
+pot            = Winner Take All
+
+[SCORING]
+system         = Sleeper PPR
+waivers        = Rolling
+```
+
+---
+
+## 10_FOR_10X_LeagueRules_X-Belt.md
+
+**Source:** [Google Drive](https://docs.google.com/document/d/1F8GiRCPkyt8IzfJs4Rprwu4JM4FcwFwKHHgvdGRyYPo/edit?tab=t.58u72ptbs4e)
+
 ## THE X — TWO MEANINGS. ONE CROWN.
 
 ### 1. BUY-IN MULTIPLIER (X VOTE)
@@ -70,7 +108,7 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 
 ---
 
-## WHY THIS WORKS
+## ☑️ WHY THIS WORKS
 
 - It's sabotage, not theft.
 - Clean to administer (announcement + enforcement).
@@ -80,7 +118,7 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 
 ---
 
-## ADMINISTRATION
+## ☑️ ADMINISTRATION
 
 **Commissioner Workflow:**
 
@@ -91,11 +129,13 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 
 ---
 
-## LATEST SEASON DETAILS
+## 📌 LATEST SEASON DETAILS
+
+**Source:** [Google Drive](https://docs.google.com/document/d/1CbuFAKtUaUjPJO-zElmR9QaJ_FF7QwKrHRnnNAdmsbE/edit?tab=t.8n5l2ngk4i6m)
 
 - **Teams:** 10
 - **Type:** Re-Draft
-- **Draft Date:** Sunday, September 6 @ 5:00 PM CT (Tentative)
+- **Draft Date:** Sunday, September 6 @ 5:00 PM CT
 - **Draft Type:** Snake
 - **Time Per Pick:** 90 seconds
 - **Draft Order:** Randomized in Sleeper
@@ -105,16 +145,14 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 
 ---
 
-## TAGLINES
+## 📌 TAGLINES
+
+**Source:** [Google Drive](https://docs.google.com/document/d/1CbuFAKtUaUjPJO-zElmR9QaJ_FF7QwKrHRnnNAdmsbE/edit?tab=t.jq31fvns771)
 
 - One League. One Crown. One X.
 - Win your matchup. Defend the X.
-- Get the X-Belt \<or\> get the belt-2-a$$.
+- Get the X-Belt <or> get the belt-2-a$$.
+- Every week somebody gets forced.
+- The Belt moves. The pain stays.
 
 **Swangin' and bangin' all szn long — ❌ marks the spot.**
-
----
-
-**H-Town rules. We don't play soft.**
-
-The X is coming.
