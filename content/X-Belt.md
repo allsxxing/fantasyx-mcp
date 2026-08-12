@@ -1,31 +1,41 @@
-## THE ❌ — TWO MEANINGS. ONE CROWN.
+LATEST: LeagueRules_X-Belt
 
-### ➡️ Buy-In / Bonus $❌ Multiplier (League Poll)
-Timing: ~Draft Day, prior to season opener (9/9/26)
+THE ❌ — TWO MEANINGS. ONE CROWN.
 
-Options:
+➡️ BUY-IN / BONUS $❌ MULTIPLIER (LEAGUE POLL)
+
+TIMING: ~DRAFT DAY; PRIOR TO SEASON OPENER (9/9/26)
+
+OPTIONS:
 - 1X — $10
 - 2.5X — $25
 - 5X — $50
-- Other — comment your number
+- OTHER — COMMENT YOUR NUMBER
 
-Higher multiplier = bigger bag. League decides the skin in the game.
-Primary method: LeagueSafe. Alt. method: SleeperSafe.
+HIGHER MULTIPLIER = BIGGER BAG. LEAGUE DECIDES THE SKIN IN THE GAME.
 
-### ➡️ The ❌ Belt | Weekly ❌ Champ
-The league's signature mechanic — creates weekly drama and stops any team from running away after a hot Week 1.
+PRIMARY METHOD: LEAGUESAFE  ALT. METHOD: SLEEPERSAFE
 
-**Week 1: Crown the first X Champion**
-- Highest scoring team in the entire league becomes the first X-Belt Champion.
-- Tiebreaker: head-to-head from Week 1 → bench points → coin flip by commissioner.
+---
 
-**Week 2 and beyond: The X Lock (Forced Flex)**
-- The X Champion selects one player eligible for a FLEX spot on the team they're matched up against that week.
-- That player is locked into the opponent's starting FLEX lineup — no benching, no exceptions.
+➡️ THE ❌ BELT | WEEKLY ❌ CHAMP
 
-**Declaration Rule:**
-- X Champ must post the selected player in league chat by EOD Friday. No declaration = no X Lock that week.
+THE LEAGUE'S NEW SIGNATURE MECHANIC. IT CREATES WEEKLY DRAMA AND STOPS ANY TEAM FROM RUNNING AWAY AFTER A HOT WEEK 1.
 
-**Title Transfer:**
-- Win your matchup → keep the title.
-- Lose your matchup → the team that beat you becomes the new X Champ.
+WEEK 1: CROWN THE FIRST ❌ CHAMPION
+- HIGHEST SCORING TEAM IN THE ENTIRE LEAGUE BECOMES THE FIRST X-BELT CHAMPION.
+- TIEBREAKER: HEAD-TO-HEAD FROM WEEK 1 → BENCH POINTS → COIN FLIP BY COMMISSIONER.
+
+WEEK 2 AND BEYOND: THE ❌ LOCK (FORCED FLEX)
+THE X CHAMP GETS TO FORCE ONE OF THEIR OPPONENT'S FLEX PLAYERS TO START — "YOU'RE STARTING THIS ONE. NO HIDING HIM."
+- THE X CHAMPION SELECTS ONE PLAYER WHO IS ELIGIBLE FOR A FLEX SPOT ON THE TEAM THEY ARE MATCHED UP AGAINST THAT WEEK.
+- THAT PLAYER IS LOCKED INTO THE OPPONENT'S STARTING FLEX LINEUP.
+- OPPONENT CANNOT BENCH THAT PLAYER; NO MATTER THE CIRCUMSTANCE.
+
+DECLARATION RULE:
+- X CHAMP MUST POST SELECTED PLAYER IN LEAGUE CHAT BY EOD FRIDAY
+NO DECLARATION = NO X LOCK THAT WEEK.
+
+TITLE TRANSFER:
+- WIN YOUR MATCHUP → KEEP THE TITLE.
+- LOSE YOUR MATCHUP → THE TEAM THAT BEAT YOU TAKES THE X-BELT TITLE AND BECOME THE NEW X CHAMP TO BEAT.
