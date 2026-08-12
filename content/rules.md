@@ -9,7 +9,7 @@ note: >-
 ---
 
 # 🗓️ '26 NFL SEASON: LEAGUE RULES
-— 🔟 FOR $10❌
+# — 🔟 FOR $10❌
 
 **League:** Sleeper (http://sleeper.com/i/kMgwLBWeYeXdk)  
 **Commissioner:** ⚡️ [@allsxxing](https://x.com/allsxxing) (GJ)  
