@@ -16,19 +16,93 @@ note: >-
 
 ---
 
-## COMMISSIONER_NOTE_LATEST.md
+## 📌Latest Commish Note
 
-See: [content/Commish_Note.md](./Commish_Note.md)
+CommissionerNote_Latest.md
 
-Source: https://docs.google.com/document/d/e/2PACX-1vTZI8XeKsYu6ipFr9ubmDxPktsKAMvT9lP7SYY1Q9ySzViBkra_PD9e4_OBLFP94n4BJ8y6n1_2Gj8_/pub
+📝 THE RUNDOWN
+
+<<🏆 LEAGUE>>
++ Teams: 10 Squads
++ Type: 🔄 Re-Draft
+
+<<🖥️ LEAGUE HQ / MCP SERVER>>
+🔗 : https://fantasyx-mcp.vercel.app
+
+<<📊 DRAFT>>
++ Draft Date: 📅 Sun, Sept 6 @ 5:00 PM CT (Tentative)
++ Type: 🐍 Snake
++ Time Per Pick: ⏱️ 90 Seconds
++ Draft Order: 🎲 Randomized
+
+<<💰 FEES / DUES>>
++ Buy-in: 💵 $10
++ Deadline: 📅 9/9 7:20PM (SleeperSafe)
++ Platform(s): 🟡 SleeperSafe, 🔒 LeagueSafe
+🔗 https://www.leaguesafe.com/join/4429630/10-for-10
+
++ *BONUS* $ Multiplier: 💵 TBD
++ Deadline: 📅 10/1/26 (LeagueSafe)
++ Platform: 🔒 LeagueSafe
+🔗 https://www.leaguesafe.com/join/4429630/10-for-10
+
+⚠️ Pay-Up Punishment Enforced!
+🔴 UNPAID Buy-In = FULL Roster Lock
+🔴 UNPAID *BONUS* Dues = Limited Waivers, Any Roster txns vetoable (by Leaguemates)
+
+<<🏆 PRIZING>>
++ Prize Pot: 💰 WINNER TAKE ALL!
+
+<<ℹ️ INFO>>
++ Scoring: Sleeper PPR
++ Waivers: Rolling Waivers
++ League Rules/Settings: [see League HQ]
 
 ---
 
-## 10_FOR_10X_LeagueRules_X-Belt.md
+## ❌-BELT
 
-See: [content/X-Belt.md](./X-Belt.md)
+LATEST: LeagueRules_X-Belt
 
-Source: https://docs.google.com/document/d/e/2PACX-1vT1jvm13YllaIO7tDX0dM3qNduMgeSaBT6iMNsVT7Ls7zzzHtOFLf2EGPLiEVK36xa2pKw0zhS36r5O/pub
+THE ❌ — TWO MEANINGS. ONE CROWN.
+
+➡️ BUY-IN / BONUS $❌ MULTIPLIER (LEAGUE POLL)
+
+TIMING: ~DRAFT DAY; PRIOR TO SEASON OPENER (9/9/26)
+
+OPTIONS:
+- 1X — $10
+- 2.5X — $25
+- 5X — $50
+- OTHER — COMMENT YOUR NUMBER
+
+HIGHER MULTIPLIER = BIGGER BAG. LEAGUE DECIDES THE SKIN IN THE GAME.
+
+PRIMARY METHOD: LEAGUESAFE  ALT. METHOD: SLEEPERSAFE
+
+---
+
+➡️ THE ❌ BELT | WEEKLY ❌ CHAMP
+
+THE LEAGUE'S NEW SIGNATURE MECHANIC. IT CREATES WEEKLY DRAMA AND STOPS ANY TEAM FROM RUNNING AWAY AFTER A HOT WEEK 1.
+
+WEEK 1: CROWN THE FIRST ❌ CHAMPION
+- HIGHEST SCORING TEAM IN THE ENTIRE LEAGUE BECOMES THE FIRST X-BELT CHAMPION.
+- TIEBREAKER: HEAD-TO-HEAD FROM WEEK 1 → BENCH POINTS → COIN FLIP BY COMMISSIONER.
+
+WEEK 2 AND BEYOND: THE ❌ LOCK (FORCED FLEX)
+THE X CHAMP GETS TO FORCE ONE OF THEIR OPPONENT'S FLEX PLAYERS TO START — "YOU'RE STARTING THIS ONE. NO HIDING HIM."
+- THE X CHAMPION SELECTS ONE PLAYER WHO IS ELIGIBLE FOR A FLEX SPOT ON THE TEAM THEY ARE MATCHED UP AGAINST THAT WEEK.
+- THAT PLAYER IS LOCKED INTO THE OPPONENT'S STARTING FLEX LINEUP.
+- OPPONENT CANNOT BENCH THAT PLAYER; NO MATTER THE CIRCUMSTANCE.
+
+DECLARATION RULE:
+- X CHAMP MUST POST SELECTED PLAYER IN LEAGUE CHAT BY EOD FRIDAY
+NO DECLARATION = NO X LOCK THAT WEEK.
+
+TITLE TRANSFER:
+- WIN YOUR MATCHUP → KEEP THE TITLE.
+- LOSE YOUR MATCHUP → THE TEAM THAT BEAT YOU TAKES THE X-BELT TITLE AND BECOME THE NEW X CHAMP TO BEAT.
 
 ---
 
@@ -44,35 +118,35 @@ Source: https://docs.google.com/document/d/e/2PACX-1vT1jvm13YllaIO7tDX0dM3qNduMg
 
 ## ☑️ ADMINISTRATION
 
-**Commissioner Workflow:**
+**COMMISSIONER WORKFLOW:**
 
-1. Monday after scores finalize → announce the new X Champion.
-2. X Champion declares locked player by Friday 11:59 PM CT.
-3. If opponent tries to bench the locked player → commissioner notes it in the Monday recap (or league honors the lock).
-4. Title transfers on loss automatically.
+1. MONDAY AFTER SCORES FINALIZE → ANNOUNCE THE NEW X CHAMPION.
+2. X CHAMPION DECLARES LOCKED PLAYER BY FRIDAY 11:59 PM CT.
+3. IF OPPONENT TRIES TO BENCH THE LOCKED PLAYER → COMMISSIONER NOTES IT IN THE MONDAY RECAP (OR LEAGUE HONORS THE LOCK).
+4. TITLE TRANSFERS ON LOSS AUTOMATICALLY.
 
 ---
 
 ## 📌 LATEST SEASON DETAILS
 
-- **Teams:** 10
-- **Type:** Re-Draft
-- **Draft Date:** Sunday, September 6 @ 5:00 PM CT
-- **Draft Type:** Snake
-- **Time Per Pick:** 90 seconds
-- **Draft Order:** Randomized in Sleeper
-- **Scoring:** Sleeper PPR
-- **Playoffs:** 6 teams
-- **Prizing:** Winner Take All (additional side pots possible via league vote)
+- **TEAMS:** 10
+- **TYPE:** RE-DRAFT
+- **DRAFT DATE:** SUNDAY, SEPTEMBER 6 @ 5:00 PM CT
+- **DRAFT TYPE:** SNAKE
+- **TIME PER PICK:** 90 SECONDS
+- **DRAFT ORDER:** RANDOMIZED IN SLEEPER
+- **SCORING:** SLEEPER PPR
+- **PLAYOFFS:** 6 TEAMS
+- **PRIZING:** WINNER TAKE ALL (ADDITIONAL SIDE POTS POSSIBLE VIA LEAGUE VOTE)
 
 ---
 
 ## 📌 TAGLINES
 
-- One League. One Crown. One X.
-- Win your matchup. Defend the X.
-- Get the X-Belt <or> get the belt-2-a$$.
-- Every week somebody gets forced.
-- The Belt moves. The pain stays.
+- ONE LEAGUE. ONE CROWN. ONE X.
+- WIN YOUR MATCHUP. DEFEND THE X.
+- GET THE X-BELT <OR> GET THE BELT-2-A$$.
+- EVERY WEEK SOMEBODY GETS FORCED.
+- THE BELT MOVES. THE PAIN STAYS.
 
-**Swangin' and bangin' all szn long — ❌ marks the spot.**
+**SWANGIN' AND BANGIN' ALL SZN LONG — ❌ MARKS THE SPOT.**
