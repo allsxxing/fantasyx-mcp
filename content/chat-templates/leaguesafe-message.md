@@ -1,7 +1,7 @@
 # leaguesafe-message | pinned-dues | multiplier-pin
 
-**Pinned LeagueSafe Message** (Rich Text / Markdown ready)
-Use this for the main pinned note in Sleeper chat.
+**Pinned LeagueSafe Message** (Rich Text / Markdown — NO EMOJIS)
+Use this clean version only when the context is pure LeagueSafe / formal pin.
 
 ```
 **ANNOUNCEMENT: WELCOME!**  
@@ -48,7 +48,8 @@ UNPAID *BONUS* / Multiplier Dues = Limited Waivers, Any Roster txns vetoable (by
 + League Rules/Settings: [see League HQ](https://fantasyx-mcp.vercel.app)
 ```
 
-**Notes:**  
-- LeagueSafe is the exclusive platform for every multiplier and bonus pot.  
-- Base $10 buy-in stays on SleeperSafe.  
-- Pin this message in league chat.
+**Rules of engagement:**  
+- This clean rich-text version is for LeagueSafe-only contexts.  
+- All other notes (Commish_Note, dues-note, chat templates, HQ) keep full emoji energy.  
+- LeagueSafe = exclusive home for every multiplier & bonus pot.  
+- Base $10 buy-in stays on SleeperSafe.
