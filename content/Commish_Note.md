@@ -25,7 +25,7 @@ YOOO! Tap-in to the NFL Fantasy League,
 ➕ Deadline: 🗓️ 10/1/26 (LeagueSafe)
 ➕ Platform: 🔐 LeagueSafe
 🔗 https://www.leaguesafe.com/join/4429630/10-for-10
-➕ All Multipliers & Bonuses → LeagueSafe ONLY
+📌NOTE: FOR ANY $ BONUS, USE LeagueSafe ONLY
 
 ⚠️ Pay-Up Punishment Enforced!
 ⛔️ UNPAID Buy-In = FULL Roster Lock
