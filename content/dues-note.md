@@ -1,21 +1,21 @@
 <<💸 FEES / DUES>>
 ➕ Buy-in: 💵 $10
-➕ Deadline: 🗓️ 9/9 7:20PM (SleeperSafe)
+➕ Deadline: 🗓️ 9/9 7:20PM
 ➕ Platform: 💰 SleeperSafe
 
-➕ **ALL League Multipliers & Bonuses → 🔐 LeagueSafe ONLY**
-➕ *BONUS* $ Multiplier: *💵 TBD
-➕ Deadline: 🗓️ 10/1/26 (LeagueSafe)
+➕ ❌ BONUS/MULTIPLIER: *TBD
+➕ Deadline: 🗓️ 10/1/26
 ➕ Platform: 🔐 LeagueSafe
 🔗 https://www.leaguesafe.com/join/4429630/10-for-10
+📌 (*-NOTE: USE LeagueSafe ONLY)
 
 ⚠️ Pay-Up Punishment Enforced!
 ⛔️ UNPAID Buy-In = FULL Roster Lock
-⛔️ UNPAID *BONUS* / Multiplier Dues = Limited Waivers, Any Roster txns vetoable (by Leaguemates)
+⛔️ UNPAID ❌ BONUS/MULTIPLIER = Limited Waivers; vetoable by League
 
 <<🏆 PRIZING>>
 ➕ Prize Pot: 💰 WINNER TAKE ALL!
-➕ Final pot scales with the league-voted Multiplier
+➕ Final pot scales w/ League-voted Multiplier
 
 <<🖥️ LEAGUE HQ / MCP SERVER>>
 🔗: https://fantasyx-mcp.vercel.app
