@@ -9,6 +9,7 @@ YOOO! Tap-in to the NFL Fantasy League,
 🏈10 FOR $10❌
 
 📝 THE RUNDOWN
+
 <<🏆 LEAGUE>>
 ➕ Teams: 🔟 Squads
 ➕ Type: 🔄 Re-Draft
