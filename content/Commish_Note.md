@@ -1,3 +1,13 @@
+<!-- ============================================================
+     OWNERSHIP: content/Commish_Note.md
+     ROLE: Sleeper-adjusted / public-facing shortened version of the
+           Commissioner’s Note / Rundown ONLY.
+     SOURCE OF TRUTH FOR FULL VERSION: content/rules.md
+     RULE: This file must NEVER overwrite or dilute the full version
+           living in content/rules.md. When the Rundown changes,
+           update rules.md first, then create/adjust this shortened form.
+     ============================================================ -->
+
 🚨 ANNOUNCEMENT: WELCOME!
 YOOO! Tap-in to the NFL Fantasy League,
 🏈10 FOR $10❌

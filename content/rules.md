@@ -2,10 +2,11 @@
 version: V5
 status: locked
 locked: true
-last_updated: 2026-08-11
+last_updated: 2026-08-14
 source_file: 10_FOR_10X_League_Rules_2026.md
 note: >-
   Locked V5 ruleset for the 2026 season. Synced from published Drive source.
+  CONTENT OWNERSHIP: See SYNC PROTOCOL at bottom of this file and in AGENTS.md.
 ---
 
 # 🗓️ '26 SEASON: LEAGUE RULES
@@ -13,51 +14,71 @@ note: >-
 
 **League:** Sleeper (http://sleeper.com/i/kMgwLBWeYeXdk)  
 **Commissioner:** ⚡️ [@allsxxing](https://x.com/allsxxing) (GJ)  
-**Version:** V5 — Updated 2026-08-11
+**Version:** V5 — Updated 2026-08-14
 
 ---
+
+<!-- ============================================================
+     SYNC OWNERSHIP — RUNDOWN / COMMISH NOTE
+     SOURCE OF TRUTH: content/rules.md (THIS FILE)
+     PURPOSE: Full, uncut master version of the Commissioner’s Note / Rundown.
+     DO NOT overwrite this section from Commish_Note.md.
+     Commish_Note.md is the Sleeper-adjusted shortened public version only.
+     When the Rundown changes, update THIS section first, then mirror the
+     shortened form into content/Commish_Note.md.
+     ============================================================ -->
 
 # 📌LATEST COMMISH NOTE
 
 ## 📝 THE RUNDOWN
 
 <<🏆 LEAGUE>>
-+ Teams: 10 Squads
-+ Type: 🔄 Re-Draft
+➕ Teams: 🔟 Squads
+➕ Type: 🔄 Re-Draft
 
 <<🖥️ LEAGUE HQ / MCP SERVER>>
-🔗 : https://fantasyx-mcp.vercel.app
+🔗: https://fantasyx-mcp.vercel.app
 
 <<📊 DRAFT>>
-+ Draft Date: 📅 Sun, Sept 6 @ 5:00 PM CT (Tentative)
-+ Type: 🐍 Snake
-+ Time Per Pick: ⏱️ 90 Seconds
-+ Draft Order: 🎲 Randomized
+➕ Draft Date: 🗓️ Sun, Sept 6 @ 5:00 PM CT (Tentative)
+➕ Type: 🐍 Snake
+➕ Time Per Pick: ⏱️ 90 Secs
+➕ Draft Order: 🔀 Randomized
 
-<<💰 FEES / DUES>>
-+ Buy-in: 💵 $10
-+ Deadline: 📅 9/9 7:20PM (SleeperSafe)
-+ Platform(s): 🟡 SleeperSafe, 🔒 LeagueSafe
-🔗 https://www.leaguesafe.com/join/4429630/10-for-10
+<<💸 FEES / DUES>>
+➕ Buy-in: 💵 $10
+➕ Deadline: 🗓️ 9/9 7:20PM
+➕ Platform: 💰 SleeperSafe
 
-+ *BONUS* $ Multiplier: 💵 TBD
-+ Deadline: 📅 10/1/26 (LeagueSafe)
-+ Platform: 🔒 LeagueSafe
+➕ ❌ BONUS/MULTIPLIER: *TBD
+➕ Deadline: 🗓️ 10/1/26
+➕ Platform: 🔐 LeagueSafe
 🔗 https://www.leaguesafe.com/join/4429630/10-for-10
+📌 (*-NOTE: USE LeagueSafe ONLY)
 
 ⚠️ Pay-Up Punishment Enforced!
-🔴 UNPAID Buy-In = FULL Roster Lock
-🔴 UNPAID *BONUS* Dues = Limited Waivers, Any Roster txns vetoable (by Leaguemates)
+⛔️ UNPAID Buy-In = FULL Roster Lock
+⛔️ UNPAID ❌ BONUS/MULTIPLIER = Limited Waivers; vetoable by League
 
 <<🏆 PRIZING>>
-+ Prize Pot: 💰 WINNER TAKE ALL!
+➕ Prize Pot: 💰 WINNER TAKE ALL!
+➕ Final pot scales w/ League-voted Multiplier
 
-<<ℹ️ INFO>>
-+ Scoring: Sleeper PPR
-+ Waivers: Rolling Waivers
-+ League Rules/Settings: [see League HQ]
+<<💡 INFO>>
+➕ Scoring: Sleeper PPR
+➕ Waivers: Rolling Waivers
+➕ League Rules/Setup: [see League HQ]
 
 ---
+
+<!-- ============================================================
+     SYNC OWNERSHIP — ❌-BELT / EXPO SECTION
+     SOURCE OF TRUTH: content/X-Belt.md
+     This section in rules.md must stay in sync with content/X-Belt.md.
+     When the X-Belt / Expo content changes, edit content/X-Belt.md FIRST,
+     then copy the updated body into this section of rules.md.
+     Do not invent divergent wording here.
+     ============================================================ -->
 
 # ❌-BELT
 
@@ -147,3 +168,27 @@ NO DECLARATION = NO X LOCK THAT WEEK.
 - THE BELT MOVES. THE PAIN STAYS.
 
 ## **SWANGIN' AND BANGIN' ALL SZN LONG — ❌ MARKS THE SPOT.**
+
+---
+
+<!-- ============================================================
+     SYNC PROTOCOL (CONTENT OWNERSHIP)
+
+     1. content/rules.md          → MASTER source of truth for the full
+                                    Commissioner’s Note / Rundown and for the
+                                    complete league rules document.
+
+     2. content/Commish_Note.md   → Sleeper-adjusted / public-facing shortened
+                                    version of the Rundown ONLY.
+                                    Never allowed to overwrite or dilute the
+                                    full version living in rules.md.
+
+     3. content/X-Belt.md         → Single source of truth for the Expo /
+                                    X-Belt / ❌-Belt section.
+                                    Any update must be reflected in the
+                                    corresponding section of rules.md.
+
+     Edit order when changing content:
+       - Rundown changes → update rules.md first → then update Commish_Note.md
+       - X-Belt changes  → update X-Belt.md first → then mirror into rules.md
+     ============================================================ -->
