@@ -11,7 +11,8 @@
     "start": "next start",
     "import:icloud": "node scripts/import-icloud.mjs",
     "sync:sleeper": "node scripts/sync-sleeper.mjs",
-    "validate": "node scripts/validate-content.mjs"
+    "validate": "node scripts/validate-content.mjs",
+    "test": "node --experimental-strip-types --test test/*.test.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",
