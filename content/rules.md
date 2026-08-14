@@ -18,15 +18,12 @@ note: >-
 
 ---
 
-<!-- ============================================================
-     SYNC OWNERSHIP — RUNDOWN / COMMISH NOTE
-     SOURCE OF TRUTH: content/rules.md (THIS FILE)
-     PURPOSE: Full, uncut master version of the Commissioner’s Note / Rundown.
-     DO NOT overwrite this section from Commish_Note.md.
-     Commish_Note.md is the Sleeper-adjusted shortened public version only.
-     When the Rundown changes, update THIS section first, then mirror the
-     shortened form into content/Commish_Note.md.
-     ============================================================ -->
+[//]: # (SYNC OWNERSHIP — RUNDOWN / COMMISH NOTE)
+[//]: # (SOURCE OF TRUTH: content/rules.md — THIS FILE)
+[//]: # (PURPOSE: Full uncut master version of the Commissioner Note / Rundown.)
+[//]: # (DO NOT overwrite this section from Commish_Note.md.)
+[//]: # (Commish_Note.md is the Sleeper-adjusted shortened public version only.)
+[//]: # (When the Rundown changes, update THIS section first, then mirror the shortened form into content/Commish_Note.md.)
 
 # 📌LATEST COMMISH NOTE
 
@@ -71,14 +68,11 @@ note: >-
 
 ---
 
-<!-- ============================================================
-     SYNC OWNERSHIP — ❌-BELT / EXPO SECTION
-     SOURCE OF TRUTH: content/X-Belt.md
-     This section in rules.md must stay in sync with content/X-Belt.md.
-     When the X-Belt / Expo content changes, edit content/X-Belt.md FIRST,
-     then copy the updated body into this section of rules.md.
-     Do not invent divergent wording here.
-     ============================================================ -->
+[//]: # (SYNC OWNERSHIP — X-BELT / EXPO SECTION)
+[//]: # (SOURCE OF TRUTH: content/X-Belt.md)
+[//]: # (This section in rules.md must stay in sync with content/X-Belt.md.)
+[//]: # (When the X-Belt / Expo content changes, edit content/X-Belt.md FIRST, then copy the updated body into this section of rules.md.)
+[//]: # (Do not invent divergent wording here.)
 
 # ❌-BELT
 
@@ -171,24 +165,8 @@ NO DECLARATION = NO X LOCK THAT WEEK.
 
 ---
 
-<!-- ============================================================
-     SYNC PROTOCOL (CONTENT OWNERSHIP)
-
-     1. content/rules.md          → MASTER source of truth for the full
-                                    Commissioner’s Note / Rundown and for the
-                                    complete league rules document.
-
-     2. content/Commish_Note.md   → Sleeper-adjusted / public-facing shortened
-                                    version of the Rundown ONLY.
-                                    Never allowed to overwrite or dilute the
-                                    full version living in rules.md.
-
-     3. content/X-Belt.md         → Single source of truth for the Expo /
-                                    X-Belt / ❌-Belt section.
-                                    Any update must be reflected in the
-                                    corresponding section of rules.md.
-
-     Edit order when changing content:
-       - Rundown changes → update rules.md first → then update Commish_Note.md
-       - X-Belt changes  → update X-Belt.md first → then mirror into rules.md
-     ============================================================ -->
+[//]: # (SYNC PROTOCOL — CONTENT OWNERSHIP)
+[//]: # (1. content/rules.md → MASTER source of truth for the full Commissioner Note / Rundown and complete league rules.)
+[//]: # (2. content/Commish_Note.md → Sleeper-adjusted / public-facing shortened version of the Rundown ONLY. Never overwrite the full version in rules.md.)
+[//]: # (3. content/X-Belt.md → Single source of truth for the Expo / X-Belt section. Edit X-Belt.md first, then mirror into rules.md.)
+[//]: # (Edit order: Rundown changes → rules.md first → then Commish_Note.md | X-Belt changes → X-Belt.md first → then rules.md)
