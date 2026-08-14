@@ -3,6 +3,8 @@ import remarkGfm from "remark-gfm";
 import { getData, getDocument, manifest, requireData } from "@/lib/content";
 import { RetroChrome } from "@/components/retro-chrome";
 import { ConnectTabs } from "@/components/connect-tabs";
+import { TerminalBlock } from "@/components/terminal-block";
+import { splitSections, sectionBullets } from "@/lib/rules-sections";
 
 interface League {
   display_name: string;
@@ -88,6 +90,11 @@ export default async function Home() {
   const duesUrl = links?.leaguesafe ?? "#";
   const currentSeason = seasons.find((s) => s.season === currentXSeason);
   const rulesBody = rulesDoc?.body.replace(/^#\s+.+\n/, "") ?? "";
+
+  const sections = splitSections(rulesBody);
+  const seasonDetailBullets = sectionBullets(sections.get("LATEST SEASON DETAILS") ?? "");
+  const taglineBullets = sectionBullets(sections.get("TAGLINES") ?? "");
+  const xChampionBody = sections.get("WEEKLY X CHAMPION (THE MAIN FEATURE)") ?? "";
 
   const seasonDraft = getData<{ draft?: SeasonDraft }>(`seasons/${currentXSeason}`)?.draft;
   const draftDateCt = seasonDraft?.date_ct ?? "TBD";
@@ -272,9 +279,9 @@ export default async function Home() {
             </span>
           </div>
           </div>
-          {getDocument("X-Belt") && (
+          {xChampionBody && (
             <div className="markdown-body" style={{ marginTop: "40px" }}>
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{getDocument("X-Belt")!.body}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{xChampionBody}</ReactMarkdown>
             </div>
           )}
         </section>
@@ -297,6 +304,22 @@ export default async function Home() {
             <div className="markdown-body" style={{ marginBottom: "40px" }}>
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{rulesBody}</ReactMarkdown>
             </div>
+
+            {seasonDetailBullets.length > 0 && (
+              <TerminalBlock
+                title="SEASON_DETAILS.CFG"
+                cursor={false}
+                commands={[{ command: "cat latest_season_details", output: seasonDetailBullets }]}
+              />
+            )}
+
+            {taglineBullets.length > 0 && (
+              <TerminalBlock
+                title="TAGLINES.TXT"
+                preserveCase
+                commands={[{ command: "cat taglines", output: taglineBullets }]}
+              />
+            )}
 
             {currentSeason && (
               <div className="terminal-section">
