@@ -9,31 +9,31 @@ variables: []
 ```
 🗳️ ROSTER SHAKE-UP VOTE 🗳️
 
-Last season we added an extra bench spot (now sitting at 8 BN).
+Last season we added an EXTRA Bench spot (now sitting at 8 BN).
 
 Time to decide what we do with it before the draft drops.
 
-Vote up. Majority locks it.
+🗳️ Get that vote locked in!
 ```
 
 ## Choices
 
 **Choice 1**
 ```
-🔄 Convert 1 BN → 3rd Flex
+🔄 Convert 1 BN → 3rd FLEX
 ```
 
 **Choice 2**
 ```
-⚡ Convert 1 BN → Superflex
+🔄 Convert 1 BN → SuperFLEX
 ```
 
 **Choice 3**
 ```
-🪑 Keep the extra bench (8 BN total)
+🪑 Keep the EXTRA Bench (Total: 8 BN)
 ```
 
 **Choice 4**
 ```
-💬 Other idea — drop it below
+💬 Other idea: 👇 Drop it below
 ```
