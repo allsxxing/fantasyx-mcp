@@ -1,3 +1,9 @@
+# leaguesafe-message | pinned-dues | multiplier-pin
+
+**Pinned LeagueSafe Message** (Rich Text / Markdown ready)
+Use this for the main pinned note in Sleeper chat.
+
+```
 **ANNOUNCEMENT: WELCOME!**  
 YOOO! Tap-in to the NFL Fantasy League,  
 [10 FOR $10X](https://sleeper.com/i/kMgwLBWeYeXdk)
@@ -40,3 +46,9 @@ UNPAID *BONUS* / Multiplier Dues = Limited Waivers, Any Roster txns vetoable (by
 + Scoring: Sleeper PPR  
 + Waivers: Rolling Waivers  
 + League Rules/Settings: [see League HQ](https://fantasyx-mcp.vercel.app)
+```
+
+**Notes:**  
+- LeagueSafe is the exclusive platform for every multiplier and bonus pot.  
+- Base $10 buy-in stays on SleeperSafe.  
+- Pin this message in league chat.
