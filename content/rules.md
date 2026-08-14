@@ -25,46 +25,46 @@ note: >-
 [//]: # (Commish_Note.md is the Sleeper-adjusted shortened public version only.)
 [//]: # (When the Rundown changes, update THIS section first, then mirror the shortened form into content/Commish_Note.md.)
 
-# 📌LATEST COMMISH NOTE
+# 📌 LATEST COMMISH NOTE
 
 ## 📝 THE RUNDOWN
 
-<<🏆 LEAGUE>>
-➕ Teams: 🔟 Squads
-➕ Type: 🔄 Re-Draft
+### <<🏆 LEAGUE>>
+- **Teams:** 🔟 Squads
+- **Type:** 🔄 Re-Draft
 
-<<🖥️ LEAGUE HQ / MCP SERVER>>
-🔗: https://fantasyx-mcp.vercel.app
+### <<🖥️ LEAGUE HQ / MCP SERVER>>
+- **Link:** [https://fantasyx-mcp.vercel.app](https://fantasyx-mcp.vercel.app)
 
-<<📊 DRAFT>>
-➕ Draft Date: 🗓️ Sun, Sept 6 @ 5:00 PM CT (Tentative)
-➕ Type: 🐍 Snake
-➕ Time Per Pick: ⏱️ 90 Secs
-➕ Draft Order: 🔀 Randomized
+### <<📊 DRAFT>>
+- **Draft Date:** 🗓️ Sun, Sept 6 @ 5:00 PM CT (Tentative)
+- **Type:** 🐍 Snake
+- **Time Per Pick:** ⏱️ 90 Secs
+- **Draft Order:** 🔀 Randomized
 
-<<💸 FEES / DUES>>
-➕ Buy-in: 💵 $10
-➕ Deadline: 🗓️ 9/9 7:20PM
-➕ Platform: 💰 SleeperSafe
+### <<💸 FEES / DUES>>
+- **Buy-in:** 💵 $10
+- **Deadline:** 🗓️ 9/9 7:20PM
+- **Platform:** 💰 SleeperSafe
 
-➕ ❌ BONUS/MULTIPLIER: *TBD
-➕ Deadline: 🗓️ 10/1/26
-➕ Platform: 🔐 LeagueSafe
-🔗 https://www.leaguesafe.com/join/4429630/10-for-10
-📌 (*-NOTE: USE LeagueSafe ONLY)
+- **❌ BONUS/MULTIPLIER:** *TBD
+- **Deadline:** 🗓️ 10/1/26
+- **Platform:** 🔐 LeagueSafe
+- **Link:** [https://www.leaguesafe.com/join/4429630/10-for-10](https://www.leaguesafe.com/join/4429630/10-for-10)
+- 📌 (*-NOTE: USE LeagueSafe ONLY)
 
-⚠️ Pay-Up Punishment Enforced!
-⛔️ UNPAID Buy-In = FULL Roster Lock
-⛔️ UNPAID ❌ BONUS/MULTIPLIER = Limited Waivers; vetoable by League
+⚠️ **Pay-Up Punishment Enforced!**  
+- ⛔️ UNPAID Buy-In = FULL Roster Lock  
+- ⛔️ UNPAID ❌ BONUS/MULTIPLIER = Limited Waivers; vetoable by League
 
-<<🏆 PRIZING>>
-➕ Prize Pot: 💰 WINNER TAKE ALL!
-➕ Final pot scales w/ League-voted Multiplier
+### <<🏆 PRIZING>>
+- **Prize Pot:** 💰 WINNER TAKE ALL!
+- **Final pot scales w/ League-voted Multiplier**
 
-<<💡 INFO>>
-➕ Scoring: Sleeper PPR
-➕ Waivers: Rolling Waivers
-➕ League Rules/Setup: [see League HQ]
+### <<💡 INFO>>
+- **Scoring:** Sleeper PPR
+- **Waivers:** Rolling Waivers
+- **League Rules/Setup:** [see League HQ](https://fantasyx-mcp.vercel.app)
 
 ---
 
