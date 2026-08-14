@@ -1,3 +1,11 @@
+---
+superseded_by: rules.md (V5, 2026-08-11)
+reason: >-
+  Diverged from locked V5 on the declaration deadline ("EOD Friday" vs
+  "Friday 11:59 PM CT") and omitted the 10X multiplier option. The ❌-Belt
+  section is now rendered as a derived slice of rules.md.
+---
+
 ## THE ❌ — TWO MEANINGS. ONE CROWN.
 
 ### ➡️ Buy-In / Bonus $❌ Multiplier (League Poll)

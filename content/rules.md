@@ -95,7 +95,7 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 
 - **Teams:** 10
 - **Type:** Re-Draft
-- **Draft Date:** Sunday, September 6 @ 5:00 PM CT (Tentative)
+- **Draft Date:** Sunday, September 6 @ 5:00 PM CT
 - **Draft Type:** Snake
 - **Time Per Pick:** 90 seconds
 - **Draft Order:** Randomized in Sleeper
@@ -112,9 +112,3 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 - Get the X-Belt \<or\> get the belt-2-a$$.
 
 **Swangin' and bangin' all szn long — ❌ marks the spot.**
-
----
-
-**H-Town rules. We don't play soft.**
-
-The X is coming.
