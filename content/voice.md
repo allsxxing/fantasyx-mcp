@@ -31,6 +31,42 @@ The voice for all league comms — announcements, poll copy, recaps, trash talk.
 
 ---
 
+## Dual Formatting Rule (Critical)
+
+**Two strict formats. Never mix them.**
+
+### 1. FULL STYLE / FORMAT — All Sleeper Content
+Use this for **everything** that lives in Sleeper chat, league notes, Commish_Note, dues-note, polls, recaps, X crowning, templates, HQ pages, etc.
+
+- Full emoji energy (🚨 🏈 📝 🏆 ➕ 🔟 🔄 🖥️ 📊 🗓️ 🐍 ⏱️ 🔀 💸 💵 💰 🔐 ⚠️ ⛔️ 💡 etc.)
+- Visual hierarchy with `<< SECTION >>` headers
+- Bold power words + rhythmic short lines
+- This is the default and expected voice of the league
+
+**Files that must stay full-style:**
+- `content/Commish_Note.md`
+- `content/dues-note.md`
+- All `content/chat-templates/*` (except the pure LeagueSafe one)
+- Any Sleeper-facing announcement or note
+
+### 2. LeagueSafe Version — Rich Text, No Emojis
+Use **only** when the content is specifically for LeagueSafe context, formal pin, or external payment-facing copy.
+
+- Clean Markdown / rich text
+- **Zero emojis**
+- Clean links: `[text](url)`
+- Professional, scannable, zero visual noise
+- Still keeps the same information hierarchy and the Multiplier pin
+
+**Only file that uses this:**
+- `content/chat-templates/leaguesafe-message.md`
+
+**Rule of thumb:**  
+If it’s going in Sleeper → full emoji fire.  
+If it’s pure LeagueSafe / formal payment note → clean rich-text only.
+
+---
+
 ## Poll & Decision Language (Learned Style)
 
 When writing polls or roster decisions, lean into these patterns:
