@@ -33,7 +33,9 @@ export function TerminalBlock({
     <div className="terminal-section">
       <div className="terminal-header">{title}</div>
       {commands.map((entry, commandIndex) => (
-        <div key={entry.command}>
+        // Index-based key: output lines may repeat verbatim (e.g. a URL cited in two
+        // sections), so content can't be relied on as a unique React key here.
+        <div key={`${commandIndex}-${entry.command}`}>
           <div className="terminal-row">
             <span className="prompt">{PROMPT}</span>
             <span className="command">{entry.command}</span>
@@ -41,7 +43,7 @@ export function TerminalBlock({
           {entry.output.map((line, lineIndex) => {
             const isLast = commandIndex === lastCommand && lineIndex === entry.output.length - 1;
             return (
-              <div className="terminal-row" key={line}>
+              <div className="terminal-row" key={`${commandIndex}-${lineIndex}`}>
                 <span className={preserveCase ? "output output--case" : "output"}>
                   {`> ${line}`}
                   {cursor && isLast ? <span className="cursor-blink">_</span> : null}
