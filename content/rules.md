@@ -5,8 +5,8 @@ locked: true
 last_updated: 2026-08-14
 source_file: 10_FOR_10X_League_Rules_2026.md
 note: >-
-  Locked V5 ruleset for the 2026 season. Synced from published Drive source.
-  CONTENT OWNERSHIP: See SYNC PROTOCOL at bottom of this file and in AGENTS.md.
+  Locked V5 ruleset for the 2026 season.
+  CONTENT OWNERSHIP: See SYNC PROTOCOL at bottom of this file.
 ---
 
 # 🗓️ '26 SEASON: LEAGUE RULES
@@ -19,11 +19,9 @@ note: >-
 ---
 
 [//]: # (SYNC OWNERSHIP — RUNDOWN / COMMISH NOTE)
-[//]: # (SOURCE OF TRUTH: content/rules.md — THIS FILE)
-[//]: # (PURPOSE: Full uncut master version of the Commissioner Note / Rundown.)
-[//]: # (DO NOT overwrite this section from Commish_Note.md.)
-[//]: # (Commish_Note.md is the Sleeper-adjusted shortened public version only.)
-[//]: # (When the Rundown changes, update THIS section first, then mirror the shortened form into content/Commish_Note.md.)
+[//]: # (SOURCE OF TRUTH: content/rules.md — THIS FILE holds the full master version)
+[//]: # (Sleeper-adjusted shortened version lives in content/Commish_Note.md)
+[//]: # (When the Rundown changes, update THIS section first, then mirror into Commish_Note.md)
 
 # 📌 LATEST COMMISH NOTE
 
@@ -68,105 +66,86 @@ note: >-
 
 ---
 
-[//]: # (SYNC OWNERSHIP — X-BELT / EXPO SECTION)
+[//]: # (SYNC OWNERSHIP — X-BELT SECTION)
 [//]: # (SOURCE OF TRUTH: content/X-Belt.md)
-[//]: # (This section in rules.md must stay in sync with content/X-Belt.md.)
-[//]: # (When the X-Belt / Expo content changes, edit content/X-Belt.md FIRST, then copy the updated body into this section of rules.md.)
-[//]: # (Do not invent divergent wording here.)
+[//]: # (Edit X-Belt.md first, then mirror here)
 
 # ❌-BELT
 
-# THE ❌ — TWO MEANINGS. ONE CROWN.
+```
+X_CHAMPION_BELT.LOG
+────────────────────────────────────
+guest@league:~$ cat x-belt.md
 
-## ➡️ BUY-IN / BONUS $❌ MULTIPLIER (LEAGUE POLL)
+> THE ❌ — TWO MEANINGS. ONE CROWN.
 
-TIMING: ~DRAFT DAY; PRIOR TO SEASON OPENER (9/9/26)
+[1] BUY-IN / BONUS $❌ MULTIPLIER (LEAGUE POLL)
+    TIMING  : ~Draft Day · Prior to season opener (9/9/26)
+    OPTIONS : 1X ($10) · 2.5X ($25) · 5X ($50) · OTHER
+    RULE    : Higher multiplier = bigger bag. League decides the skin in the game.
+    METHOD  : Primary → LeagueSafe | Alt → SleeperSafe
 
-OPTIONS:
-- 1X — $10
-- 2.5X — $25
-- 5X — $50
-- OTHER — COMMENT YOUR NUMBER
+[2] THE ❌ BELT | WEEKLY ❌ CHAMP
+    WEEK 1  : Highest scoring team becomes the first X-Belt Champion
+              Tiebreaker → Head-to-head → Bench points → Coin flip
 
-HIGHER MULTIPLIER = BIGGER BAG. LEAGUE DECIDES THE SKIN IN THE GAME.
+    WEEK 2+ : THE ❌ LOCK (Forced FLEX)
+              X Champ forces one opponent FLEX-eligible player to start
+              "You're starting this one. No hiding him."
 
-PRIMARY METHOD: LEAGUESAFE  ALT. METHOD: SLEEPERSAFE
+    DECLARE : Must post selected player in league chat by EOD Friday
+              No declaration = No X Lock that week
 
----
-
-## ➡️ THE ❌ BELT | WEEKLY ❌ CHAMP
-
-THE LEAGUE'S NEW SIGNATURE MECHANIC. IT CREATES WEEKLY DRAMA AND STOPS ANY TEAM FROM RUNNING AWAY AFTER A HOT WEEK 1.
-
-WEEK 1: CROWN THE FIRST ❌ CHAMPION
-- HIGHEST SCORING TEAM IN THE ENTIRE LEAGUE BECOMES THE FIRST X-BELT CHAMPION.
-- TIEBREAKER: HEAD-TO-HEAD FROM WEEK 1 → BENCH POINTS → COIN FLIP BY COMMISSIONER.
-
-WEEK 2 AND BEYOND: THE ❌ LOCK (FORCED FLEX)
-THE X CHAMP GETS TO FORCE ONE OF THEIR OPPONENT'S FLEX PLAYERS TO START — "YOU'RE STARTING THIS ONE. NO HIDING HIM."
-- THE X CHAMPION SELECTS ONE PLAYER WHO IS ELIGIBLE FOR A FLEX SPOT ON THE TEAM THEY ARE MATCHED UP AGAINST THAT WEEK.
-- THAT PLAYER IS LOCKED INTO THE OPPONENT'S STARTING FLEX LINEUP.
-- OPPONENT CANNOT BENCH THAT PLAYER; NO MATTER THE CIRCUMSTANCE.
-
-## DECLARATION RULE:
-- X CHAMP MUST POST SELECTED PLAYER IN LEAGUE CHAT BY EOD FRIDAY
-NO DECLARATION = NO X LOCK THAT WEEK.
-
-## TITLE TRANSFER:
-- WIN YOUR MATCHUP → KEEP THE TITLE.
-- LOSE YOUR MATCHUP → THE TEAM THAT BEAT YOU TAKES THE X-BELT TITLE AND BECOME THE NEW X CHAMP TO BEAT.
+    TRANSFER: Win your matchup → keep the title
+              Lose your matchup → the team that beat you takes the X-Belt
+```
 
 ---
 
-## ☑️ WHY THIS WORKS
+[//]: # (SYNC OWNERSHIP — SEASON DETAILS)
+[//]: # (SOURCE OF TRUTH: content/season_details.md)
 
-- IT'S SABOTAGE, NOT THEFT.
-- CLEAN TO ADMINISTER (ANNOUNCEMENT + ENFORCEMENT).
-- CREATES REAL WEEKLY STORYLINES AND PRESSURE.
-- THE TITLE MOVES EVERY TIME THE CHAMPION LOSES, SO NOBODY COASTS.
-- KEEPS EVERY MANAGER LOCKED IN FROM WEEK 1 TO THE CHAMPIONSHIP.
+# 📌 LATEST SEASON DETAILS
 
----
-
-## ☑️ ADMINISTRATION
-
-**COMMISSIONER WORKFLOW:**
-
-1. MONDAY AFTER SCORES FINALIZE → ANNOUNCE THE NEW X CHAMPION.
-2. X CHAMPION DECLARES LOCKED PLAYER BY FRIDAY 11:59 PM CT.
-3. IF OPPONENT TRIES TO BENCH THE LOCKED PLAYER → COMMISSIONER NOTES IT IN THE MONDAY RECAP (OR LEAGUE HONORS THE LOCK).
-4. TITLE TRANSFERS ON LOSS AUTOMATICALLY.
-
----
-
-## 📌 LATEST SEASON DETAILS
-
-- **TEAMS:** 10
-- **TYPE:** RE-DRAFT
-- **DRAFT DATE:** SUNDAY, SEPTEMBER 6 @ 5:00 PM CT
-- **DRAFT TYPE:** SNAKE
-- **TIME PER PICK:** 90 SECONDS
-- **DRAFT ORDER:** RANDOMIZED IN SLEEPER
-- **SCORING:** SLEEPER PPR
-- **PLAYOFFS:** 6 TEAMS
-- **PRIZING:** WINNER TAKE ALL (ADDITIONAL SIDE POTS POSSIBLE VIA LEAGUE VOTE)
+```
+SEASON_2026.CFG
+────────────────────────────────────
+Teams          : 10
+Type           : Re-Draft
+Draft Date     : Sun, Sept 6 @ 5:00 PM CT
+Draft Type     : Snake
+Time Per Pick  : 90 Secs
+Draft Order    : Randomized
+Scoring        : Sleeper PPR
+Playoffs       : 6 teams
+Prizing        : Winner Take All
+```
 
 ---
 
-## 📌 TAGLINES
+[//]: # (SYNC OWNERSHIP — TAGLINES)
+[//]: # (SOURCE OF TRUTH: content/taglines.md)
 
-- ONE LEAGUE. ONE CROWN. ONE X.
-- WIN YOUR MATCHUP. DEFEND THE X.
-- GET THE X-BELT <OR> GET THE BELT-2-A$$.
-- EVERY WEEK SOMEBODY GETS FORCED.
-- THE BELT MOVES. THE PAIN STAYS.
+# 📌 TAGLINES
 
-## **SWANGIN' AND BANGIN' ALL SZN LONG — ❌ MARKS THE SPOT.**
+```
+TAGLINES.LOG
+────────────────────────────────────
+> ONE LEAGUE. ONE CROWN. ONE X.
+> WIN YOUR MATCHUP. DEFEND THE X.
+> GET THE X-BELT <OR> GET THE BELT-2-A$$.
+> EVERY WEEK SOMEBODY GETS FORCED.
+> THE BELT MOVES. THE PAIN STAYS.
+
+SWANGIN' AND BANGIN' ALL SZN LONG — ❌ MARKS THE SPOT.
+```
 
 ---
 
 [//]: # (SYNC PROTOCOL — CONTENT OWNERSHIP)
-[//]: # (1. content/rules.md → MASTER source of truth for the full Commissioner Note / Rundown and complete league rules.)
-[//]: # (2. content/Commish_Note.md → Sleeper-adjusted / public-facing shortened version of the Rundown ONLY. Never overwrite the full version in rules.md.)
-[//]: # (3. content/X-Belt.md → Single source of truth for the Expo / X-Belt section. Edit X-Belt.md first, then mirror into rules.md.)
-[//]: # (Edit order: Rundown changes → rules.md first → then Commish_Note.md | X-Belt changes → X-Belt.md first → then rules.md)
+[//]: # (1. content/rules.md          → MASTER orchestrator + full Commish Note)
+[//]: # (2. content/Commish_Note.md   → Sleeper-adjusted shortened Rundown only)
+[//]: # (3. content/X-Belt.md         → Source of truth for ❌-Belt section)
+[//]: # (4. content/season_details.md → Source of truth for Season Details)
+[//]: # (5. content/taglines.md       → Source of truth for Taglines)
+[//]: # (Edit order: always update the source file first, then mirror into rules.md)
