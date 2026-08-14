@@ -21,7 +21,6 @@ note: >-
 [//]: # (SYNC OWNERSHIP — RUNDOWN / COMMISH NOTE)
 [//]: # (SOURCE OF TRUTH: content/rules.md — THIS FILE holds the full master version)
 [//]: # (Sleeper-adjusted shortened version lives in content/Commish_Note.md)
-[//]: # (When the Rundown changes, update THIS section first, then mirror into Commish_Note.md)
 
 # 📌 LATEST COMMISH NOTE
 
@@ -68,37 +67,49 @@ note: >-
 
 [//]: # (SYNC OWNERSHIP — X-BELT SECTION)
 [//]: # (SOURCE OF TRUTH: content/X-Belt.md)
-[//]: # (Edit X-Belt.md first, then mirror here)
 
 # ❌-BELT
 
-```
-X_CHAMPION_BELT.LOG
-────────────────────────────────────
-guest@league:~$ cat x-belt.md
+# THE ❌ — TWO MEANINGS. ONE CROWN.
 
-> THE ❌ — TWO MEANINGS. ONE CROWN.
+## ➡️ BUY-IN / BONUS $❌ MULTIPLIER (LEAGUE POLL)
 
-[1] BUY-IN / BONUS $❌ MULTIPLIER (LEAGUE POLL)
-    TIMING  : ~Draft Day · Prior to season opener (9/9/26)
-    OPTIONS : 1X ($10) · 2.5X ($25) · 5X ($50) · OTHER
-    RULE    : Higher multiplier = bigger bag. League decides the skin in the game.
-    METHOD  : Primary → LeagueSafe | Alt → SleeperSafe
+**TIMING:** ~Draft Day · Prior to season opener (9/9/26)
 
-[2] THE ❌ BELT | WEEKLY ❌ CHAMP
-    WEEK 1  : Highest scoring team becomes the first X-Belt Champion
-              Tiebreaker → Head-to-head → Bench points → Coin flip
+**OPTIONS:**
+- 1X — $10
+- 2.5X — $25
+- 5X — $50
+- OTHER — Comment your number
 
-    WEEK 2+ : THE ❌ LOCK (Forced FLEX)
-              X Champ forces one opponent FLEX-eligible player to start
-              "You're starting this one. No hiding him."
+Higher multiplier = bigger bag. League decides the skin in the game.
 
-    DECLARE : Must post selected player in league chat by EOD Friday
-              No declaration = No X Lock that week
+**PRIMARY METHOD:** LeagueSafe  
+**ALT. METHOD:** SleeperSafe
 
-    TRANSFER: Win your matchup → keep the title
-              Lose your matchup → the team that beat you takes the X-Belt
-```
+---
+
+## ➡️ THE ❌ BELT | WEEKLY ❌ CHAMP
+
+The league's signature mechanic. Creates weekly drama and stops any team from running away after a hot Week 1.
+
+**WEEK 1 — Crown the First ❌ Champion**
+- Highest scoring team in the entire league becomes the first X-Belt Champion.
+- Tiebreaker: Head-to-head from Week 1 → Bench points → Coin flip by commissioner.
+
+**WEEK 2 AND BEYOND — The ❌ Lock (Forced FLEX)**
+- The X Champ forces one of their opponent's FLEX-eligible players to start.
+- "You're starting this one. No hiding him."
+- Player must be on the opponent's active roster (starter or bench).
+- Opponent cannot bench that player.
+
+**DECLARATION RULE**
+- X Champ must post the selected player in league chat by EOD Friday.
+- No declaration = No X Lock that week.
+
+**TITLE TRANSFER**
+- Win your matchup → keep the title.
+- Lose your matchup → the team that beat you takes the X-Belt.
 
 ---
 
@@ -107,19 +118,15 @@ guest@league:~$ cat x-belt.md
 
 # 📌 LATEST SEASON DETAILS
 
-```
-SEASON_2026.CFG
-────────────────────────────────────
-Teams          : 10
-Type           : Re-Draft
-Draft Date     : Sun, Sept 6 @ 5:00 PM CT
-Draft Type     : Snake
-Time Per Pick  : 90 Secs
-Draft Order    : Randomized
-Scoring        : Sleeper PPR
-Playoffs       : 6 teams
-Prizing        : Winner Take All
-```
+- **TEAMS:** 10
+- **TYPE:** RE-DRAFT
+- **DRAFT DATE:** SUNDAY, SEPTEMBER 6 @ 5:00 PM CT
+- **DRAFT TYPE:** SNAKE
+- **TIME PER PICK:** 90 SECONDS
+- **DRAFT ORDER:** RANDOMIZED IN SLEEPER
+- **SCORING:** SLEEPER PPR
+- **PLAYOFFS:** 6 TEAMS
+- **PRIZING:** WINNER TAKE ALL
 
 ---
 
@@ -128,17 +135,13 @@ Prizing        : Winner Take All
 
 # 📌 TAGLINES
 
-```
-TAGLINES.LOG
-────────────────────────────────────
-> ONE LEAGUE. ONE CROWN. ONE X.
-> WIN YOUR MATCHUP. DEFEND THE X.
-> GET THE X-BELT <OR> GET THE BELT-2-A$$.
-> EVERY WEEK SOMEBODY GETS FORCED.
-> THE BELT MOVES. THE PAIN STAYS.
+- ONE LEAGUE. ONE CROWN. ONE X.
+- WIN YOUR MATCHUP. DEFEND THE X.
+- GET THE X-BELT <OR> GET THE BELT-2-A$$.
+- EVERY WEEK SOMEBODY GETS FORCED.
+- THE BELT MOVES. THE PAIN STAYS.
 
-SWANGIN' AND BANGIN' ALL SZN LONG — ❌ MARKS THE SPOT.
-```
+**SWANGIN' AND BANGIN' ALL SZN LONG — ❌ MARKS THE SPOT.**
 
 ---
 
