@@ -57,6 +57,11 @@ interface SeasonDraft {
   date_ct?: string;
 }
 
+interface CommissionerNote {
+  source_doc_url?: string;
+  sections: Array<{ label: string; rows: string[] }>;
+}
+
 interface Dues {
   buy_in_base_usd: number;
   structure: string;
@@ -85,6 +90,8 @@ export default async function Home() {
   const xLog = requireData<XChampionLog>("x-champion-log");
   const currentXSeason = manifest.seasons[manifest.seasons.length - 1];
   const xWeeks = xLog.seasons[currentXSeason]?.weeks ?? [];
+
+  const commishNote = getData<CommissionerNote>("commissioner-note");
 
   const inviteUrl = links?.sleeper_invite ?? league.invite_url;
   const duesUrl = links?.leaguesafe ?? "#";
@@ -117,6 +124,7 @@ export default async function Home() {
             <a href="#champions">CHAMPIONS</a>
             <a href="#x-belt">❌-BELT</a>
             <a href="#rules">RULES</a>
+            <a href="#commish-note">NOTE</a>
             <a href="#connect">CONNECT</a>
           </nav>
           <div className="system-status">SYS_UP: 00:00:00 | CPU: 12%</div>
@@ -360,6 +368,20 @@ export default async function Home() {
                 </div>
               </div>
             )}
+          </section>
+        )}
+
+        {commishNote && commishNote.sections.length > 0 && (
+          <section id="commish-note">
+            <h2 className="section-title">Commish Note</h2>
+            <TerminalBlock
+              title="COMMISH_NOTE.TXT"
+              preserveCase
+              commands={commishNote.sections.map((entry) => ({
+                command: `cat ${entry.label.toLowerCase().replace(/[^a-z0-9]+/g, "_")}`,
+                output: entry.rows,
+              }))}
+            />
           </section>
         )}
 
