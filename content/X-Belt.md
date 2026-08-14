@@ -1,10 +1,7 @@
-<!-- ============================================================
-     OWNERSHIP: content/X-Belt.md
-     ROLE: Single source of truth for the Expo / X-Belt / ❌-Belt section.
-     SYNC TARGET: The corresponding ❌-BELT section inside content/rules.md
-     RULE: Edit this file first. Then mirror the updated body into rules.md.
-           Do not invent divergent wording in rules.md.
-     ============================================================ -->
+[//]: # (OWNERSHIP: content/X-Belt.md)
+[//]: # (ROLE: Single source of truth for the Expo / X-Belt / ❌-Belt section.)
+[//]: # (SYNC TARGET: The corresponding ❌-BELT section inside content/rules.md)
+[//]: # (RULE: Edit this file first. Then mirror the updated body into rules.md. Do not invent divergent wording in rules.md.)
 
 # THE ❌ — TWO MEANINGS. ONE CROWN.
 
