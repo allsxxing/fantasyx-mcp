@@ -389,6 +389,11 @@ header {
   text-transform: uppercase;
 }
 
+/* Opt out of the uppercase terminal shout — for taglines and mixed-case prose. */
+.output--case {
+  text-transform: none;
+}
+
 footer {
   border-top: 2px solid var(--border-color);
   padding: 60px 0;
@@ -840,12 +845,17 @@ footer {
   color: var(--bg-color);
 }
 
-/* Rendered rules markdown body */
+/* Rendered rules markdown body — shares the terminal palette so prose sections
+   read as part of the same system as .terminal-section blocks. */
 .markdown-body {
   max-width: 760px;
   color: var(--text-secondary);
   line-height: 1.7;
   font-size: 0.95rem;
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  background: rgb(0, 0, 0);
+  border: 2px solid var(--border-color);
+  padding: 40px;
 }
 
 .markdown-body h1,
@@ -912,5 +922,16 @@ footer {
   padding-left: 16px;
   margin: 0 0 14px;
   color: var(--text-secondary);
+}
+
+/* Bullets read as terminal output lines rather than browser discs. */
+.markdown-body ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.markdown-body ul li::before {
+  content: "> ";
+  color: var(--accent-retro);
 }
 
