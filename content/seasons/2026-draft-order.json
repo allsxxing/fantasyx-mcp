@@ -1,0 +1,23 @@
+{
+  "season": "2026",
+  "league_id": "1370188155843526656",
+  "status": "randomized_upcoming_draft",
+  "source": {
+    "type": "commissioner_screenshot",
+    "file": "IMG_4135.jpeg",
+    "captured_at": "2026-08-15T15:28:00-05:00",
+    "verified_against": "Flaim refreshed Sleeper roster snapshot"
+  },
+  "order": [
+    {"draft_position": 1, "roster_id": 5, "user_id": "1133247206179442688", "display_name": "nichigh", "team_name": "Team nichigh"},
+    {"draft_position": 2, "roster_id": 10, "user_id": "871543078786375680", "display_name": "YourDeadPixel", "team_name": "Big DAWG Energy"},
+    {"draft_position": 3, "roster_id": 7, "user_id": "1005194894908018688", "display_name": "kazeemfamuyide", "team_name": "Team kazeemfamuyide"},
+    {"draft_position": 4, "roster_id": 6, "user_id": "744014760877662208", "display_name": "chandran", "team_name": "The ChanMan Club"},
+    {"draft_position": 5, "roster_id": 1, "user_id": "1058575263971250176", "display_name": "allsxxing", "team_name": "A$H & TETTIES"},
+    {"draft_position": 6, "roster_id": 3, "user_id": "467531644052434944", "display_name": "anyfoolwilldo", "team_name": "Team anyfoolwilldo"},
+    {"draft_position": 7, "roster_id": 2, "user_id": "855678858756734976", "display_name": "Tristanv10", "team_name": "Team Tristanv10"},
+    {"draft_position": 8, "roster_id": 9, "user_id": "1124740547148763136", "display_name": "Nels8951", "team_name": "Team Nels8951"},
+    {"draft_position": 9, "roster_id": 4, "user_id": "1117902191370547200", "display_name": "Maxwellhiggens", "team_name": "Team Maxwellhiggens"},
+    {"draft_position": 10, "roster_id": 8, "user_id": "890091625635061760", "display_name": "AJk12", "team_name": "I’m stuck step Burrow"}
+  ]
+}
