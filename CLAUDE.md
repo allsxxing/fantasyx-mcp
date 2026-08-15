@@ -44,15 +44,14 @@ phase is gated on an observed result before the next begins.
 - **No runtime filesystem reads.** `content/` is compiled into a generated module at build
   time (`build-content.mjs`) and bundled. Reading `content/` at request time is the classic
   "works locally, 404s on Vercel" output-file-tracing trap — do not do it.
-- **V4 rules are authoritative — but provisional.** `10_FOR_10X_League_Rules_2026-08-08.md`
-  wins over the earlier draft. The X mechanic is **sabotage** (force a FLEX-eligible player
-  into the *opponent's* lineup), declared by **Friday 11:59 PM CT** — *not* the earlier "steal
-  into your own FLEX" version. The superseded file lives in `content/archive/` with a header
-  noting it. Never merge the two; answering this rule wrong is the worst failure mode.
-  V4 is a **working guideline, not locked** (`rules.meta.json` → `status: work_in_progress`).
-  Downstream tools must surface rules as provisional. The update path is a single re-sync:
-  edit the source doc, run `node scripts/import-icloud.mjs`, commit. `rules.md` is generated —
-  never hand-edit it; edit the source and re-import.
+- **V5 rules are authoritative and locked.** `10_FOR_10X_League_Rules_2026-08-11.md` is current
+  (`rules.meta.json` → `status: locked`). The X mechanic is **sabotage** (force a FLEX-eligible
+  player into the *opponent's* lineup), declared by **Friday 11:59 PM CT** — *not* the earlier
+  "steal into your own FLEX" version from the superseded draft. The superseded file lives in
+  `content/archive/rules-2026-draft-superseded.md` with a header noting it. Never merge the two;
+  answering this rule wrong is the worst failure mode. The update path is a single re-sync: edit
+  the source doc, run `node scripts/import-icloud.mjs`, commit. `rules.md` is generated — never
+  hand-edit it; edit the source and re-import.
 - **Private data never enters git.** Payment handles, contacts, dues amounts, and the paid/
   unpaid list live only in the Vercel env var `FANTASYX_PRIVATE_DATA`, read by the bearer-
   gated admin endpoint. Do not invent a LeagueSafe URL or join code — the source export
