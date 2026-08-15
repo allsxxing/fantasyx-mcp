@@ -1,14 +1,55 @@
 {
-  "sleeper_invite": "http://sleeper.com/i/kMgwLBWeYeXdk",
-  "sleeper_league_2025": "https://sleeper.com/leagues/1214028632419217409/team",
-  "sleeper_league_2026": "https://sleeper.com/leagues/1370188155843526656/team",
-  "fantasypros_myplaybook": "https://www.fantasypros.com/nfl/myplaybook/multi-league.php",
-  "leaguesafe": "https://www.leaguesafe.com/join/4429630/10-for-10",
-  "related_sleeper_leagues": [
-    {
-      "league_id": "1262942382148562944",
-      "url": "https://sleeper.com/leagues/1262942382148562944/team",
-      "label": "Related Sleeper league from league URL export (unlabeled)"
-    }
+  "updatedAt": "2026-08-15",
+  "description": "Canonical external resources for FantasyX, Flaim, LeagueLoom, and Sleeper-league workflows.",
+  "platforms": [
+    { "name": "Sleeper", "url": "https://sleeper.com", "docs": "https://docs.sleeper.com" },
+    { "name": "FantasyX MCP", "url": "https://fantasyx-mcp.vercel.app", "repository": "https://github.com/allsxxing/fantasyx-mcp" },
+    { "name": "LeagueSafe", "url": "https://leaguesafe.com" }
+  ],
+  "projectSources": [
+    "https://x.com/TheFFBallers?s=20",
+    "https://x.com/jbchoknows?s=20",
+    "https://x.com/PFF_Fantasy?s=20",
+    "https://x.com/DynastyDadFF?s=20",
+    "https://x.com/i/lists/1771468903970976095?s=20",
+    "https://profootballnetwork.com",
+    "https://x.com/SleeperNFL",
+    "https://www.fantasypros.com",
+    "https://www.rotowire.com",
+    "https://www.nbcsports.com/fantasy/football",
+    "https://fantasydocs.com",
+    "https://sleeper.com/i/E7d5r8gzRmGa",
+    "https://sleeper.com/i/7N3EmGBK8zQ5",
+    "https://sleeper.com/i/E8OE6GDPYLv3",
+    "https://rotobot.ai",
+    "https://sleeperdynasty.com"
+  ],
+  "analysisAndDraft": [
+    "https://www.draftsharks.com",
+    "https://www.draftsharks.com/rankings",
+    "https://www.draftsharks.com/kb/best-fantasy-football-tools",
+    "https://www.footballguys.com",
+    "https://www.fantasyalarm.com/nfl",
+    "https://establishtherun.com",
+    "https://www.thefantasyfootballers.com",
+    "https://www.playerprofiler.com",
+    "https://www.4for4.com/fantasy-football",
+    "https://www.fantasylife.com/nfl",
+    "https://www.sharpfootballanalysis.com/fantasy",
+    "https://www.ftnfantasy.com"
+  ],
+  "dynastyAndValue": [
+    "https://www.dynastynerds.com",
+    "https://www.dynasty-daddy.com",
+    "https://keeptradecut.com",
+    "https://www.fantasycalc.com"
+  ],
+  "leagueAndDraftPlatforms": [
+    "https://www.espn.com/fantasy/football",
+    "https://www.cbssports.com/fantasy/football",
+    "https://www.lineups.com/nfl",
+    "https://underdogfantasy.com",
+    "https://www.drafters.com",
+    "https://www.rtsports.com"
   ]
 }
