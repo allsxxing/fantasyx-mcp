@@ -3,6 +3,8 @@ import remarkGfm from "remark-gfm";
 import { getData, getDocument, manifest, requireData } from "@/lib/content";
 import { RetroChrome } from "@/components/retro-chrome";
 import { ConnectTabs } from "@/components/connect-tabs";
+import { TerminalBlock } from "@/components/terminal-block";
+import { splitSections, sectionBullets } from "@/lib/rules-sections";
 
 interface League {
   display_name: string;
@@ -55,6 +57,11 @@ interface SeasonDraft {
   date_ct?: string;
 }
 
+interface CommissionerNote {
+  source_doc_url?: string;
+  sections: Array<{ label: string; rows: string[] }>;
+}
+
 interface Dues {
   buy_in_base_usd: number;
   structure: string;
@@ -84,10 +91,17 @@ export default async function Home() {
   const currentXSeason = manifest.seasons[manifest.seasons.length - 1];
   const xWeeks = xLog.seasons[currentXSeason]?.weeks ?? [];
 
+  const commishNote = getData<CommissionerNote>("commissioner-note");
+
   const inviteUrl = links?.sleeper_invite ?? league.invite_url;
   const duesUrl = links?.leaguesafe ?? "#";
   const currentSeason = seasons.find((s) => s.season === currentXSeason);
   const rulesBody = rulesDoc?.body.replace(/^#\s+.+\n/, "") ?? "";
+
+  const sections = splitSections(rulesBody);
+  const seasonDetailBullets = sectionBullets(sections.get("LATEST SEASON DETAILS") ?? "");
+  const taglineBullets = sectionBullets(sections.get("TAGLINES") ?? "");
+  const xChampionBody = sections.get("WEEKLY X CHAMPION (THE MAIN FEATURE)") ?? "";
 
   const seasonDraft = getData<{ draft?: SeasonDraft }>(`seasons/${currentXSeason}`)?.draft;
   const draftDateCt = seasonDraft?.date_ct ?? "TBD";
@@ -110,6 +124,7 @@ export default async function Home() {
             <a href="#champions">CHAMPIONS</a>
             <a href="#x-belt">❌-BELT</a>
             <a href="#rules">RULES</a>
+            <a href="#commish-note">NOTE</a>
             <a href="#connect">CONNECT</a>
           </nav>
           <div className="system-status">SYS_UP: 00:00:00 | CPU: 12%</div>
@@ -272,9 +287,9 @@ export default async function Home() {
             </span>
           </div>
           </div>
-          {getDocument("X-Belt") && (
+          {xChampionBody && (
             <div className="markdown-body" style={{ marginTop: "40px" }}>
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{getDocument("X-Belt")!.body}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{xChampionBody}</ReactMarkdown>
             </div>
           )}
         </section>
@@ -297,6 +312,22 @@ export default async function Home() {
             <div className="markdown-body" style={{ marginBottom: "40px" }}>
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{rulesBody}</ReactMarkdown>
             </div>
+
+            {seasonDetailBullets.length > 0 && (
+              <TerminalBlock
+                title="SEASON_DETAILS.CFG"
+                cursor={false}
+                commands={[{ command: "cat latest_season_details", output: seasonDetailBullets }]}
+              />
+            )}
+
+            {taglineBullets.length > 0 && (
+              <TerminalBlock
+                title="TAGLINES.TXT"
+                preserveCase
+                commands={[{ command: "cat taglines", output: taglineBullets }]}
+              />
+            )}
 
             {currentSeason && (
               <div className="terminal-section">
@@ -337,6 +368,20 @@ export default async function Home() {
                 </div>
               </div>
             )}
+          </section>
+        )}
+
+        {commishNote && commishNote.sections.length > 0 && (
+          <section id="commish-note">
+            <h2 className="section-title">Commish Note</h2>
+            <TerminalBlock
+              title="COMMISH_NOTE.TXT"
+              preserveCase
+              commands={commishNote.sections.map((entry) => ({
+                command: `cat ${entry.label.toLowerCase().replace(/[^a-z0-9]+/g, "_")}`,
+                output: entry.rows,
+              }))}
+            />
           </section>
         )}
 

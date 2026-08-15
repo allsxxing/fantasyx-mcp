@@ -66,6 +66,23 @@ phase is gated on an observed result before the next begins.
   two answers to one question. Keep the total tool surface modest (~12–15) — large tool lists
   measurably degrade client tool-selection.
 
+## Content ownership (FantasyX)
+
+`content/rules.md` is the **single source of truth** for the full Rundown. It is GENERATED
+by `scripts/import-icloud.mjs` from the iCloud source doc — never hand-edit it. The update
+path is always: edit the source doc → `npm run import:icloud` → commit the diff.
+
+| Surface | Role | Edit rule |
+|---|---|---|
+| `content/rules.md` | Generated master — full Rundown, all sections | Never hand-edit. Re-import instead. |
+| ❌-Belt / Season Details / Taglines | **Derived presentation slices** extracted from `rules.md` at render time by `src/lib/rules-sections.ts` | Not editable. Change the heading text in the source doc and re-import. |
+| `content/commissioner-note.json` | Sleeper-adjusted shortened Rundown (structured rows) | Editable directly. Must never contradict `rules.md`; it is a summary, not an authority. |
+
+**Hard rule:** there is exactly one authority for any given rule — `rules.md`. Never create a
+second Markdown file restating the X mechanic, the multiplier options, or the declaration
+deadline. A second file WILL drift and WILL be served as a conflicting MCP resource.
+`content/X-Belt.md` was retired to `content/archive/` for exactly this reason.
+
 ## Architecture
 
 ```

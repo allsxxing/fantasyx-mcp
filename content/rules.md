@@ -2,153 +2,113 @@
 version: V5
 status: locked
 locked: true
-last_updated: 2026-08-14
-source_file: 10_FOR_10X_League_Rules_2026.md
+last_updated: 2026-08-11
+source_file: 10_FOR_10X_League_Rules_2026-08-11.md
 note: >-
-  Locked V5 ruleset for the 2026 season.
-  CONTENT OWNERSHIP: See SYNC PROTOCOL at bottom of this file.
+  Locked V5 ruleset for the 2026 season. Supersedes V4. Update via
+  scripts/import-icloud.mjs.
 ---
 
-# 🗓️ '26 SEASON: LEAGUE RULES
-## 🏈10 FOR $10❌
+# 🗓️ '26 NFL SEASON: LEAGUE RULES — 🔟 FOR $10❌
 
 **League:** Sleeper (http://sleeper.com/i/kMgwLBWeYeXdk)  
 **Commissioner:** ⚡️ [@allsxxing](https://x.com/allsxxing) (GJ)  
-**Version:** V5 — Updated 2026-08-14
+**Version:** V5 — Updated 2026-08-11
 
 ---
 
-[//]: # (SYNC OWNERSHIP — RUNDOWN / COMMISH NOTE)
-[//]: # (SOURCE OF TRUTH: content/rules.md — THIS FILE holds the full master version)
-[//]: # (Sleeper-adjusted shortened version lives in content/Commish_Note.md)
+## THE X — TWO MEANINGS. ONE CROWN.
 
-# 📌 LATEST COMMISH NOTE
+### 1. BUY-IN MULTIPLIER (X VOTE)
 
-## 📝 THE RUNDOWN
+Commissioner posts a poll for all managers.
 
-### <<🏆 LEAGUE>>
-- **Teams:** 🔟 Squads
-- **Type:** 🔄 Re-Draft
+**Timing:** Pre-draft, during draft, or right after draft.
 
-### <<🖥️ LEAGUE HQ / MCP SERVER>>
-- **Link:** [https://fantasyx-mcp.vercel.app](https://fantasyx-mcp.vercel.app)
+**Options:**
 
-### <<📊 DRAFT>>
-- **Draft Date:** 🗓️ Sun, Sept 6 @ 5:00 PM CT (Tentative)
-- **Type:** 🐍 Snake
-- **Time Per Pick:** ⏱️ 90 Secs
-- **Draft Order:** 🔀 Randomized
+- **1X** — $10
+- **2.5X** — $25
+- **5X** — $50
+- **10X** — $100
+- **OTHER** — Comment your number
 
-### <<💸 FEES / DUES>>
-- **Buy-in:** 💵 $10
-- **Deadline:** 🗓️ 9/9 7:20PM
-- **Platform:** 💰 SleeperSafe
+Higher multiplier = bigger winner bag. League decides the skin in the game.
 
-- **❌ BONUS/MULTIPLIER:** *TBD
-- **Deadline:** 🗓️ 10/1/26
-- **Platform:** 🔐 LeagueSafe
-- **Link:** [https://www.leaguesafe.com/join/4429630/10-for-10](https://www.leaguesafe.com/join/4429630/10-for-10)
-- 📌 (*-NOTE: USE LeagueSafe ONLY)
-
-⚠️ **Pay-Up Punishment Enforced!**  
-- ⛔️ UNPAID Buy-In = FULL Roster Lock  
-- ⛔️ UNPAID ❌ BONUS/MULTIPLIER = Limited Waivers; vetoable by League
-
-### <<🏆 PRIZING>>
-- **Prize Pot:** 💰 WINNER TAKE ALL!
-- **Final pot scales w/ League-voted Multiplier**
-
-### <<💡 INFO>>
-- **Scoring:** Sleeper PPR
-- **Waivers:** Rolling Waivers
-- **League Rules/Setup:** [see League HQ](https://fantasyx-mcp.vercel.app)
+**Current Payment Method:** LeagueSafe  
+*Note: SleeperSafe will be used once it becomes available for the league.*
 
 ---
 
-[//]: # (SYNC OWNERSHIP — X-BELT SECTION)
-[//]: # (SOURCE OF TRUTH: content/X-Belt.md)
+### 2. WEEKLY X CHAMPION (THE MAIN FEATURE)
 
-# ❌-BELT
+This is the league's signature mechanic. It creates weekly drama and stops any team from running away after a hot Week 1.
 
-# THE ❌ — TWO MEANINGS. ONE CROWN.
+**Week 1 — Crown the First X Champion**
 
-## ➡️ BUY-IN / BONUS $❌ MULTIPLIER (LEAGUE POLL)
+- Highest scoring team in the entire league becomes the first X Champion.
+- **Tiebreaker:** Head-to-head from Week 1 → bench points → coin flip by commissioner.
 
-**TIMING:** ~Draft Day · Prior to season opener (9/9/26)
+**Week 2 and Beyond — The X Lock (Forced FLEX)**
 
-**OPTIONS:**
-- 1X — $10
-- 2.5X — $25
-- 5X — $50
-- OTHER — Comment your number
+The X Champion gets to **force one of their opponent's FLEX players to start**.
 
-Higher multiplier = bigger bag. League decides the skin in the game.
+- The X Champion selects **ONE player** who is eligible for a FLEX spot on the team they are matched up against that week.
+- That player is **locked into the opponent's starting FLEX lineup**.
+- The opponent **cannot bench** that player, even if it's a bad matchup or the player is in a slump.
+- The X Champion is essentially saying: "You're starting this one. No hiding him."
 
-**PRIMARY METHOD:** LeagueSafe  
-**ALT. METHOD:** SleeperSafe
+**Declaration Rule:**
 
----
+- X Champion must publicly name the locked player in the league chat **by Friday 11:59 PM CT**.
+- No declaration = no X Lock that week.
 
-## ➡️ THE ❌ BELT | WEEKLY ❌ CHAMP
+**Title Transfer:**
 
-The league's signature mechanic. Creates weekly drama and stops any team from running away after a hot Week 1.
-
-**WEEK 1 — Crown the First ❌ Champion**
-- Highest scoring team in the entire league becomes the first X-Belt Champion.
-- Tiebreaker: Head-to-head from Week 1 → Bench points → Coin flip by commissioner.
-
-**WEEK 2 AND BEYOND — The ❌ Lock (Forced FLEX)**
-- The X Champ forces one of their opponent's FLEX-eligible players to start.
-- "You're starting this one. No hiding him."
-- Player must be on the opponent's active roster (starter or bench).
-- Opponent cannot bench that player.
-
-**DECLARATION RULE**
-- X Champ must post the selected player in league chat by EOD Friday.
-- No declaration = No X Lock that week.
-
-**TITLE TRANSFER**
 - Win your matchup → keep the title.
-- Lose your matchup → the team that beat you takes the X-Belt.
+- Lose your matchup → the team that beat you takes the X Champion title for the next week.
 
 ---
 
-[//]: # (SYNC OWNERSHIP — SEASON DETAILS)
-[//]: # (SOURCE OF TRUTH: content/season_details.md)
+## WHY THIS WORKS
 
-# 📌 LATEST SEASON DETAILS
-
-- **TEAMS:** 10
-- **TYPE:** RE-DRAFT
-- **DRAFT DATE:** SUNDAY, SEPTEMBER 6 @ 5:00 PM CT
-- **DRAFT TYPE:** SNAKE
-- **TIME PER PICK:** 90 SECONDS
-- **DRAFT ORDER:** RANDOMIZED IN SLEEPER
-- **SCORING:** SLEEPER PPR
-- **PLAYOFFS:** 6 TEAMS
-- **PRIZING:** WINNER TAKE ALL
+- It's sabotage, not theft.
+- Clean to administer (announcement + enforcement).
+- Creates real weekly storylines and pressure.
+- The title moves every time the champion loses, so nobody coasts.
+- Keeps every manager locked in from Week 1 to the championship.
 
 ---
 
-[//]: # (SYNC OWNERSHIP — TAGLINES)
-[//]: # (SOURCE OF TRUTH: content/taglines.md)
+## ADMINISTRATION
 
-# 📌 TAGLINES
+**Commissioner Workflow:**
 
-- ONE LEAGUE. ONE CROWN. ONE X.
-- WIN YOUR MATCHUP. DEFEND THE X.
-- GET THE X-BELT <OR> GET THE BELT-2-A$$.
-- EVERY WEEK SOMEBODY GETS FORCED.
-- THE BELT MOVES. THE PAIN STAYS.
-
-**SWANGIN' AND BANGIN' ALL SZN LONG — ❌ MARKS THE SPOT.**
+1. Monday after scores finalize → announce the new X Champion.
+2. X Champion declares locked player by Friday 11:59 PM CT.
+3. If opponent tries to bench the locked player → commissioner notes it in the Monday recap (or league honors the lock).
+4. Title transfers on loss automatically.
 
 ---
 
-[//]: # (SYNC PROTOCOL — CONTENT OWNERSHIP)
-[//]: # (1. content/rules.md          → MASTER orchestrator + full Commish Note)
-[//]: # (2. content/Commish_Note.md   → Sleeper-adjusted shortened Rundown only)
-[//]: # (3. content/X-Belt.md         → Source of truth for ❌-Belt section)
-[//]: # (4. content/season_details.md → Source of truth for Season Details)
-[//]: # (5. content/taglines.md       → Source of truth for Taglines)
-[//]: # (Edit order: always update the source file first, then mirror into rules.md)
+## LATEST SEASON DETAILS
+
+- **Teams:** 10
+- **Type:** Re-Draft
+- **Draft Date:** Sunday, September 6 @ 5:00 PM CT
+- **Draft Type:** Snake
+- **Time Per Pick:** 90 seconds
+- **Draft Order:** Randomized in Sleeper
+- **Scoring:** Sleeper PPR
+- **Playoffs:** 6 teams
+- **Prizing:** Winner Take All (additional side pots possible via league vote)
+
+---
+
+## TAGLINES
+
+- One League. One Crown. One X.
+- Win your matchup. Defend the X.
+- Get the X-Belt \<or\> get the belt-2-a$$.
+
+**Swangin' and bangin' all szn long — ❌ marks the spot.**

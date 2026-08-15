@@ -1,0 +1,47 @@
+{
+  "source": "COMMISSIONER_NOTE_LATEST.md",
+  "source_doc_url": "https://docs.google.com/document/d/1shUD0FCC3kMTanhcp69UNHWenhME8GZ6g7pjUvO3l8U/edit",
+  "sections": [
+    {
+      "label": "LEAGUE",
+      "rows": ["Teams: 10 Squads", "Type: Re-Draft"]
+    },
+    {
+      "label": "LEAGUE HQ / MCP SERVER",
+      "rows": ["https://fantasyx-mcp.vercel.app"]
+    },
+    {
+      "label": "DRAFT",
+      "rows": [
+        "Draft Date: Sun, Sept 6 @ 5:00 PM CT",
+        "Type: Snake",
+        "Time Per Pick: 90 Seconds",
+        "Draft Order: Randomized"
+      ]
+    },
+    {
+      "label": "FEES / DUES",
+      "rows": [
+        "Buy-in: $10",
+        "Deadline: 9/9 7:20PM (SleeperSafe)",
+        "Platform(s): SleeperSafe, LeagueSafe",
+        "https://www.leaguesafe.com/join/4429630/10-for-10",
+        "*BONUS* $ Multiplier: TBD",
+        "Deadline: 10/1/26 (LeagueSafe)",
+        "Platform: LeagueSafe",
+        "https://www.leaguesafe.com/join/4429630/10-for-10",
+        "⚠️ Pay-Up Punishment Enforced!",
+        "⛔️ UNPAID Buy-In = FULL Roster Lock",
+        "⛔️ UNPAID *BONUS* Dues = Limited Waivers, Any Roster txns vetoable (by Leaguemates)"
+      ]
+    },
+    {
+      "label": "PRIZING",
+      "rows": ["Prize Pot: WINNER TAKE ALL!"]
+    },
+    {
+      "label": "INFO",
+      "rows": ["Scoring: Sleeper PPR", "Waivers: FAAB, $100 budget"]
+    }
+  ]
+}

@@ -1,3 +1,8 @@
+---
+title: Public Note
+variables: []
+---
+
 # public-note | league-rtj | league-open
 
 **Sleeper Custom Note** (Request To Join / Open League)

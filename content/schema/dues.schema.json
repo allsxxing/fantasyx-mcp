@@ -18,7 +18,20 @@
         "resolved": { "type": ["string", "null"] }
       }
     },
-    "payment_method": { "type": "string" },
+    "payment_method": {
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["buy_in", "bonus"],
+          "properties": {
+            "buy_in": { "type": "string" },
+            "bonus": { "type": "string" }
+          }
+        }
+      ]
+    },
     "note": { "type": "string" }
   }
 }

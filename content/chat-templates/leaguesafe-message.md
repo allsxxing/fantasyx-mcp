@@ -1,3 +1,8 @@
+---
+title: LeagueSafe Message
+variables: []
+---
+
 # leaguesafe-message | pinned-dues | multiplier-pin
 
 **Pinned LeagueSafe Message** (Rich Text / Markdown — NO EMOJIS)
