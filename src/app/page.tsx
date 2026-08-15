@@ -4,7 +4,13 @@ import { getData, getDocument, manifest, requireData } from "@/lib/content";
 import { RetroChrome } from "@/components/retro-chrome";
 import { ConnectTabs } from "@/components/connect-tabs";
 import { TerminalBlock } from "@/components/terminal-block";
-import { splitSections, sectionBullets } from "@/lib/rules-sections";
+import {
+  splitSections,
+  sectionBullets,
+  stripHeadingNumbers,
+  promoteBoldLabelsToHeadings,
+  removeSections,
+} from "@/lib/rules-sections";
 
 interface League {
   display_name: string;
@@ -101,8 +107,12 @@ export default async function Home() {
   const sections = splitSections(rulesBody);
   const seasonDetailBullets = sectionBullets(sections.get("LATEST SEASON DETAILS") ?? "");
   const taglineBullets = sectionBullets(sections.get("TAGLINES") ?? "");
-  const multiplierBody = sections.get("BUY-IN MULTIPLIER (X VOTE)") ?? "";
-  const weeklyXBody = sections.get("WEEKLY X CHAMPION (THE MAIN FEATURE)") ?? "";
+  const SUBHEADER_LABELS = ["Declaration Rule", "Title Transfer"];
+  const multiplierBody = promoteBoldLabelsToHeadings(sections.get("BUY-IN MULTIPLIER (X VOTE)") ?? "", SUBHEADER_LABELS);
+  const weeklyXBody = promoteBoldLabelsToHeadings(
+    sections.get("WEEKLY X CHAMPION (THE MAIN FEATURE)") ?? "",
+    SUBHEADER_LABELS,
+  );
   const xChampionBody =
     multiplierBody || weeklyXBody
       ? [
@@ -113,6 +123,13 @@ export default async function Home() {
           weeklyXBody,
         ].join("\n\n")
       : "";
+
+  // Display-only view of the full rules body: LATEST SEASON DETAILS and TAGLINES
+  // already render as their own dedicated terminal blocks below, so they're
+  // dropped here to avoid showing the same content twice.
+  const rulesDisplayBody = stripHeadingNumbers(
+    removeSections(promoteBoldLabelsToHeadings(rulesBody, SUBHEADER_LABELS), ["LATEST SEASON DETAILS", "TAGLINES"]),
+  );
 
   const seasonDraft = getData<{ draft?: SeasonDraft }>(`seasons/${currentXSeason}`)?.draft;
   const draftDateCt = seasonDraft?.date_ct ?? "TBD";
@@ -300,7 +317,7 @@ export default async function Home() {
           </div>
           {xChampionBody && (
             <div className="markdown-body" style={{ marginTop: "40px" }}>
-              <div className="terminal-header">X_RULES.MD</div>
+              <div className="terminal-header">X_MECHANIC.LOG</div>
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{xChampionBody}</ReactMarkdown>
             </div>
           )}
@@ -322,7 +339,8 @@ export default async function Home() {
               Version: {rulesMeta.version}
             </p>
             <div className="markdown-body" style={{ marginBottom: "40px" }}>
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{rulesBody}</ReactMarkdown>
+              <div className="terminal-header">RULES.LOG</div>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{rulesDisplayBody}</ReactMarkdown>
             </div>
 
             {seasonDetailBullets.length > 0 && (
@@ -342,43 +360,29 @@ export default async function Home() {
             )}
 
             {currentSeason && (
-              <div className="terminal-section">
-                <div className="terminal-header">SEASON_{currentSeason.season}.CFG</div>
-                <div className="terminal-row">
-                  <span className="prompt">{"league@10for10x:~$"}</span>
-                  <span className="command">describe season {currentSeason.season}</span>
-                </div>
-                <div className="terminal-row">
-                  <span className="output">{`> Teams: ${league.settings.num_teams}`}</span>
-                </div>
-                <div className="terminal-row">
-                  <span className="output">{`> Type: ${league.settings.type}`}</span>
-                </div>
-                <div className="terminal-row">
-                  <span className="output">{`> Playoff teams: ${league.settings.playoff_teams} (starting wk ${league.settings.playoff_week_start})`}</span>
-                </div>
-                <div className="terminal-row">
-                  <span className="output">{`> Trade deadline: wk ${league.settings.trade_deadline_week}`}</span>
-                </div>
-                <div className="terminal-row">
-                  <span className="output">{`> Keepers: ${league.settings.max_keepers}`}</span>
-                </div>
-                <div className="terminal-row">
-                  <span className="output">{`> Roster: ${rosterDisplay}`}</span>
-                </div>
-                <div className="terminal-row">
-                  <span className="output">{`> IR slots: ${league.settings.reserve_slots}`}</span>
-                </div>
-                <div className="terminal-row">
-                  <span className="output">{`> Draft date: ${draftDateCt}`}</span>
-                </div>
-                <div className="terminal-row">
-                  <span className="output">
-                    {`> Status: ${currentSeason.status} `}
-                    <span className="cursor-blink">_</span>
-                  </span>
-                </div>
-              </div>
+              <TerminalBlock
+                title={`SEASON_${currentSeason.season}.CFG`}
+                commands={[
+                  {
+                    command: "league_overview",
+                    output: [
+                      `Teams: ${league.settings.num_teams}`,
+                      `Type: ${league.settings.type}`,
+                      `Playoff teams: ${league.settings.playoff_teams} (starting wk ${league.settings.playoff_week_start})`,
+                      `Trade deadline: wk ${league.settings.trade_deadline_week}`,
+                      `Keepers: ${league.settings.max_keepers}`,
+                    ],
+                  },
+                  {
+                    command: "roster_brkdwn",
+                    output: [`Roster: ${rosterDisplay}`, `IR slots: ${league.settings.reserve_slots}`],
+                  },
+                  {
+                    command: "draft_day",
+                    output: [`Draft date: ${draftDateCt}`, `Status: ${currentSeason.status}`],
+                  },
+                ]}
+              />
             )}
           </section>
         )}

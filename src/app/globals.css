@@ -883,6 +883,12 @@ footer {
   color: var(--accent-retro);
 }
 
+.markdown-body h4 {
+  font-size: 0.95rem;
+  color: var(--accent-retro);
+  letter-spacing: 0.05em;
+}
+
 .markdown-body p {
   margin-bottom: 14px;
 }

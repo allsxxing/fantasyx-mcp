@@ -1,6 +1,12 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { splitSections, sectionBullets } from "../src/lib/rules-sections.ts";
+import {
+  splitSections,
+  sectionBullets,
+  stripHeadingNumbers,
+  promoteBoldLabelsToHeadings,
+  removeSections,
+} from "../src/lib/rules-sections.ts";
 
 const SAMPLE = `# Title
 
@@ -44,4 +50,26 @@ test("sectionBullets returns an empty array for a section with no list", () => {
 
 test("splitSections returns an empty map for empty input", () => {
   assert.equal(splitSections("").size, 0);
+});
+
+test("stripHeadingNumbers removes ordinal prefixes from headings only", () => {
+  const input = "### 1. BUY-IN MULTIPLIER\n\n1. Not a heading, an ordered list item.\n";
+  const result = stripHeadingNumbers(input);
+  assert.ok(result.includes("### BUY-IN MULTIPLIER"));
+  assert.ok(result.includes("1. Not a heading, an ordered list item."));
+});
+
+test("promoteBoldLabelsToHeadings converts standalone bold labels to uppercase h4s", () => {
+  const input = "**Declaration Rule:**\n\n- Must declare by Friday.\n\n**Title Transfer:**\n";
+  const result = promoteBoldLabelsToHeadings(input, ["Declaration Rule", "Title Transfer"]);
+  assert.ok(result.includes("#### DECLARATION RULE:"));
+  assert.ok(result.includes("#### TITLE TRANSFER:"));
+  assert.ok(!result.includes("**Declaration Rule:**"));
+});
+
+test("removeSections drops a named section and stops at the next heading", () => {
+  const result = removeSections(SAMPLE, ["TAGLINES"]);
+  assert.ok(!result.includes("TAGLINES"));
+  assert.ok(!result.includes("One League. One Crown. One X."));
+  assert.ok(result.includes("## LATEST SEASON DETAILS"));
 });
