@@ -64,7 +64,13 @@ phase is gated on an observed result before the next begins.
 - **Flaim coexistence.** Flaim MCP is connected and answers league-state questions. The few
   Sleeper-backed tools here are league-scoped and **`fx_`-prefixed** so the model never sees
   two answers to one question. Keep the total tool surface modest (~12–15) — large tool lists
-  measurably degrade client tool-selection.
+  measurably degrade client tool-selection. Flaim's hosted endpoint is `https://api.flaim.app/mcp`,
+  reached via an already-authenticated MCP connector — do not `claude mcp add` a second `flaim`
+  entry; it would be an unauthenticated duplicate of a working connection, not a fix. A
+  source-reference clone lives at `/Volumes/X10PRO/⚡ClaudeCode/Projects/flaim` — a separate repo,
+  never vendored, never a dependency of this build, not run locally. Division of labor: Flaim = live multi-platform
+  league state (ESPN/Yahoo/Sleeper, read-only); FantasyX = league-only knowledge Sleeper
+  doesn't hold (rules, dues, voice, X-Champion log).
 
 ## Content ownership (FantasyX)
 
