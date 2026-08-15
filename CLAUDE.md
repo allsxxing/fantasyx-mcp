@@ -100,6 +100,16 @@ src/
   components/retro-chrome.tsx  "use client" — live SYS_UP clock + scroll-to-top button;
                                all browser-only effects isolated here so page.tsx stays a
                                Server Component.
+  components/terminal-block.tsx  reusable <TerminalBlock title commands cursor preserveCase>
+                               renders content as a terminal window (prompt + command + output
+                               lines). Every terminal-styled section on the page (X mechanic,
+                               season config, commish note, etc.) goes through this — don't
+                               hand-roll a new .terminal-section block.
+  lib/rules-sections.ts        pure Markdown transforms over the generated rules.md body:
+                               splitSections/sectionBullets/getSection (extract a named
+                               section), stripHeadingNumbers, promoteBoldLabelsToHeadings,
+                               removeSections (display-only cleanup, never mutates the source).
+                               Unit-tested in test/rules-sections.test.mjs.
   app/api/mcp/route.ts         public endpoint  (mcp-handler, Streamable HTTP, stateless)
   app/api/admin/mcp/route.ts   bearer-gated endpoint (URL /api/admin/mcp — see Stack note)
   lib/content.ts               typed accessors over the generated module (getData/getDocument/…)
@@ -161,12 +171,17 @@ Two non-obvious workarounds in `src/app/api/mcp/route.ts` that must not be remov
 ```bash
 npm run dev          # build:content, then next dev — public at :3000/api/mcp
 npm run build        # prebuild runs build-content.mjs, then next build
-npx tsc --noEmit     # typecheck (no test suite yet; content is validated instead)
+npx tsc --noEmit     # typecheck
+npm test              # node --experimental-strip-types --test test/*.test.mjs — pure-function
+                       # unit tests (currently rules-sections.ts); content itself is validated
+                       # separately via `npm run validate`, not unit-tested
 npm run validate     # validate-content.mjs — every content file vs its JSON Schema
 npm run build:content # content/ → src/generated/content.ts (bundled; never read at runtime)
 npm run import:icloud # RE-SYNC path for rules: edit source doc, run this, commit the diff
 npm run sync:sleeper  # walk previous_league_id chain → seasons/*.json (champions, roster diffs)
 ```
+
+To run a single test file: `node --experimental-strip-types --test test/rules-sections.test.mjs`.
 
 `npm run dev` needs no env vars for the public endpoint. To exercise the admin endpoint locally,
 prefix with `FANTASYX_ADMIN_TOKEN=… FANTASYX_PRIVATE_DATA='{…}'` (shape in `.env.example`).
