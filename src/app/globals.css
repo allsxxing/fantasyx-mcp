@@ -848,6 +848,7 @@ footer {
 /* Rendered rules markdown body — shares the terminal palette so prose sections
    read as part of the same system as .terminal-section blocks. */
 .markdown-body {
+  position: relative;
   max-width: 760px;
   color: var(--text-secondary);
   line-height: 1.7;

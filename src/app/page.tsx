@@ -101,7 +101,18 @@ export default async function Home() {
   const sections = splitSections(rulesBody);
   const seasonDetailBullets = sectionBullets(sections.get("LATEST SEASON DETAILS") ?? "");
   const taglineBullets = sectionBullets(sections.get("TAGLINES") ?? "");
-  const xChampionBody = sections.get("WEEKLY X CHAMPION (THE MAIN FEATURE)") ?? "";
+  const multiplierBody = sections.get("BUY-IN MULTIPLIER (X VOTE)") ?? "";
+  const weeklyXBody = sections.get("WEEKLY X CHAMPION (THE MAIN FEATURE)") ?? "";
+  const xChampionBody =
+    multiplierBody || weeklyXBody
+      ? [
+          "## THE X — TWO MEANINGS. ONE CROWN.",
+          "### BUY-IN MULTIPLIER (X VOTE)",
+          multiplierBody,
+          "### WEEKLY X CHAMPION (THE MAIN FEATURE)",
+          weeklyXBody,
+        ].join("\n\n")
+      : "";
 
   const seasonDraft = getData<{ draft?: SeasonDraft }>(`seasons/${currentXSeason}`)?.draft;
   const draftDateCt = seasonDraft?.date_ct ?? "TBD";
@@ -124,7 +135,7 @@ export default async function Home() {
             <a href="#champions">CHAMPIONS</a>
             <a href="#x-belt">❌-BELT</a>
             <a href="#rules">RULES</a>
-            <a href="#commish-note">NOTE</a>
+            <a href="#commish-note">COMMISH</a>
             <a href="#connect">CONNECT</a>
           </nav>
           <div className="system-status">SYS_UP: 00:00:00 | CPU: 12%</div>
@@ -253,7 +264,7 @@ export default async function Home() {
           <div className="terminal-section">
           <div className="terminal-header">X_CHAMPION_BELT.LOG</div>
           <div className="terminal-row">
-            <span className="prompt">{"guest@league:~$"}</span>
+            <span className="prompt">{"league@10for10x:~$"}</span>
             <span className="command">fetch x-champion-log --season {currentXSeason}</span>
           </div>
           <div className="terminal-row">
@@ -277,7 +288,7 @@ export default async function Home() {
             ))
           )}
           <div className="terminal-row">
-            <span className="prompt">{"guest@league:~$"}</span>
+            <span className="prompt">{"league@10for10x:~$"}</span>
             <span className="command">run connect_protocol.sh</span>
           </div>
           <div className="terminal-row">
@@ -289,6 +300,7 @@ export default async function Home() {
           </div>
           {xChampionBody && (
             <div className="markdown-body" style={{ marginTop: "40px" }}>
+              <div className="terminal-header">X_RULES.MD</div>
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{xChampionBody}</ReactMarkdown>
             </div>
           )}
@@ -333,7 +345,7 @@ export default async function Home() {
               <div className="terminal-section">
                 <div className="terminal-header">SEASON_{currentSeason.season}.CFG</div>
                 <div className="terminal-row">
-                  <span className="prompt">{"guest@league:~$"}</span>
+                  <span className="prompt">{"league@10for10x:~$"}</span>
                   <span className="command">describe season {currentSeason.season}</span>
                 </div>
                 <div className="terminal-row">

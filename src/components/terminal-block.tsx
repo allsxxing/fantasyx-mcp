@@ -18,7 +18,7 @@ interface TerminalBlockProps {
   children?: ReactNode;
 }
 
-const PROMPT = "guest@league:~$";
+const PROMPT = "league@10for10x:~$";
 
 export function TerminalBlock({
   title,
