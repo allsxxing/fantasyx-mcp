@@ -1,0 +1,91 @@
+name: Sync Sleeper Roster & Draft Data
+
+# Pulls live league state from the public Sleeper API and commits the regenerated
+# content/seasons/*.json + content/managers.json. Sleeper needs no credentials, so the only
+# permission required is contents:write — scoped here rather than in repo settings.
+#
+# Phase-aware schedule. GitHub cron has no per-date gating, so the phases are expressed as
+# separate entries with the same job behind them; the no-op guard below means an out-of-phase
+# run just exits clean. All times UTC — the league runs on CT.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Preseason / draft window: twice daily. Catches the draft randomization and the last
+    # open seat filling, which are the two things that change hour to hour in August.
+    - cron: '0 13,23 * * *'
+    # In-season: Tuesday 13:00 UTC (~8am CT), after Monday night finalizes.
+    - cron: '0 13 * * 2'
+    # Offseason baseline: the 1st of each month.
+    - cron: '0 13 1 * *'
+
+concurrency:
+  group: sync-sleeper
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      # Cron entries fire year-round, so each one is gated to the phase it was written for.
+      # github.event.schedule identifies which entry fired; workflow_dispatch bypasses the gate.
+      - name: Phase gate
+        id: gate
+        run: |
+          SCHED='${{ github.event.schedule }}'
+          if [ -z "$SCHED" ]; then
+            echo "Manual run — bypassing phase gate."
+            echo "run=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          MD=$(date -u +%m%d)
+          case "$SCHED" in
+            # Preseason / draft window: Aug 1 – Sep 10
+            '0 13,23 * * *') [ "$MD" \> "0731" ] && [ "$MD" \< "0911" ] && OK=1 ;;
+            # In-season: Sep 11 – Jan 10 (wraps the year end)
+            '0 13 * * 2')    { [ "$MD" \> "0910" ] || [ "$MD" \< "0111" ]; } && OK=1 ;;
+            # Offseason: Jan 11 – Jul 31
+            '0 13 1 * *')    [ "$MD" \> "0110" ] && [ "$MD" \< "0801" ] && OK=1 ;;
+          esac
+          if [ "${OK:-0}" = "1" ]; then
+            echo "In phase for '$SCHED' (today $MD) — syncing."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Out of phase for '$SCHED' (today $MD) — skipping."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - run: npm ci
+        if: steps.gate.outputs.run == 'true'
+
+      - name: Sync from Sleeper
+        if: steps.gate.outputs.run == 'true'
+        run: npm run sync:sleeper
+
+      # Gate: never push content that fails its JSON Schema. A red validate here means the
+      # sync produced something the MCP server would serve incorrectly.
+      - name: Validate content
+        if: steps.gate.outputs.run == 'true'
+        run: npm run validate
+
+      - name: Commit changes
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes from Sleeper — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/
+          git commit -m "sync: Sleeper league state $(date -u +%Y-%m-%d)"
+          git push
