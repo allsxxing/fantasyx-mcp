@@ -37,17 +37,48 @@ jobs:
           node-version: '20'
           cache: npm
 
+      # Cron entries fire year-round, so each one is gated to the phase it was written for.
+      # github.event.schedule identifies which entry fired; workflow_dispatch bypasses the gate.
+      - name: Phase gate
+        id: gate
+        run: |
+          SCHED='${{ github.event.schedule }}'
+          if [ -z "$SCHED" ]; then
+            echo "Manual run — bypassing phase gate."
+            echo "run=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          MD=$(date -u +%m%d)
+          case "$SCHED" in
+            # Preseason / draft window: Aug 1 – Sep 10
+            '0 13,23 * * *') [ "$MD" \> "0731" ] && [ "$MD" \< "0911" ] && OK=1 ;;
+            # In-season: Sep 11 – Jan 10 (wraps the year end)
+            '0 13 * * 2')    { [ "$MD" \> "0910" ] || [ "$MD" \< "0111" ]; } && OK=1 ;;
+            # Offseason: Jan 11 – Jul 31
+            '0 13 1 * *')    [ "$MD" \> "0110" ] && [ "$MD" \< "0801" ] && OK=1 ;;
+          esac
+          if [ "${OK:-0}" = "1" ]; then
+            echo "In phase for '$SCHED' (today $MD) — syncing."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Out of phase for '$SCHED' (today $MD) — skipping."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - run: npm ci
+        if: steps.gate.outputs.run == 'true'
 
       - name: Sync from Sleeper
+        if: steps.gate.outputs.run == 'true'
         run: npm run sync:sleeper
 
       # Gate: never push content that fails its JSON Schema. A red validate here means the
       # sync produced something the MCP server would serve incorrectly.
       - name: Validate content
+        if: steps.gate.outputs.run == 'true'
         run: npm run validate
 
       - name: Commit changes
+        if: steps.gate.outputs.run == 'true'
         run: |
           if [ -z "$(git status --porcelain)" ]; then
             echo "No changes from Sleeper — nothing to commit."

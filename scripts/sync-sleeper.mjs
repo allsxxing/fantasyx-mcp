@@ -47,9 +47,16 @@ async function fetchBundle(leagueId) {
   ]);
   let winnersBracket = null;
   try { winnersBracket = await getJson(`/league/${leagueId}/winners_bracket`); } catch { /* not available pre-playoffs */ }
+  // A league that references a draft MUST return one. Swallowing this error would let a
+  // transient Sleeper failure be written as draft_order: null — schema-valid, and therefore
+  // committed by CI as a deletion of a real draft order. Fail loudly and keep the last good data.
   let draft = null;
   if (league.draft_id) {
-    try { draft = await getJson(`/draft/${league.draft_id}`); } catch (err) { warn(`draft ${league.draft_id} unavailable:`, err.message); }
+    try {
+      draft = await getJson(`/draft/${league.draft_id}`);
+    } catch (err) {
+      throw new Error(`draft ${league.draft_id} unavailable; refusing to write incomplete draft data: ${err.message}`);
+    }
   }
   return { league, users, rosters, winnersBracket, draft };
 }
@@ -83,6 +90,22 @@ function resolveChampion({ league, users, rosters, winnersBracket }) {
     team_name: user?.metadata?.team_name ?? null,
     source: league.metadata?.latest_league_winner_roster_id ? 'league.metadata.latest_league_winner_roster_id' : 'winners_bracket',
   };
+}
+
+// Write only when the substantive data changed. `synced_at` / `generated_at` are rewritten on
+// every run, so writing unconditionally leaves the tree permanently dirty and turns CI's
+// "commit only if something changed" guard into "commit every run". Compare with the volatile
+// keys stripped, and leave the file (timestamp included) untouched when nothing else moved.
+const VOLATILE = ['synced_at', 'generated_at'];
+
+async function writeIfChanged(path, obj) {
+  const stable = o => JSON.stringify(o, (k, v) => (VOLATILE.includes(k) ? undefined : v));
+  try {
+    const existing = JSON.parse(await readFile(path, 'utf8'));
+    if (stable(existing) === stable(obj)) return false;
+  } catch { /* missing or unparseable — fall through and write */ }
+  await writeFile(path, JSON.stringify(obj, null, 2) + '\n', 'utf8');
+  return true;
 }
 
 function draftInfo(draft) {
@@ -190,9 +213,9 @@ async function main() {
       };
     }
 
-    await writeFile(join(SEASONS, `${season}.json`), JSON.stringify(out, null, 2) + '\n', 'utf8');
-    written.push(`${season} (${status}${champion ? `, champ: ${champion.display_name}` : ''})`);
-    log('wrote', `seasons/${season}.json`);
+    const changed = await writeIfChanged(join(SEASONS, `${season}.json`), out);
+    written.push(`${season} (${status}${champion ? `, champ: ${champion.display_name}` : ''}${changed ? '' : ', unchanged'})`);
+    log(changed ? 'wrote' : 'unchanged', `seasons/${season}.json`);
   }
 
   await writeManagers(chain[0]);
@@ -221,8 +244,8 @@ async function writeManagers(bundle) {
     member_count: members.length,
     managers: members.map(m => ({ ...m, is_commissioner: m.user_id === commishId })),
   };
-  await writeFile(join(CONTENT, 'managers.json'), JSON.stringify(out, null, 2) + '\n', 'utf8');
-  log('wrote', `managers.json (${members.length} managers)`);
+  const changed = await writeIfChanged(join(CONTENT, 'managers.json'), out);
+  log(changed ? 'wrote' : 'unchanged', `managers.json (${members.length} managers)`);
 }
 
 main().catch(err => { console.error('[sync] FAILED', err); process.exit(1); });
