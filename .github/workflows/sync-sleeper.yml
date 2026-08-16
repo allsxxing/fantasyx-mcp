@@ -1,0 +1,60 @@
+name: Sync Sleeper Roster & Draft Data
+
+# Pulls live league state from the public Sleeper API and commits the regenerated
+# content/seasons/*.json + content/managers.json. Sleeper needs no credentials, so the only
+# permission required is contents:write — scoped here rather than in repo settings.
+#
+# Phase-aware schedule. GitHub cron has no per-date gating, so the phases are expressed as
+# separate entries with the same job behind them; the no-op guard below means an out-of-phase
+# run just exits clean. All times UTC — the league runs on CT.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Preseason / draft window: twice daily. Catches the draft randomization and the last
+    # open seat filling, which are the two things that change hour to hour in August.
+    - cron: '0 13,23 * * *'
+    # In-season: Tuesday 13:00 UTC (~8am CT), after Monday night finalizes.
+    - cron: '0 13 * * 2'
+    # Offseason baseline: the 1st of each month.
+    - cron: '0 13 1 * *'
+
+concurrency:
+  group: sync-sleeper
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Sync from Sleeper
+        run: npm run sync:sleeper
+
+      # Gate: never push content that fails its JSON Schema. A red validate here means the
+      # sync produced something the MCP server would serve incorrectly.
+      - name: Validate content
+        run: npm run validate
+
+      - name: Commit changes
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes from Sleeper — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/
+          git commit -m "sync: Sleeper league state $(date -u +%Y-%m-%d)"
+          git push

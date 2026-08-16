@@ -4,9 +4,14 @@
 // no credentials, 1000 req/min.
 //
 // Walks the season chain back from the 2026 league via previous_league_id, resolving
-// each season's champion and roster membership, and writes content/seasons/<year>.json.
-// For the newest (upcoming) season it diffs membership against the prior season to derive
-// departures / additions / open spots — no hardcoded roster changes.
+// each season's champion, roster membership and draft, and writes content/seasons/<year>.json
+// plus content/managers.json. For the newest (upcoming) season it diffs membership against the
+// prior season to derive departures / additions / open spots — no hardcoded roster changes.
+//
+// Everything this script writes is GENERATED. Never hand-edit content/seasons/*.json or
+// content/managers.json — edit nothing, re-run this instead. Draft order in particular is
+// resolved from /v1/draft and is null until Sleeper randomizes it; do NOT transcribe an order
+// off a screenshot, and do NOT invent one.
 //
 // Does NOT fetch /players/nfl — that ~5MB map is a build-time concern (build-content.mjs),
 // trimmed to {player_id, full_name, position, team} and never runtime-cached.
@@ -42,7 +47,11 @@ async function fetchBundle(leagueId) {
   ]);
   let winnersBracket = null;
   try { winnersBracket = await getJson(`/league/${leagueId}/winners_bracket`); } catch { /* not available pre-playoffs */ }
-  return { league, users, rosters, winnersBracket };
+  let draft = null;
+  if (league.draft_id) {
+    try { draft = await getJson(`/draft/${league.draft_id}`); } catch (err) { warn(`draft ${league.draft_id} unavailable:`, err.message); }
+  }
+  return { league, users, rosters, winnersBracket, draft };
 }
 
 function membersOf({ users, rosters }) {
@@ -74,6 +83,40 @@ function resolveChampion({ league, users, rosters, winnersBracket }) {
     team_name: user?.metadata?.team_name ?? null,
     source: league.metadata?.latest_league_winner_roster_id ? 'league.metadata.latest_league_winner_roster_id' : 'winners_bracket',
   };
+}
+
+function draftInfo(draft) {
+  if (!draft) return null;
+  return {
+    draft_id: draft.draft_id,
+    status: draft.status ?? null,
+    type: draft.type ?? null,
+    start_time: draft.start_time ?? null, // epoch ms as Sleeper returns it; formatting is a render concern
+    rounds: draft.settings?.rounds ?? null,
+    pick_timer_seconds: draft.settings?.pick_timer ?? null,
+    source: 'sleeper /v1/draft',
+  };
+}
+
+// Sleeper gives draft_order as user_id → slot and slot_to_roster_id as slot → roster_id.
+// Join both against the members list. Returns null before the order is randomized — the
+// absence of an order is itself the fact, and must never be filled in by hand.
+function draftOrderOf(draft, members) {
+  if (!draft?.draft_order) return null;
+  const memberByUser = new Map(members.map(m => [m.user_id, m]));
+  const rosterBySlot = draft.slot_to_roster_id ?? {};
+  return Object.entries(draft.draft_order)
+    .map(([userId, slot]) => {
+      const m = memberByUser.get(userId);
+      return {
+        draft_position: Number(slot),
+        roster_id: rosterBySlot[slot] ?? m?.roster_id ?? null,
+        user_id: userId,
+        display_name: m?.display_name ?? null,
+        team_name: m?.team_name ?? null,
+      };
+    })
+    .sort((a, b) => a.draft_position - b.draft_position);
 }
 
 async function walkChain(startId, maxDepth = 6) {
@@ -125,9 +168,15 @@ async function main() {
       member_count: members.length,
       champion,
       members,
+      draft: draftInfo(bundle.draft),
+      draft_order: draftOrderOf(bundle.draft, members),
       source: 'sync-sleeper.mjs — https://api.sleeper.app',
       synced_at: new Date().toISOString(),
     };
+
+    if (bundle.draft && !out.draft_order) {
+      warn(`season ${season}: draft ${bundle.draft.draft_id} has no draft_order yet (status: ${bundle.draft.status}) — writing null, NOT guessing.`);
+    }
 
     // For the newest season, diff against the prior season to surface roster changes.
     if (i === 0 && chain[1]) {
@@ -146,7 +195,34 @@ async function main() {
     log('wrote', `seasons/${season}.json`);
   }
 
+  await writeManagers(chain[0]);
+
   log('done:', written.join(' | '));
+}
+
+// content/managers.json is the flat current-season registry. It is derived from the same live
+// members list as seasons/<newest>.json so the two can never disagree — that drift is exactly
+// what a hand-edited registry caused before.
+async function writeManagers(bundle) {
+  const members = membersOf(bundle);
+  let commishId = null;
+  try {
+    const league = JSON.parse(await readFile(join(CONTENT, 'league.json'), 'utf8'));
+    commishId = league.commissioner?.user_id ?? null;
+  } catch (err) {
+    warn('could not read league.json for commissioner id:', err.message);
+  }
+  const out = {
+    season: bundle.league.season,
+    source_league_id: bundle.league.league_id,
+    generated_at: new Date().toISOString(),
+    source: 'sync-sleeper.mjs — https://api.sleeper.app',
+    num_teams: bundle.league.settings?.num_teams ?? null,
+    member_count: members.length,
+    managers: members.map(m => ({ ...m, is_commissioner: m.user_id === commishId })),
+  };
+  await writeFile(join(CONTENT, 'managers.json'), JSON.stringify(out, null, 2) + '\n', 'utf8');
+  log('wrote', `managers.json (${members.length} managers)`);
 }
 
 main().catch(err => { console.error('[sync] FAILED', err); process.exit(1); });
