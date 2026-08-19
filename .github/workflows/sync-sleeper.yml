@@ -11,9 +11,9 @@ name: Sync Sleeper Roster & Draft Data
 on:
   workflow_dispatch:
   schedule:
-    # Preseason / draft window: twice daily. Catches the draft randomization and the last
-    # open seat filling, which are the two things that change hour to hour in August.
-    - cron: '0 13,23 * * *'
+    # Preseason / draft window: once daily. Catches the draft randomization and the last
+    # open seat filling without doubling up cron entries at the same hour.
+    - cron: '0 13 * * *'
     # In-season: Tuesday 13:00 UTC (~8am CT), after Monday night finalizes.
     - cron: '0 13 * * 2'
     # Offseason baseline: the 1st of each month.
