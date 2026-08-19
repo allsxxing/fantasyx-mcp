@@ -5,7 +5,7 @@
   "draft_id": "1370188155851907072",
   "status": "upcoming",
   "num_teams": 10,
-  "member_count": 9,
+  "member_count": 11,
   "champion": null,
   "members": [
     {
@@ -21,8 +21,14 @@
       "roster_id": 2
     },
     {
-      "user_id": "1131727397776269312",
-      "display_name": "olavegarden2828",
+      "user_id": "467531644052434944",
+      "display_name": "anyfoolwilldo",
+      "team_name": null,
+      "roster_id": 3
+    },
+    {
+      "user_id": "1117902191370547200",
+      "display_name": "Maxwellhiggens",
       "team_name": null,
       "roster_id": 4
     },
@@ -59,21 +65,99 @@
     {
       "user_id": "871543078786375680",
       "display_name": "YourDeadPixel",
-      "team_name": "Labubus in Paris",
+      "team_name": "Big DAWG Energy ",
       "roster_id": 10
+    },
+    {
+      "user_id": "1131727397776269312",
+      "display_name": "olavegarden2828",
+      "team_name": null,
+      "roster_id": null
     }
   ],
   "draft": {
     "draft_id": "1370188155851907072",
-    "start_time": 1788732043000,
-    "date_ct": "Sunday, September 6, 2026 · 5:00 PM CT",
+    "status": "pre_draft",
     "type": "snake",
-    "pick_timer_seconds": 90,
+    "start_time": 1788732043000,
     "rounds": 18,
-    "source": "Sleeper /v1/draft (confirmed)"
+    "pick_timer_seconds": 90,
+    "source": "sleeper /v1/draft"
   },
+  "draft_order": [
+    {
+      "draft_position": 1,
+      "roster_id": 5,
+      "user_id": "1133247206179442688",
+      "display_name": "nichigh",
+      "team_name": null
+    },
+    {
+      "draft_position": 2,
+      "roster_id": 10,
+      "user_id": "871543078786375680",
+      "display_name": "YourDeadPixel",
+      "team_name": "Big DAWG Energy "
+    },
+    {
+      "draft_position": 3,
+      "roster_id": 7,
+      "user_id": "1005194894908018688",
+      "display_name": "kazeemfamuyide",
+      "team_name": null
+    },
+    {
+      "draft_position": 4,
+      "roster_id": 6,
+      "user_id": "744014760877662208",
+      "display_name": "chandran",
+      "team_name": "The ChanMan Club"
+    },
+    {
+      "draft_position": 5,
+      "roster_id": 1,
+      "user_id": "1058575263971250176",
+      "display_name": "allsxxing",
+      "team_name": "A$H & TETTIES"
+    },
+    {
+      "draft_position": 6,
+      "roster_id": 3,
+      "user_id": "467531644052434944",
+      "display_name": "anyfoolwilldo",
+      "team_name": null
+    },
+    {
+      "draft_position": 7,
+      "roster_id": 2,
+      "user_id": "855678858756734976",
+      "display_name": "Tristanv10",
+      "team_name": null
+    },
+    {
+      "draft_position": 8,
+      "roster_id": 9,
+      "user_id": "1124740547148763136",
+      "display_name": "Nels8951",
+      "team_name": null
+    },
+    {
+      "draft_position": 9,
+      "roster_id": 4,
+      "user_id": "1117902191370547200",
+      "display_name": "Maxwellhiggens",
+      "team_name": null
+    },
+    {
+      "draft_position": 10,
+      "roster_id": 8,
+      "user_id": "890091625635061760",
+      "display_name": "AJk12",
+      "team_name": "I’m stuck step Burrow"
+    }
+  ],
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
-  "synced_at": "2026-08-08T10:48:56.697Z",
+  "synced_at": "2026-08-19T13:38:02.987Z",
   "roster_changes": {
     "vs_season": "2025",
     "departures": [
@@ -94,11 +178,21 @@
     ],
     "additions": [
       {
+        "user_id": "467531644052434944",
+        "display_name": "anyfoolwilldo",
+        "roster_id": 3
+      },
+      {
+        "user_id": "1117902191370547200",
+        "display_name": "Maxwellhiggens",
+        "roster_id": 4
+      },
+      {
         "user_id": "1124740547148763136",
         "display_name": "Nels8951",
         "roster_id": 9
       }
     ],
-    "open_spots": 1
+    "open_spots": -1
   }
 }

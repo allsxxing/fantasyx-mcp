@@ -75,6 +75,87 @@
       "roster_id": 10
     }
   ],
+  "draft": {
+    "draft_id": "1131889651071119360",
+    "status": "complete",
+    "type": "snake",
+    "start_time": 1725125424427,
+    "rounds": 15,
+    "pick_timer_seconds": 60,
+    "source": "sleeper /v1/draft"
+  },
+  "draft_order": [
+    {
+      "draft_position": 1,
+      "roster_id": 4,
+      "user_id": "1038720573507510272",
+      "display_name": "GooNStaR93",
+      "team_name": null
+    },
+    {
+      "draft_position": 2,
+      "roster_id": 3,
+      "user_id": "870527515335274496",
+      "display_name": "REBEL8",
+      "team_name": "The Only Ones"
+    },
+    {
+      "draft_position": 3,
+      "roster_id": 1,
+      "user_id": "1058575263971250176",
+      "display_name": "allsxxing",
+      "team_name": "GJ!ZZLE JUICERS"
+    },
+    {
+      "draft_position": 4,
+      "roster_id": 7,
+      "user_id": "1005194894908018688",
+      "display_name": "kazeemfamuyide",
+      "team_name": null
+    },
+    {
+      "draft_position": 5,
+      "roster_id": 10,
+      "user_id": "1133515262826823680",
+      "display_name": "flamezdawson",
+      "team_name": null
+    },
+    {
+      "draft_position": 6,
+      "roster_id": 8,
+      "user_id": "962934016359862272",
+      "display_name": "TayArrington10",
+      "team_name": null
+    },
+    {
+      "draft_position": 7,
+      "roster_id": 6,
+      "user_id": "744014760877662208",
+      "display_name": "chandran",
+      "team_name": "The ChanMan Club"
+    },
+    {
+      "draft_position": 8,
+      "roster_id": 5,
+      "user_id": "1133247206179442688",
+      "display_name": "nichigh",
+      "team_name": null
+    },
+    {
+      "draft_position": 9,
+      "roster_id": 9,
+      "user_id": "855575460304752640",
+      "display_name": "Jramos1125",
+      "team_name": "WHITE CHUBB"
+    },
+    {
+      "draft_position": 10,
+      "roster_id": 2,
+      "user_id": "855678858756734976",
+      "display_name": "Tristanv10",
+      "team_name": null
+    }
+  ],
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
-  "synced_at": "2026-08-08T10:48:56.700Z"
+  "synced_at": "2026-08-19T13:38:02.990Z"
 }

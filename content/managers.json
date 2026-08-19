@@ -1,27 +1,80 @@
 {
   "season": "2026",
   "source_league_id": "1370188155843526656",
-  "source": "Flaim refreshed Sleeper snapshot",
-  "synced_at": "2026-08-15T20:20:59.805Z",
+  "generated_at": "2026-08-19T13:38:02.992Z",
+  "source": "sync-sleeper.mjs — https://api.sleeper.app",
   "num_teams": 10,
   "member_count": 10,
   "managers": [
-    {"user_id": "1058575263971250176", "display_name": "allsxxing", "team_name": "A$H & TETTIES", "roster_id": 1, "is_commissioner": true},
-    {"user_id": "855678858756734976", "display_name": "Tristanv10", "team_name": "Team Tristanv10", "roster_id": 2, "is_commissioner": false},
-    {"user_id": "467531644052434944", "display_name": "anyfoolwilldo", "team_name": "Team anyfoolwilldo", "roster_id": 3, "is_commissioner": false},
-    {"user_id": "1117902191370547200", "display_name": "Maxwellhiggens", "team_name": "Team Maxwellhiggens", "roster_id": 4, "is_commissioner": false},
-    {"user_id": "1133247206179442688", "display_name": "nichigh", "team_name": "Team nichigh", "roster_id": 5, "is_commissioner": false},
-    {"user_id": "744014760877662208", "display_name": "chandran", "team_name": "The ChanMan Club", "roster_id": 6, "is_commissioner": false},
-    {"user_id": "1005194894908018688", "display_name": "kazeemfamuyide", "team_name": "Team kazeemfamuyide", "roster_id": 7, "is_commissioner": false},
-    {"user_id": "890091625635061760", "display_name": "AJk12", "team_name": "I’m stuck step Burrow", "roster_id": 8, "is_commissioner": false},
-    {"user_id": "1124740547148763136", "display_name": "Nels8951", "team_name": "Team Nels8951", "roster_id": 9, "is_commissioner": false},
-    {"user_id": "871543078786375680", "display_name": "YourDeadPixel", "team_name": "Big DAWG Energy", "roster_id": 10, "is_commissioner": false}
-  ],
-  "roster_changes": {
-    "vs_season": "2025",
-    "departures": [],
-    "additions": [],
-    "open_spots": 0,
-    "note": "Live 2026 registry synchronized from Flaim after Sleeper refresh."
-  }
+    {
+      "user_id": "1058575263971250176",
+      "display_name": "allsxxing",
+      "team_name": "A$H & TETTIES",
+      "roster_id": 1,
+      "is_commissioner": true
+    },
+    {
+      "user_id": "855678858756734976",
+      "display_name": "Tristanv10",
+      "team_name": null,
+      "roster_id": 2,
+      "is_commissioner": false
+    },
+    {
+      "user_id": "467531644052434944",
+      "display_name": "anyfoolwilldo",
+      "team_name": null,
+      "roster_id": 3,
+      "is_commissioner": false
+    },
+    {
+      "user_id": "1117902191370547200",
+      "display_name": "Maxwellhiggens",
+      "team_name": null,
+      "roster_id": 4,
+      "is_commissioner": false
+    },
+    {
+      "user_id": "1133247206179442688",
+      "display_name": "nichigh",
+      "team_name": null,
+      "roster_id": 5,
+      "is_commissioner": false
+    },
+    {
+      "user_id": "744014760877662208",
+      "display_name": "chandran",
+      "team_name": "The ChanMan Club",
+      "roster_id": 6,
+      "is_commissioner": false
+    },
+    {
+      "user_id": "1005194894908018688",
+      "display_name": "kazeemfamuyide",
+      "team_name": null,
+      "roster_id": 7,
+      "is_commissioner": false
+    },
+    {
+      "user_id": "890091625635061760",
+      "display_name": "AJk12",
+      "team_name": "I’m stuck step Burrow",
+      "roster_id": 8,
+      "is_commissioner": false
+    },
+    {
+      "user_id": "1124740547148763136",
+      "display_name": "Nels8951",
+      "team_name": null,
+      "roster_id": 9,
+      "is_commissioner": false
+    },
+    {
+      "user_id": "871543078786375680",
+      "display_name": "YourDeadPixel",
+      "team_name": "Big DAWG Energy ",
+      "roster_id": 10,
+      "is_commissioner": false
+    }
+  ]
 }
