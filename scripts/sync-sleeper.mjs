@@ -227,7 +227,14 @@ async function main() {
 // members list as seasons/<newest>.json so the two can never disagree — that drift is exactly
 // what a hand-edited registry caused before.
 async function writeManagers(bundle) {
-  const members = membersOf(bundle);
+  // Sleeper's /league/{id}/users occasionally includes a member with no roster yet
+  // (an invite accepted before roster assignment finishes). managers.json is a rostered-team
+  // registry, so drop those rather than writing a roster_id: null that fails validate-content.
+  const allMembers = membersOf(bundle);
+  const members = allMembers.filter(m => m.roster_id != null);
+  if (members.length < allMembers.length) {
+    warn(`dropped ${allMembers.length - members.length} member(s) with no roster assigned yet`);
+  }
   let commishId = null;
   try {
     const league = JSON.parse(await readFile(join(CONTENT, 'league.json'), 'utf8'));
