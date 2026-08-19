@@ -50,7 +50,7 @@ jobs:
           MD=$(date -u +%m%d)
           case "$SCHED" in
             # Preseason / draft window: Aug 1 – Sep 10
-            '0 13,23 * * *') [ "$MD" \> "0731" ] && [ "$MD" \< "0911" ] && OK=1 ;;
+            '0 13 * * *')    [ "$MD" \> "0731" ] && [ "$MD" \< "0911" ] && OK=1 ;;
             # In-season: Sep 11 – Jan 10 (wraps the year end)
             '0 13 * * 2')    { [ "$MD" \> "0910" ] || [ "$MD" \< "0111" ]; } && OK=1 ;;
             # Offseason: Jan 11 – Jul 31
