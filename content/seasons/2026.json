@@ -5,7 +5,7 @@
   "draft_id": "1370188155851907072",
   "status": "upcoming",
   "num_teams": 10,
-  "member_count": 11,
+  "member_count": 10,
   "champion": null,
   "members": [
     {
@@ -67,12 +67,6 @@
       "display_name": "YourDeadPixel",
       "team_name": "Big DAWG Energy ",
       "roster_id": 10
-    },
-    {
-      "user_id": "1131727397776269312",
-      "display_name": "olavegarden2828",
-      "team_name": null,
-      "roster_id": null
     }
   ],
   "draft": {
@@ -157,7 +151,7 @@
     }
   ],
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
-  "synced_at": "2026-08-19T13:38:02.987Z",
+  "synced_at": "2026-08-23T13:26:37.753Z",
   "roster_changes": {
     "vs_season": "2025",
     "departures": [
@@ -165,6 +159,13 @@
         "user_id": "1050641420425601024",
         "display_name": "kgamo0527",
         "prior_roster_id": 3,
+        "status": "to_be_filled",
+        "note": "In prior season, not in current roster; spot to be filled before Draft Day."
+      },
+      {
+        "user_id": "1131727397776269312",
+        "display_name": "olavegarden2828",
+        "prior_roster_id": 4,
         "status": "to_be_filled",
         "note": "In prior season, not in current roster; spot to be filled before Draft Day."
       },
@@ -193,6 +194,6 @@
         "roster_id": 9
       }
     ],
-    "open_spots": -1
+    "open_spots": 0
   }
 }
