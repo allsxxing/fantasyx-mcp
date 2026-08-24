@@ -11,7 +11,7 @@
     {
       "user_id": "1058575263971250176",
       "display_name": "allsxxing",
-      "team_name": "A$H & TETTIES",
+      "team_name": "NO MORE A$H ONLY TETTIES",
       "roster_id": 1
     },
     {
@@ -112,7 +112,7 @@
       "roster_id": 1,
       "user_id": "1058575263971250176",
       "display_name": "allsxxing",
-      "team_name": "A$H & TETTIES"
+      "team_name": "NO MORE A$H ONLY TETTIES"
     },
     {
       "draft_position": 6,
@@ -151,7 +151,7 @@
     }
   ],
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
-  "synced_at": "2026-08-23T13:26:37.753Z",
+  "synced_at": "2026-08-24T13:44:00.672Z",
   "roster_changes": {
     "vs_season": "2025",
     "departures": [

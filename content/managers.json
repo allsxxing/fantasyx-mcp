@@ -1,7 +1,7 @@
 {
   "season": "2026",
   "source_league_id": "1370188155843526656",
-  "generated_at": "2026-08-19T13:38:02.992Z",
+  "generated_at": "2026-08-24T13:44:00.677Z",
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
   "num_teams": 10,
   "member_count": 10,
@@ -9,7 +9,7 @@
     {
       "user_id": "1058575263971250176",
       "display_name": "allsxxing",
-      "team_name": "A$H & TETTIES",
+      "team_name": "NO MORE A$H ONLY TETTIES",
       "roster_id": 1,
       "is_commissioner": true
     },
