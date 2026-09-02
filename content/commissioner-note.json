@@ -16,25 +16,46 @@
         "Draft Date: Sun, Sept 6 @ 5:00 PM CT",
         "Type: Snake",
         "Time Per Pick: 90 Seconds",
-        "Draft Order: Randomized"
+        "Draft Order: Randomized",
+        "Status: scheduled"
+      ]
+    },
+    {
+      "label": "ROSTER",
+      "rows": [
+        "QB / RB / RB / WR / WR / TE / (3X) FLEX / K / DEF",
+        "Bench: 7",
+        "IR: 3"
       ]
     },
     {
       "label": "FEES / DUES",
       "rows": [
-        "Platform(s): SleeperSafe, LeagueSafe",
+        "Buy-in: $10 via SleeperSafe",
+        "\u274c Bonus / Multiplier: TBD via LeagueSafe",
         "https://www.leaguesafe.com/join/4429630/10-for-10",
-        "⚠️ Pay-Up Punishment Enforced!",
-        "⛔️ UNPAID *BONUS* Dues = Limited Waivers, Any Roster txns vetoable (by Leaguemates)"
+        "\u26a0\ufe0f Pay-Up Punishment Enforced!",
+        "\u26d4 UNPAID Buy-In = FULL Roster Lock",
+        "\u26d4 UNPAID \u274c BONUS = Limited Waivers, vetoable by League"
+      ]
+    },
+    {
+      "label": "\u274c-BELT",
+      "rows": [
+        "Week 1: highest score in the whole league is crowned first \u274c Champ",
+        "Week 2+: Champ forces ONE opponent FLEX-eligible player to start",
+        "Declare the lock in league chat by EOD Friday (11:59 PM CT)",
+        "No declaration = no lock that week",
+        "Win \u2192 keep the belt / Lose \u2192 the team that beat you takes it"
       ]
     },
     {
       "label": "PRIZING",
-      "rows": ["Prize Pot: WINNER TAKE ALL!"]
+      "rows": ["Prize Pot: WINNER TAKE ALL!", "Final pot scales w/ League-voted Multiplier"]
     },
     {
       "label": "INFO",
-      "rows": ["Scoring: Sleeper PPR"]
+      "rows": ["Scoring: Sleeper PPR", "Waivers: Rolling"]
     }
   ]
 }
