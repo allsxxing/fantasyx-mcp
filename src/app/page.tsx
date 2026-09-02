@@ -61,6 +61,8 @@ interface RulesMeta {
 
 interface SeasonDraft {
   date_ct?: string;
+  status?: string;
+  start_time?: number;
 }
 
 interface CommissionerNote {
@@ -124,22 +126,31 @@ export default async function Home() {
         ].join("\n\n")
       : "";
 
-  // Display-only view of the full rules body: LATEST SEASON DETAILS and TAGLINES
-  // already render as their own dedicated terminal blocks below, so they're
-  // dropped here to avoid showing the same content twice.
   const rulesDisplayBody = stripHeadingNumbers(
     removeSections(promoteBoldLabelsToHeadings(rulesBody, SUBHEADER_LABELS), ["LATEST SEASON DETAILS", "TAGLINES"]),
   );
 
   const seasonDraft = getData<{ draft?: SeasonDraft }>(`seasons/${currentXSeason}`)?.draft;
-  const draftDateCt = seasonDraft?.date_ct ?? "TBD";
+  const draftDateCt = seasonDraft?.date_ct ?? "9/6/26 5PM CT";
+  const draftDisplayStatus = seasonDraft?.status === "pre_draft" ? "scheduled" : (currentSeason?.status ?? "upcoming");
 
-  const benchCount = league.settings.roster_positions.filter((p) => p === "BN").length;
-  const nonBenchPositions = league.settings.roster_positions.filter((p) => p !== "BN");
-  const rosterDisplay =
-    benchCount > 0
-      ? `${nonBenchPositions.join("/")} + (${benchCount}x) BN`
-      : league.settings.roster_positions.join("/");
+  const formatRosterLine = (positions: string[]) => {
+    const benchCount = positions.filter((p) => p === "BN").length;
+    const starters = positions.filter((p) => p !== "BN");
+    const parts: string[] = [];
+    let i = 0;
+    while (i < starters.length) {
+      const pos = starters[i];
+      let n = 1;
+      while (i + n < starters.length && starters[i + n] === pos) n += 1;
+      if (pos === "FLEX") parts.push(n > 1 ? `(${n}X) FLEX` : "FLEX");
+      else for (let k = 0; k < n; k += 1) parts.push(pos);
+      i += n;
+    }
+    const core = parts.join("/");
+    return benchCount > 0 ? `${core} + (${benchCount}x) BN` : core;
+  };
+  const rosterDisplay = formatRosterLine(league.settings.roster_positions);
 
   return (
     <>
@@ -160,7 +171,6 @@ export default async function Home() {
       </header>
 
       <div className="container">
-        {/* Hero */}
         <section className="hero">
           <div className="hero-content">
             <p style={{ color: "var(--accent-retro)", marginBottom: "10px" }}>{"[ CONNECTING TO LEAGUE... ]"}</p>
@@ -203,7 +213,6 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Stats */}
         <div className="stats-bar">
           <div className="stat-item">
             <div className="stat-val">{league.settings.num_teams}</div>
@@ -223,7 +232,6 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Season Champions */}
         <section id="champions">
           <h2 className="section-title">Season Champions</h2>
           <div className="portfolio-grid">
@@ -260,7 +268,6 @@ export default async function Home() {
         </section>
       </div>
 
-      {/* Marquee */}
       <div className="marquee-container">
         <div className="marquee-text">
           <span>SABOTAGE THE FLEX • </span>
@@ -275,7 +282,6 @@ export default async function Home() {
       </div>
 
       <div className="container">
-        {/* X Champion Belt terminal */}
         <section id="x-belt">
           <h2 className="section-title">❌-BELT</h2>
           <div className="terminal-section">
@@ -323,7 +329,6 @@ export default async function Home() {
           )}
         </section>
 
-        {/* Rules strip */}
         {rulesMeta && rulesDoc && (
           <section id="rules" style={{ marginBottom: "100px" }}>
             <h2 className="section-title">Rules</h2>
@@ -379,7 +384,7 @@ export default async function Home() {
                   },
                   {
                     command: "draft_day",
-                    output: [`Draft date: ${draftDateCt}`, `Status: ${currentSeason.status}`],
+                    output: [`Draft date: ${draftDateCt}`, `Status: ${draftDisplayStatus}`],
                   },
                 ]}
               />
@@ -401,7 +406,6 @@ export default async function Home() {
           </section>
         )}
 
-        {/* Connect / Footer */}
         <footer id="connect">
           <div className="footer-logo">
             <p style={{ color: "var(--accent-retro)", fontSize: "0.8rem", marginBottom: "10px" }}>CONNECT</p>
