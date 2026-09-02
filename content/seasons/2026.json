@@ -41,7 +41,7 @@
     {
       "user_id": "744014760877662208",
       "display_name": "chandran",
-      "team_name": "The ChanMan Club",
+      "team_name": "THE RULER",
       "roster_id": 6
     },
     {
@@ -105,7 +105,7 @@
       "roster_id": 6,
       "user_id": "744014760877662208",
       "display_name": "chandran",
-      "team_name": "The ChanMan Club"
+      "team_name": "THE RULER"
     },
     {
       "draft_position": 5,
@@ -151,7 +151,7 @@
     }
   ],
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
-  "synced_at": "2026-08-24T13:44:00.672Z",
+  "synced_at": "2026-09-02T16:56:23.911Z",
   "roster_changes": {
     "vs_season": "2025",
     "departures": [
