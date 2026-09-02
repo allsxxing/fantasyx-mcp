@@ -3,14 +3,34 @@ title: X Multiplier Poll (Buy-in Vote)
 variables: []
 ---
 
-🗳️ **THE ❌ VOTE — SET THE BAG** 🗳️
+## Poll Body
+(paste into the top “Ask something...” field)
 
-How much skin are we putting in the game this season? Higher X = fatter winner's bag.
+```
+🗳️ THE ❌ VOTE — SET THE BAG 🗳️
 
-- **1X** → $10
-- **2.5X** → $25
-- **5X** → $50
-- **10X** → $100
-- **OTHER** → drop your number in the comments
+How much skin we putting in this year?
 
-Vote now. Majority sets the buy-in. 💰🔟❌
+Every number below is the TOTAL.
+The $10 buy-in is already counted in it.
+
+Higher ❌ = fatter WTA bag.
+Anything over $10 hits LeagueSafe.
+```
+
+## Choices
+
+**Choice 1**
+```
+1❌ — $10 (already covered by the $10 buy-in)
+```
+
+**Choice 2**
+```
+2.5❌ — $25 total
+```
+
+**Choice 3**
+```
+5❌ — $50 total
+```
