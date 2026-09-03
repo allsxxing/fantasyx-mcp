@@ -11,26 +11,25 @@ variables: []
 
 How much skin we putting in this year?
 
-Every number below is the TOTAL.
-The $10 buy-in is already counted in it.
+Higher multiplier = bigger winner bag. League decides the skin in the game.
+Current Payment Method: LeagueSafe
 
-Higher ❌ = fatter WTA bag.
-Anything over $10 hits LeagueSafe.
+Note: Each of the above TOTALS include the $10 buy-in.
 ```
 
 ## Choices
 
 **Choice 1**
 ```
-1❌ — $10 (already covered by the $10 buy-in)
+1❌ — $10 (remains the same; covered by $10 buy-in)
 ```
 
 **Choice 2**
 ```
-2.5❌ — $25 total
+2.5❌ — $25
 ```
 
 **Choice 3**
 ```
-5❌ — $50 total
+5❌ — $50
 ```
