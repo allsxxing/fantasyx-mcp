@@ -6,6 +6,7 @@
 // basePath is /api/admin. Deployment Protection must stay OFF in production; this bearer is the gate.
 import { createMcpHandler, withMcpAuth } from "mcp-handler";
 import type { AuthInfo } from "@modelcontextprotocol/sdk/server/auth/types.js";
+import { tokensMatch } from "@/lib/auth";
 import { registerAdminTools, registerPublicTools } from "@/tools";
 
 const handler = createMcpHandler(
@@ -27,17 +28,6 @@ const handler = createMcpHandler(
     verboseLogs: process.env.NODE_ENV !== "production",
   },
 );
-
-/**
- * Constant-time-ish comparison so a wrong token can't be recovered by timing the response.
- * Both sides are hex/opaque strings of equal expected length.
- */
-function tokensMatch(a: string, b: string): boolean {
-  if (a.length !== b.length) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
-  return diff === 0;
-}
 
 const verifyToken = async (
   _req: Request,

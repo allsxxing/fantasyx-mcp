@@ -2,17 +2,19 @@
   "name": "fantasyx-mcp",
   "version": "0.1.0",
   "private": true,
-  "description": "League HQ for the Sleeper league 🔟 FOR $10❌, served as a remote MCP server.",
+  "description": "League HQ for the Sleeper league \ud83d\udd1f FOR $10\u274c, served as a remote MCP server.",
   "scripts": {
-    "dev": "npm run build:content && next dev",
+    "dev": "node scripts/snapshot-upstream-tools.mjs && npm run build:content && next dev",
     "build:content": "node scripts/build-content.mjs",
-    "prebuild": "node scripts/build-content.mjs",
+    "prebuild": "node scripts/snapshot-upstream-tools.mjs && node scripts/build-content.mjs",
     "build": "next build",
     "start": "next start",
     "import:icloud": "node scripts/import-icloud.mjs",
     "sync:sleeper": "node scripts/sync-sleeper.mjs",
     "validate": "node scripts/validate-content.mjs",
-    "test": "node --experimental-strip-types --test test/*.test.mjs"
+    "test": "node --experimental-strip-types --test test/*.test.mjs",
+    "snapshot:upstream": "node scripts/snapshot-upstream-tools.mjs",
+    "oauth:bootstrap": "node scripts/oauth-bootstrap.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",
