@@ -51,7 +51,13 @@ phase is gated on an observed result before the next begins.
   `content/archive/rules-2026-draft-superseded.md` with a header noting it. Never merge the two;
   answering this rule wrong is the worst failure mode. The update path is a single re-sync: edit
   the source doc, run `node scripts/import-icloud.mjs`, commit. `rules.md` is generated — never
-  hand-edit it; edit the source and re-import.
+  hand-edit it; edit the source and re-import. **As of 2026-09-02 the source `.md` that
+  `import-icloud.mjs` reads (`10_FOR_10X_League_Rules_2026-08-11.md`) is missing from the iCloud
+  corpus** — only superseded drafts remain there. A full-text copy survives as the `.docx`
+  Claude committed in `bb5a80f` (`content/10_FOR_10X_League_Rules_2026.md.docx`); it confirms
+  the poll's real option set is **1X/2.5X/5X/10X/OTHER**, not just the 3 options some chat
+  templates surface. Restore the `.md` to iCloud (or point `FANTASYX_CORPUS` at wherever it
+  lives now) before trusting a fresh `import:icloud` run.
 - **Private data never enters git.** Payment handles, contacts, dues amounts, and the paid/
   unpaid list live only in the Vercel env var `FANTASYX_PRIVATE_DATA`, read by the bearer-
   gated admin endpoint. Do not invent a LeagueSafe URL or join code — the source export
@@ -210,6 +216,17 @@ so always cap curl with `--max-time`. There is no `server.tool()`/plain-JSON sho
 transitive Next-15 build deps outside the request path (next/image unused, Windows-only for hono),
 fixable only by `next@16` which conflicts with `mcp-handler`'s pinned Next 15. **Left as accepted
 risk** — do not `npm audit fix --force`. The security-relevant pin (SDK ≥ 1.26) is satisfied.
+
+## Automated Sleeper sync (GitHub Actions)
+
+`.github/workflows/sync-sleeper.yml` runs `npm run sync:sleeper` on a cron and **commits +
+pushes `content/` directly as `github-actions[bot]`** when Sleeper state changed — expect
+unattributed `sync: Sleeper league state YYYY-MM-DD` commits in `git log` that nobody in this
+session authored. The cron fires year-round on three schedules but self-gates to one active
+phase by date (preseason/draft daily, in-season Tuesdays, offseason monthly) since GitHub cron
+has no per-date conditionals — an out-of-phase firing exits as a no-op. It never pushes content
+that fails `npm run validate`. Vercel is git-connected, so each of these commits triggers a
+production redeploy same as a human push.
 
 ## Phase gates (observed results, not "it ran")
 
