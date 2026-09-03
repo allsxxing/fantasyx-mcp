@@ -126,6 +126,9 @@ export function ConnectTabs({ inviteUrl, duesUrl, buyIn, structure, multiplierSt
           <p style={{ marginTop: "20px", color: "var(--text-secondary)", fontSize: "0.85rem" }}>
             <code>/api/admin/mcp</code> — requires a bearer token
           </p>
+          <p style={{ marginTop: "6px", color: "var(--text-secondary)", fontSize: "0.85rem" }}>
+            <code>/api/grok/mcp</code> — personal Grok bridge, requires a bearer token
+          </p>
         </div>
       )}
     </div>
