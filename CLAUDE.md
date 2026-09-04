@@ -20,9 +20,10 @@ phase is gated on an observed result before the next begins.
 > Sleeper sync (champions resolve: 2025 = AJk12, 2024 = flamezdawson ✓), MCP server — 13 public
 > tools + 15 resources execute over Streamable HTTP, admin endpoint returns 401/200 per token ✓,
 > `next build` + `tsc --noEmit` clean ✓. Phase 2: repo pushed to GitHub (`allsxxing/fantasyx-mcp`,
-> private ✓). Phase 3: deployed to Vercel production `https://fantasyx-mcp.vercel.app` — both env
+> public ✓). Phase 3: deployed to Vercel production `https://fantasyx-mcp.vercel.app` — both env
 > vars set, SSO protection off, `initialize` returns valid JSON-RPC ✓. Phase 4: published as
 > claude.ai connector + `claude mcp add --transport http https://fantasyx-mcp.vercel.app/api/mcp` ✓
+> (connector confirmed live and answering `fx_*` tool calls end-to-end).
 > Approved plan at `~/.claude/plans/project-fantasyx-mcp-fantasy-peppy-globe.md`.
 
 ## The three-way data split drives every decision
@@ -62,8 +63,11 @@ phase is gated on an observed result before the next begins.
   unpaid list live only in the Vercel env var `FANTASYX_PRIVATE_DATA`, read by the bearer-
   gated admin endpoint. Do not invent a LeagueSafe URL or join code — the source export
   explicitly warns against fabricating one.
-- **Two endpoints.** `/api/mcp` is public. `/api/admin/mcp` requires `FANTASYX_ADMIN_TOKEN`
-  and adds the private fields. The admin URL ends in `/mcp` on purpose: mcp-handler routes by
+- **Three endpoints.** `/api/mcp` is public. `/api/admin/mcp` requires `FANTASYX_ADMIN_TOKEN`
+  and adds the private fields. `/api/grok/mcp` requires `FANTASYX_GROK_TOKEN` and is a personal
+  bridge that proxies Flaim/FantasyPros tools (via `src/connectors/mcp-proxy.ts`) for Grok —
+  kill-switched per upstream (`FLAIM_ENABLED`, `FANTASYPROS_ENABLED`) and not part of the public
+  or admin tool surface. The admin URL ends in `/mcp` on purpose: mcp-handler routes by
   the final path segment (basePath `/api/admin`, transport `mcp`) — `/api/mcp/admin` would make
   "admin" the transport and 404. Same reason the public route sits at `/api/mcp`, basePath `/api`.
 - **Flaim coexistence.** Flaim MCP is connected and answers league-state questions. The few
@@ -131,12 +135,17 @@ src/
                                Unit-tested in test/rules-sections.test.mjs.
   app/api/mcp/route.ts         public endpoint  (mcp-handler, Streamable HTTP, stateless)
   app/api/admin/mcp/route.ts   bearer-gated endpoint (URL /api/admin/mcp — see Stack note)
+  app/api/grok/mcp/route.ts    bearer-gated (FANTASYX_GROK_TOKEN) personal Grok bridge
   lib/content.ts               typed accessors over the generated module (getData/getDocument/…)
   lib/private.ts               parses FANTASYX_PRIVATE_DATA; null when unset (admin degrades)
+  lib/auth.ts                  shared bearer-token check used by admin + grok routes
+  lib/jsonschema-to-zod.ts     converts an upstream MCP tool's JSON Schema to zod for registerTool
   connectors/types.ts          shared FantasyConnector iface; sleeper.ts implemented,
                                flaim.ts + leagueloom.ts throw ConnectorNotImplementedError
+  connectors/mcp-proxy.ts      proxies an upstream MCP server's tools through /api/grok/mcp
   tools/index.ts               registerPublicTools (tools + Markdown-as-resources)
   tools/{content,sleeper,admin}-tools.ts   one group per file; admin-tools only on /api/admin/mcp
+  tools/proxy-tools.ts         registers proxied Flaim/FantasyPros tools on /api/grok/mcp
   tools/helpers.ts             ToolResult wrappers, season→league_id, template var parsing
   generated/content.ts         BUILD OUTPUT (gitignored) — run build-content.mjs if missing
 scripts/
@@ -188,24 +197,31 @@ Two non-obvious workarounds in `src/app/api/mcp/route.ts` that must not be remov
 ## Commands
 
 ```bash
-npm run dev          # build:content, then next dev — public at :3000/api/mcp
-npm run build        # prebuild runs build-content.mjs, then next build
-npx tsc --noEmit     # typecheck
-npm test              # node --experimental-strip-types --test test/*.test.mjs — pure-function
-                       # unit tests (currently rules-sections.ts); content itself is validated
-                       # separately via `npm run validate`, not unit-tested
-npm run validate     # validate-content.mjs — every content file vs its JSON Schema
-npm run build:content # content/ → src/generated/content.ts (bundled; never read at runtime)
-npm run import:icloud # RE-SYNC path for rules: edit source doc, run this, commit the diff
-npm run sync:sleeper  # walk previous_league_id chain → seasons/*.json + managers.json
-                       # (champions, roster diffs, draft, draft order). Also runs on a schedule
-                       # via .github/workflows/sync-sleeper.yml — validate gates every commit.
+npm run dev            # snapshot-upstream-tools.mjs + build:content, then next dev — public at :3000/api/mcp
+npm run build          # prebuild runs snapshot-upstream-tools.mjs + build-content.mjs, then next build
+npx tsc --noEmit       # typecheck
+npm test               # node --experimental-strip-types --test test/*.test.mjs — pure-function
+                        # unit tests (rules-sections.ts, jsonschema-to-zod.ts); content itself is
+                        # validated separately via `npm run validate`, not unit-tested
+npm run validate       # validate-content.mjs — every content file vs its JSON Schema
+npm run build:content  # content/ → src/generated/content.ts (bundled; never read at runtime)
+npm run import:icloud  # RE-SYNC path for rules: edit source doc, run this, commit the diff
+npm run sync:sleeper   # walk previous_league_id chain → seasons/*.json + managers.json
+                        # (champions, roster diffs, draft, draft order). Also runs on a schedule
+                        # via .github/workflows/sync-sleeper.yml — validate gates every commit.
+npm run snapshot:upstream # refreshes the Flaim/FantasyPros tool-schema snapshot the Grok
+                        # bridge's proxy-tools.ts registers from; personal use, runs automatically
+                        # on every dev/build so it rarely needs a manual invocation
+npm run oauth:bootstrap -- <flaim|fantasypros>  # one-time: mints that upstream's refresh token
+                        # for the Grok bridge (writes to .env.local, never commit the output)
 ```
 
 To run a single test file: `node --experimental-strip-types --test test/rules-sections.test.mjs`.
 
 `npm run dev` needs no env vars for the public endpoint. To exercise the admin endpoint locally,
-prefix with `FANTASYX_ADMIN_TOKEN=… FANTASYX_PRIVATE_DATA='{…}'` (shape in `.env.example`).
+prefix with `FANTASYX_ADMIN_TOKEN=… FANTASYX_PRIVATE_DATA='{…}'` (shape in `.env.example`). The
+Grok bridge needs `FANTASYX_GROK_TOKEN=…` plus whichever of `FLAIM_ENABLED=true` /
+`FANTASYPROS_ENABLED=true` and their `_CLIENT_ID`/`_REFRESH_TOKEN` pairs you want proxied.
 
 **Verify the server** with the MCP Inspector (`npx @modelcontextprotocol/inspector` at
 `127.0.0.1:6274`, Streamable HTTP → `http://localhost:3000/api/mcp`), or by POSTing JSON-RPC and
@@ -233,8 +249,9 @@ production redeploy same as a human push.
 1. ✅ **1a** content import; `validate-content.mjs` passes; `rules.md` matches V4. ✅ **1b**
    Sleeper sync; 2025 champion resolves to a real manager. ✅ **1c** MCP server; every tool
    executes, admin rejects a bad token and accepts a good one.
-2. ✅ **GitHub** repo pushed to `allsxxing/fantasyx-mcp` (private); secret scan clean; `.gitignore`
+2. ✅ **GitHub** repo pushed to `allsxxing/fantasyx-mcp` (public); secret scan clean; `.gitignore`
    covers `.env*`, `node_modules/`, `.next/`, `src/generated/`.
 3. ✅ **Vercel** deployed to `https://fantasyx-mcp.vercel.app`; both env vars set as Production;
    SSO protection off; `initialize` returns valid JSON-RPC over SSE.
-4. **Publish** as a claude.ai connector and via `claude mcp add --transport http https://fantasyx-mcp.vercel.app/api/mcp`.
+4. ✅ **Publish** as a claude.ai connector and via `claude mcp add --transport http https://fantasyx-mcp.vercel.app/api/mcp`
+   — confirmed live, answering `fx_*` tool calls end-to-end.
