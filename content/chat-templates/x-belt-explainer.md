@@ -20,4 +20,6 @@ That dude is locked into they starting FLEX. Can't bench him.
 <<❌-BELT>> TITLE TRANSFER
 ➕ Win your matchup → keep the belt
 ➕ Lose → the team that beat you is the new ❌ Champ
+
+One League. One Crown. One ❌. Win your matchup. Defend the ❌.
 ```

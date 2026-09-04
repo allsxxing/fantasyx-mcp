@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getData, getDocument, manifest, requireData } from "@/lib/content";
+import { parseIcs, upcoming } from "@/lib/ics";
 import { RetroChrome } from "@/components/retro-chrome";
 import { ConnectTabs } from "@/components/connect-tabs";
 import { TerminalBlock } from "@/components/terminal-block";
@@ -80,6 +81,12 @@ interface Dues {
 interface Links {
   sleeper_invite: string;
   leaguesafe?: string | null;
+  league_calendar?: {
+    label?: string;
+    ics_url?: string | null;
+    google_url?: string | null;
+    webcal_url?: string | null;
+  };
 }
 
 export default async function Home() {
@@ -88,6 +95,13 @@ export default async function Home() {
   const rulesDoc = getDocument("rules");
   const dues = requireData<Dues>("dues");
   const links = getData<Links>("links");
+  const leagueCalendar = links?.league_calendar;
+  const calendarEvents = leagueCalendar?.ics_url
+    ? await fetch(leagueCalendar.ics_url, { next: { revalidate: 3600 } })
+        .then((res) => (res.ok ? res.text() : Promise.reject(new Error(`ICS fetch failed: ${res.status}`))))
+        .then((raw) => upcoming(parseIcs(raw)).slice(0, 8))
+        .catch(() => [] as ReturnType<typeof parseIcs>)
+    : [];
 
   const seasons = manifest.seasons
     .map((year) => getData<Season>(`seasons/${year}`))
@@ -162,6 +176,7 @@ export default async function Home() {
           <nav className="nav-links">
             <a href="#champions">CHAMPIONS</a>
             <a href="#x-belt">❌-BELT</a>
+            <a href="#calendar">🏆 CALENDAR</a>
             <a href="#rules">RULES</a>
             <a href="#commish-note">COMMISH</a>
             <a href="#connect">CONNECT</a>
@@ -209,7 +224,7 @@ export default async function Home() {
                 </span>
               </div>
             </div>
-            <img src="/hero-trophy.svg" alt="League trophy" className="hero-image" />
+            <img src="/hero-belt.svg" alt="League championship belt" className="hero-image" />
           </div>
         </section>
 
@@ -389,6 +404,35 @@ export default async function Home() {
                 ]}
               />
             )}
+          </section>
+        )}
+
+        {leagueCalendar && (leagueCalendar.webcal_url || leagueCalendar.google_url || leagueCalendar.ics_url) && (
+          <section id="calendar">
+            <h2 className="section-title">🏆 League Calendar</h2>
+            <TerminalBlock
+              title="🏆 LEAGUE_CALENDAR.SYS"
+              cursor={false}
+              commands={[
+                {
+                  command: "cat upcoming_events",
+                  output:
+                    calendarEvents.length > 0
+                      ? calendarEvents.map(
+                          (e) => `${e.start.slice(0, 10)} — ${e.summary}${e.location ? ` (${e.location})` : ""}`,
+                        )
+                      : ["No events loaded yet — subscribe below for updates."],
+                },
+                {
+                  command: "subscribe",
+                  output: [
+                    leagueCalendar.webcal_url ? `Apple / iCloud: ${leagueCalendar.webcal_url}` : null,
+                    leagueCalendar.google_url ? `Google: ${leagueCalendar.google_url}` : null,
+                    leagueCalendar.ics_url ? `Raw ICS: ${leagueCalendar.ics_url}` : null,
+                  ].filter((line): line is string => Boolean(line)),
+                },
+              ]}
+            />
           </section>
         )}
 

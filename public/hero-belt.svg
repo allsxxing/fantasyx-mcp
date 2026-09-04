@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700">
+  <defs>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#333333" />
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#27b1ff" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#27b1ff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="plateFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5fc4ff" />
+      <stop offset="55%" stop-color="#27b1ff" />
+      <stop offset="100%" stop-color="#0f6bb0" />
+    </linearGradient>
+    <linearGradient id="sidePlateFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3aa8ee" />
+      <stop offset="100%" stop-color="#12507f" />
+    </linearGradient>
+    <linearGradient id="strapFace" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2b2b2b" />
+      <stop offset="50%" stop-color="#3d3d3d" />
+      <stop offset="100%" stop-color="#2b2b2b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="700" fill="#181818" />
+  <rect width="900" height="700" fill="url(#dots)" />
+  <circle cx="450" cy="300" r="280" fill="url(#glow)" />
+
+  <!-- VHS chromatic-aberration ghosts behind the belt (cyan/red offset) -->
+  <g opacity="0.35">
+    <g transform="translate(-6,0)">
+      <rect x="120" y="150" width="120" height="340" rx="14" fill="none" stroke="#ff2b3d" stroke-width="6" />
+      <rect x="660" y="150" width="120" height="340" rx="14" fill="none" stroke="#ff2b3d" stroke-width="6" />
+    </g>
+    <g transform="translate(6,0)">
+      <rect x="120" y="150" width="120" height="340" rx="14" fill="none" stroke="#27b1ff" stroke-width="6" />
+      <rect x="660" y="150" width="120" height="340" rx="14" fill="none" stroke="#27b1ff" stroke-width="6" />
+    </g>
+  </g>
+
+  <!-- leather strap running behind the plates -->
+  <path d="M 0 300 L 900 300" stroke="url(#strapFace)" stroke-width="150" opacity="0.9" />
+  <!-- strap stitching -->
+  <path d="M 0 250 L 900 250" stroke="#181818" stroke-width="2" stroke-dasharray="10 8" opacity="0.5" />
+  <path d="M 0 350 L 900 350" stroke="#181818" stroke-width="2" stroke-dasharray="10 8" opacity="0.5" />
+  <!-- strap studs -->
+  <g fill="#c9c9c9" stroke="#181818" stroke-width="2">
+    <circle cx="60" cy="300" r="9" />
+    <circle cx="105" cy="300" r="9" />
+    <circle cx="795" cy="300" r="9" />
+    <circle cx="840" cy="300" r="9" />
+  </g>
+
+  <!-- side plates (attitude-era chunky octagons) -->
+  <g stroke="#ffffff" stroke-width="5">
+    <polygon points="130,180 230,180 250,220 250,380 230,420 130,420 110,380 110,220" fill="url(#sidePlateFace)" />
+    <polygon points="670,180 770,180 790,220 790,380 770,420 670,420 650,380 650,220" fill="url(#sidePlateFace)" />
+  </g>
+  <!-- side plate medallions -->
+  <g fill="#181818">
+    <polygon points="180,255 190,282 219,282 196,299 205,326 180,309 155,326 164,299 141,282 170,282" />
+    <polygon points="720,255 730,282 759,282 736,299 745,326 720,309 695,326 704,299 681,282 710,282" />
+  </g>
+
+  <!-- center plate: big octagon nameplate -->
+  <g stroke="#ffffff" stroke-width="6">
+    <polygon
+      points="450,140 590,140 660,210 660,390 590,460 450,460 380,390 380,210 450,140"
+      transform="translate(-90,0)"
+      fill="none"
+      opacity="0"
+    />
+    <polygon
+      points="330,150 570,150 640,220 640,380 570,450 330,450 260,380 260,220 330,150"
+      fill="url(#plateFace)"
+    />
+  </g>
+
+  <!-- inner bevel line -->
+  <polygon
+    points="340,168 560,168 622,228 622,372 560,432 340,432 278,372 278,228 340,168"
+    fill="none"
+    stroke="#0f6bb0"
+    stroke-width="3"
+    opacity="0.7"
+  />
+
+  <!-- corner bolts on the center plate -->
+  <g fill="#e8f6ff" stroke="#0f6bb0" stroke-width="2">
+    <circle cx="300" cy="200" r="7" />
+    <circle cx="600" cy="200" r="7" />
+    <circle cx="300" cy="400" r="7" />
+    <circle cx="600" cy="400" r="7" />
+  </g>
+
+  <!-- crown motif above the numerals -->
+  <g fill="#ffffff" opacity="0.9">
+    <polygon points="450,205 462,238 478,215 480,250 420,250 422,215 438,238" />
+  </g>
+
+  <!-- makeshift nameplate: "10 FOR $10❌" on the center octagon -->
+  <text
+    x="450"
+    y="320"
+    text-anchor="middle"
+    font-family="Georgia, serif"
+    font-size="34"
+    font-weight="700"
+    fill="#ffffff"
+  >
+    10 FOR $10❌
+  </text>
+  <text
+    x="450"
+    y="352"
+    text-anchor="middle"
+    font-family="monospace"
+    font-size="14"
+    letter-spacing="3"
+    fill="#0f2a3d"
+    opacity="0.8"
+  >
+    CHAMPIONSHIP
+  </text>
+
+  <!-- hanging plates dangling below the center plate, attitude-era style -->
+  <g stroke="#ffffff" stroke-width="4">
+    <polygon points="370,450 430,450 440,510 400,540 360,510" fill="url(#plateFace)" />
+    <polygon points="470,450 530,450 540,510 500,540 460,510" fill="url(#plateFace)" />
+  </g>
+
+  <!-- spray-painted red X graffiti over the whole belt -->
+  <g stroke="#c81424" stroke-width="26" stroke-linecap="round" opacity="0.88">
+    <path d="M 190 175 Q 340 260 300 340 Q 460 400 460 460" fill="none" />
+    <path d="M 700 185 Q 540 260 590 340 Q 440 400 440 460" fill="none" />
+  </g>
+  <!-- rough spray edge / drip texture on the X -->
+  <g stroke="#c81424" stroke-width="6" stroke-linecap="round" opacity="0.6">
+    <path d="M 205 168 Q 350 250 310 335" fill="none" />
+    <path d="M 685 178 Q 530 250 580 335" fill="none" />
+    <path d="M 300 350 l 6 22" />
+    <path d="M 420 470 l 4 26" />
+    <path d="M 460 470 l -4 24" />
+    <path d="M 590 350 l -8 20" />
+  </g>
+  <!-- spray spatter dots -->
+  <g fill="#c81424" opacity="0.7">
+    <circle cx="240" cy="200" r="4" />
+    <circle cx="330" cy="380" r="3" />
+    <circle cx="620" cy="205" r="4" />
+    <circle cx="560" cy="385" r="3" />
+    <circle cx="470" cy="500" r="3" />
+    <circle cx="400" cy="500" r="3" />
+  </g>
+
+  <!-- CRT-style scanlines across the whole plate -->
+  <g stroke="#000000" stroke-opacity="0.15" stroke-width="1">
+    <line x1="0" y1="120" x2="900" y2="120" />
+    <line x1="0" y1="240" x2="900" y2="240" />
+    <line x1="0" y1="360" x2="900" y2="360" />
+    <line x1="0" y1="480" x2="900" y2="480" />
+    <line x1="0" y1="600" x2="900" y2="600" />
+  </g>
+
+  <text x="450" y="655" text-anchor="middle" font-family="monospace" font-size="22" fill="#999999" letter-spacing="4">
+    SEASON_CHAMPIONS.SYS
+  </text>
+</svg>

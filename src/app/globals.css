@@ -219,7 +219,7 @@ header {
   height: 500px;
   object-fit: cover;
   display: block;
-  filter: grayscale(100%) contrast(120%);
+  filter: grayscale(40%) contrast(120%);
   transition: filter 0.5s;
 }
 

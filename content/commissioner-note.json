@@ -4,11 +4,16 @@
   "sections": [
     {
       "label": "LEAGUE",
-      "rows": ["Teams: 10 Squads", "Type: Re-Draft"]
+      "rows": [
+        "Teams: 10 Squads",
+        "Type: Re-Draft"
+      ]
     },
     {
       "label": "LEAGUE HQ / MCP SERVER",
-      "rows": ["https://fantasyx-mcp.vercel.app"]
+      "rows": [
+        "https://fantasyx-mcp.vercel.app"
+      ]
     },
     {
       "label": "DRAFT",
@@ -32,30 +37,36 @@
       "label": "FEES / DUES",
       "rows": [
         "Buy-in: $10 via SleeperSafe",
-        "\u274c Bonus / Multiplier: TBD via LeagueSafe",
+        "❌ Bonus / Multiplier: TBD via LeagueSafe only",
         "https://www.leaguesafe.com/join/4429630/10-for-10",
-        "\u26a0\ufe0f Pay-Up Punishment Enforced!",
-        "\u26d4 UNPAID Buy-In = FULL Roster Lock",
-        "\u26d4 UNPAID \u274c BONUS = Limited Waivers, vetoable by League"
+        "⚠️ Pay-Up Punishment Enforced!",
+        "⛔ UNPAID Buy-In = FULL Roster Lock",
+        "⛔ UNPAID ❌ BONUS = Limited Waivers, vetoable by League"
       ]
     },
     {
-      "label": "\u274c-BELT",
+      "label": "❌-BELT",
       "rows": [
-        "Week 1: highest score in the whole league is crowned first \u274c Champ",
+        "Week 1: highest score in the whole league is crowned first ❌ Champ",
         "Week 2+: Champ forces ONE opponent FLEX-eligible player to start",
         "Declare the lock in league chat by EOD Friday (11:59 PM CT)",
         "No declaration = no lock that week",
-        "Win \u2192 keep the belt / Lose \u2192 the team that beat you takes it"
+        "Win → keep the belt / Lose → the team that beat you takes it"
       ]
     },
     {
       "label": "PRIZING",
-      "rows": ["Prize Pot: WINNER TAKE ALL!", "Final pot scales w/ League-voted Multiplier"]
+      "rows": [
+        "Prize Pot: WINNER TAKE ALL!",
+        "Final pot scales w/ League-voted Multiplier"
+      ]
     },
     {
       "label": "INFO",
-      "rows": ["Scoring: Sleeper PPR", "Waivers: Rolling"]
+      "rows": [
+        "Scoring: Sleeper PPR",
+        "Waivers: Rolling"
+      ]
     }
   ]
 }

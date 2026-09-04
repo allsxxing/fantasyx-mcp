@@ -9,6 +9,7 @@ import {
   manifest,
   requireData,
 } from "@/lib/content";
+import { parseIcs, upcoming } from "@/lib/ics";
 import {
   SEASONS,
   errorResult,
@@ -16,6 +17,13 @@ import {
   parseVariables,
   textResult,
 } from "./helpers";
+
+interface LeagueCalendarLinks {
+  label?: string;
+  ics_url?: string | null;
+  google_url?: string | null;
+  webcal_url?: string | null;
+}
 
 interface RulesMeta {
   version: string;
@@ -230,6 +238,51 @@ export function registerContentTools(server: McpServer): void {
         return errorResult(`Unknown commissioner doc "${name}". Available: ${available.join(", ")}`);
       }
       return textResult(doc.body);
+    },
+  );
+
+  server.registerTool(
+    "fx_get_calendar",
+    {
+      title: "🏆 Get the league calendar",
+      description:
+        "The league's live 🏆 subscribable calendar (draft day, deadlines, playoffs). The calendar " +
+        "itself is maintained in Google Calendar so the commissioner can update dates without a code " +
+        "deploy; this tool fetches that calendar's public ICS feed live and returns upcoming events " +
+        "plus the Apple/Google/raw-ICS subscribe links. If the feed can't be fetched, it still returns " +
+        "the subscribe links so the calendar remains reachable.",
+    },
+    async () => {
+      const links = getData<{ league_calendar?: LeagueCalendarLinks }>("links");
+      const cal = links?.league_calendar;
+      const subscribeLinks = {
+        label: cal?.label ?? "🏆 10 FOR $10❌ 2026",
+        google: cal?.google_url ?? null,
+        apple_webcal: cal?.webcal_url ?? null,
+        ics: cal?.ics_url ?? null,
+      };
+
+      if (!cal?.ics_url) {
+        return jsonResult({
+          ...subscribeLinks,
+          events: [],
+          note: "Calendar not yet configured — no ICS URL set in links.json league_calendar.ics_url.",
+        });
+      }
+
+      try {
+        const res = await fetch(cal.ics_url, { next: { revalidate: 3600 } });
+        if (!res.ok) throw new Error(`ICS fetch failed: ${res.status}`);
+        const raw = await res.text();
+        const events = upcoming(parseIcs(raw));
+        return jsonResult({ ...subscribeLinks, events });
+      } catch (err) {
+        return jsonResult({
+          ...subscribeLinks,
+          events: [],
+          note: `Could not fetch live calendar feed (${err instanceof Error ? err.message : "unknown error"}); subscribe links still work.`,
+        });
+      }
     },
   );
 }

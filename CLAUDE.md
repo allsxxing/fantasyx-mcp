@@ -59,6 +59,16 @@ phase is gated on an observed result before the next begins.
   the poll's real option set is **1X/2.5X/5X/10X/OTHER**, not just the 3 options some chat
   templates surface. Restore the `.md` to iCloud (or point `FANTASYX_CORPUS` at wherever it
   lives now) before trusting a fresh `import:icloud` run.
+- **The league calendar's authority is Google Calendar, not git.** `fx_get_calendar`
+  (`src/tools/content-tools.ts`) and the landing page's `🏆 LEAGUE_CALENDAR.SYS` block both
+  fetch `content/links.json` → `league_calendar.ics_url` **live at request time** via
+  `src/lib/ics.ts` — a dependency-free VEVENT parser (`test/ics.test.mjs`). This is the one
+  deliberate exception to "no runtime filesystem reads / content bundled at build time": it's
+  a live *network* fetch, not a filesystem read, and it exists specifically so dates can move
+  by editing the Google Calendar directly — no commit, no redeploy. `content/links.json` holds
+  only the immutable subscribe URLs (`ics_url`, `google_url`, `webcal_url`); never duplicate
+  actual event dates into a markdown file. If `ics_url` is unset or the fetch fails, both the
+  tool and the page degrade to showing just the subscribe links.
 - **Private data never enters git.** Payment handles, contacts, dues amounts, and the paid/
   unpaid list live only in the Vercel env var `FANTASYX_PRIVATE_DATA`, read by the bearer-
   gated admin endpoint. Do not invent a LeagueSafe URL or join code — the source export

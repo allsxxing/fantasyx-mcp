@@ -21,15 +21,17 @@ Routine commish maintenance. Do not invent dates, dues amounts, LeagueSafe codes
 
 ---
 
-## 1. Subscription calendar (website first, then subscribe)
+## 1. Subscription calendar (website first, then subscribe) — CODE DONE, awaiting your Google Calendar setup
 
-Goal: one canonical league calendar people can view on the HQ site and subscribe to from iCloud / Google / Outlook.
+Goal: one canonical league calendar people can view on the HQ site and subscribe to from iCloud / Google / Outlook, updatable **without a commit**.
 
-- [ ] Pick the stack (preference order)
-  - Google Calendar (public, ICS subscribe URL) — simplest, free, iCloud-friendly
-  - Apple iCloud calendar public ICS — native for iPhone managers
-  - Calendly only if we need booking slots (draft window / vote window), not as the season calendar
-- [ ] Create the calendar named `10 FOR $10❌ 2026`
+Shipped: `src/lib/ics.ts` (dependency-free ICS parser, unit-tested in `test/ics.test.mjs`),
+the `fx_get_calendar` MCP tool (`src/tools/content-tools.ts`), and a `🏆 LEAGUE_CALENDAR.SYS`
+section on the landing page (`src/app/page.tsx`) — all read `content/links.json`
+`league_calendar.ics_url` **live at request time**, so Google Calendar is the write surface
+and no redeploy is needed to move a date.
+
+- [ ] **You:** create a public Google Calendar named `🏆 10 FOR $10❌ 2026`
 - [ ] Seed events (use locked dates only; leave TBD events as tentative all-day or TBD title)
   - Draft Day — Sun, Sept 6 @ 5:00 PM CT (from current commissioner-note)
   - Payment / buy-in deadline — 9/9 7:20 PM (from current dues-note; confirm before publishing)
@@ -40,32 +42,31 @@ Goal: one canonical league calendar people can view on the HQ site and subscribe
   - LeagueSafe multiplier / bonus dues deadline — currently listed 10/1/26 in dues-note (confirm; still tentative)
   - X title explanation drop — after draft, before Week 1
   - New league notes publish date — closer to draft day
-- [ ] Publish public ICS + embed on fantasyx HQ / landing page first
-- [ ] Add subscribe links: Google, Apple Calendar / iCloud, Outlook
-- [ ] Optional later: MCP resource `fx_league_calendar` pointing at the ICS + event list (do not duplicate dates in a second markdown authority file)
-
-Decision note: Calendly is scheduling, not a season calendar. Default to Google Calendar public + ICS unless booking UI is actually needed.
-
----
-
-## 2. New league notes (replace current)
-
-- [ ] Draft replacement commissioner notes (release closer to draft day)
-- [ ] Notes replace the existing Sleeper + MCP commissioner note — do not leave two live versions
-- [ ] Must stay consistent with locked V5 rules (`rules.md` / iCloud source)
-- [ ] Include: roster shape after flex vote, draft details, dues/SleeperSafe + LeagueSafe status, X mechanic pointer, calendar subscribe link once live
-- [ ] Update `content/commissioner-note.json` (editable summary only; never contradict `rules.md`)
-- [ ] Push to Sleeper commish note + HQ landing when released
+- [ ] **You:** grab the calendar's public ICS address + embed/Google URL, then set
+  `content/links.json` → `league_calendar.ics_url` / `google_url` / `webcal_url`
+  (webcal = the ICS url with `https://` swapped for `webcal://`) and commit —
+  this is the *only* commit needed; every date after that is a Google Calendar edit only.
 
 ---
 
-## 3. X title explanation — chat drop before Week 1
+## 2. New league notes (replace current) — DRAFTED
 
-- [ ] Write the X title / X Champion explanation post (league-tone, chat-ready)
-- [ ] Timing: after the draft, before Week 1 (ready to fire, not drafted in the moment)
-- [ ] Park draft in `content/chat-templates/` (do not create a second rules file that restates the X mechanic)
-- [ ] Body must match locked V5 sabotage mechanic (force a FLEX-eligible player into the *opponent's* lineup, Friday 11:59 PM CT) — never the superseded steal-into-own-FLEX draft
-- [ ] Post in league chat when triggered
+- [x] Draft replacement commissioner note — `content/chat-templates/post-draft-note.md`
+  (render via `fx_render_chat_template` with `draft_recap_note` + `calendar_subscribe_url`)
+- [x] `content/commissioner-note.json` ROSTER/FEES rows updated to match live Sleeper settings
+  (3x FLEX / 7 BN, SleeperSafe buy-in + LeagueSafe-only bonus)
+- [ ] **You:** post the rendered note to Sleeper once the draft recap text + calendar link are final
+
+---
+
+## 3. X title explanation — chat drop before Week 1 — DRAFTED
+
+- [x] `content/chat-templates/x-belt-explainer.md` refreshed; confirmed sabotage mechanic +
+  Friday 11:59 PM CT deadline, matches locked V5
+- [x] `content/chat-templates/x-crowning.md` (Week 2+, prior holder) and the new
+  `content/chat-templates/x-crowning-week1.md` (first crowning, league-high + tiebreaker
+  chain) both drafted
+- [ ] **You:** post `x-belt-explainer` in league chat after the draft, before Week 1
 
 ---
 

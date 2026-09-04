@@ -12,7 +12,8 @@ variables: []
 How much skin we putting in this year?
 
 Higher multiplier = bigger winner bag. League decides the skin in the game.
-Current Payment Method: LeagueSafe
+Buy-in ($10) stays on SleeperSafe either way — this vote only sets the ❌ bonus/multiplier,
+paid via LeagueSafe.
 
 Note: Each of the above TOTALS include the $10 buy-in.
 ```
@@ -32,4 +33,14 @@ Note: Each of the above TOTALS include the $10 buy-in.
 **Choice 3**
 ```
 5❌ — $50
+```
+
+**Choice 4**
+```
+10❌ — $100
+```
+
+**Choice 5**
+```
+OTHER — Comment your number
 ```

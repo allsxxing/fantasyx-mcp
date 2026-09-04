@@ -11,6 +11,16 @@
     "sleeper_league_2026": { "type": "string" },
     "fantasypros_myplaybook": { "type": "string" },
     "leaguesafe": { "type": ["string", "null"] },
+    "league_calendar": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "label": { "type": "string" },
+        "ics_url": { "type": ["string", "null"] },
+        "google_url": { "type": ["string", "null"] },
+        "webcal_url": { "type": ["string", "null"] }
+      }
+    },
     "related_sleeper_leagues": {
       "type": "array",
       "items": {
