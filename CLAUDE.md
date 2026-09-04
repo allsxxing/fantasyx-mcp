@@ -62,8 +62,11 @@ phase is gated on an observed result before the next begins.
   unpaid list live only in the Vercel env var `FANTASYX_PRIVATE_DATA`, read by the bearer-
   gated admin endpoint. Do not invent a LeagueSafe URL or join code — the source export
   explicitly warns against fabricating one.
-- **Two endpoints.** `/api/mcp` is public. `/api/admin/mcp` requires `FANTASYX_ADMIN_TOKEN`
-  and adds the private fields. The admin URL ends in `/mcp` on purpose: mcp-handler routes by
+- **Three endpoints.** `/api/mcp` is public. `/api/admin/mcp` requires `FANTASYX_ADMIN_TOKEN`
+  and adds the private fields. `/api/grok/mcp` requires `FANTASYX_GROK_TOKEN` and is a personal
+  bridge that proxies Flaim/FantasyPros tools (via `src/connectors/mcp-proxy.ts`) for Grok —
+  kill-switched per upstream (`FLAIM_ENABLED`, `FANTASYPROS_ENABLED`) and not part of the public
+  or admin tool surface. The admin URL ends in `/mcp` on purpose: mcp-handler routes by
   the final path segment (basePath `/api/admin`, transport `mcp`) — `/api/mcp/admin` would make
   "admin" the transport and 404. Same reason the public route sits at `/api/mcp`, basePath `/api`.
 - **Flaim coexistence.** Flaim MCP is connected and answers league-state questions. The few
@@ -131,12 +134,17 @@ src/
                                Unit-tested in test/rules-sections.test.mjs.
   app/api/mcp/route.ts         public endpoint  (mcp-handler, Streamable HTTP, stateless)
   app/api/admin/mcp/route.ts   bearer-gated endpoint (URL /api/admin/mcp — see Stack note)
+  app/api/grok/mcp/route.ts    bearer-gated (FANTASYX_GROK_TOKEN) personal Grok bridge
   lib/content.ts               typed accessors over the generated module (getData/getDocument/…)
   lib/private.ts               parses FANTASYX_PRIVATE_DATA; null when unset (admin degrades)
+  lib/auth.ts                  shared bearer-token check used by admin + grok routes
+  lib/jsonschema-to-zod.ts     converts an upstream MCP tool's JSON Schema to zod for registerTool
   connectors/types.ts          shared FantasyConnector iface; sleeper.ts implemented,
                                flaim.ts + leagueloom.ts throw ConnectorNotImplementedError
+  connectors/mcp-proxy.ts      proxies an upstream MCP server's tools through /api/grok/mcp
   tools/index.ts               registerPublicTools (tools + Markdown-as-resources)
   tools/{content,sleeper,admin}-tools.ts   one group per file; admin-tools only on /api/admin/mcp
+  tools/proxy-tools.ts         registers proxied Flaim/FantasyPros tools on /api/grok/mcp
   tools/helpers.ts             ToolResult wrappers, season→league_id, template var parsing
   generated/content.ts         BUILD OUTPUT (gitignored) — run build-content.mjs if missing
 scripts/
