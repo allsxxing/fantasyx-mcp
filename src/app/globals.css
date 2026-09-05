@@ -219,26 +219,12 @@ header {
   height: 500px;
   object-fit: cover;
   display: block;
-  filter: contrast(108%) brightness(96%);
+  filter: grayscale(100%) contrast(120%);
   transition: filter 0.5s;
 }
 
 .window-frame:hover .hero-image {
-  filter: contrast(118%) brightness(100%) drop-shadow(0 0 18px var(--accent-retro));
-}
-
-.hero-caption {
-  margin-top: 4px;
-  padding: 6px 15px 2px;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  color: var(--text-secondary);
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.hero-caption strong {
-  color: var(--accent-retro);
+  filter: grayscale(0%) contrast(100%);
 }
 
 .stats-bar {
