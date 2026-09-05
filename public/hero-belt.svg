@@ -1,169 +1,126 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
   <defs>
-    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r="1" fill="#333333" />
+    <pattern id="hatch" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="#ffffff" />
+      <path d="M0,0 L16,16 M16,0 L0,16" stroke="#111111" stroke-width="1.6" />
     </pattern>
-    <radialGradient id="glow" cx="50%" cy="42%" r="55%">
-      <stop offset="0%" stop-color="#27b1ff" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#27b1ff" stop-opacity="0" />
-    </radialGradient>
-    <linearGradient id="plateFace" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5fc4ff" />
-      <stop offset="55%" stop-color="#27b1ff" />
-      <stop offset="100%" stop-color="#0f6bb0" />
-    </linearGradient>
-    <linearGradient id="sidePlateFace" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#3aa8ee" />
-      <stop offset="100%" stop-color="#12507f" />
-    </linearGradient>
-    <linearGradient id="strapFace" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#2b2b2b" />
-      <stop offset="50%" stop-color="#3d3d3d" />
-      <stop offset="100%" stop-color="#2b2b2b" />
-    </linearGradient>
+    <pattern id="hatchSide" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="#ffffff" />
+      <path d="M0,0 L14,14 M14,0 L0,14" stroke="#111111" stroke-width="1.4" />
+    </pattern>
   </defs>
 
-  <rect width="900" height="700" fill="#181818" />
-  <rect width="900" height="700" fill="url(#dots)" />
-  <circle cx="450" cy="300" r="280" fill="url(#glow)" />
+  <!-- poster background -->
+  <rect width="1600" height="900" fill="#f4f2ea" />
 
-  <!-- VHS chromatic-aberration ghosts behind the belt (cyan/red offset) -->
-  <g opacity="0.35">
-    <g transform="translate(-6,0)">
-      <rect x="120" y="150" width="120" height="340" rx="14" fill="none" stroke="#ff2b3d" stroke-width="6" />
-      <rect x="660" y="150" width="120" height="340" rx="14" fill="none" stroke="#ff2b3d" stroke-width="6" />
-    </g>
-    <g transform="translate(6,0)">
-      <rect x="120" y="150" width="120" height="340" rx="14" fill="none" stroke="#27b1ff" stroke-width="6" />
-      <rect x="660" y="150" width="120" height="340" rx="14" fill="none" stroke="#27b1ff" stroke-width="6" />
-    </g>
+  <!-- scattered grunge speckle -->
+  <g fill="#111111" opacity="0.55">
+    <circle cx="90" cy="120" r="3" /><circle cx="140" cy="90" r="2" /><circle cx="60" cy="220" r="2.5" />
+    <circle cx="1520" cy="140" r="3" /><circle cx="1470" cy="95" r="2" /><circle cx="1540" cy="230" r="2.5" />
+    <circle cx="200" cy="740" r="2.5" /><circle cx="260" cy="800" r="2" /><circle cx="1400" cy="760" r="2.5" />
+    <circle cx="1350" cy="810" r="2" /><circle cx="800" cy="60" r="2" /><circle cx="820" cy="40" r="1.6" />
   </g>
 
-  <!-- leather strap running behind the plates -->
-  <path d="M 0 300 L 900 300" stroke="url(#strapFace)" stroke-width="150" opacity="0.9" />
-  <!-- strap stitching -->
-  <path d="M 0 250 L 900 250" stroke="#181818" stroke-width="2" stroke-dasharray="10 8" opacity="0.5" />
-  <path d="M 0 350 L 900 350" stroke="#181818" stroke-width="2" stroke-dasharray="10 8" opacity="0.5" />
-  <!-- strap studs -->
-  <g fill="#c9c9c9" stroke="#181818" stroke-width="2">
-    <circle cx="60" cy="300" r="9" />
-    <circle cx="105" cy="300" r="9" />
-    <circle cx="795" cy="300" r="9" />
-    <circle cx="840" cy="300" r="9" />
+  <!-- left side plate -->
+  <g stroke="#111111" stroke-width="10">
+    <polygon points="110,300 330,300 380,360 380,560 330,620 110,620 60,560 60,360" fill="url(#hatchSide)" />
+  </g>
+  <g fill="#111111" stroke="#f4f2ea" stroke-width="3">
+    <circle cx="150" cy="330" r="8" /><circle cx="290" cy="330" r="8" />
+    <circle cx="150" cy="590" r="8" /><circle cx="290" cy="590" r="8" />
+  </g>
+  <g stroke="#111111" stroke-width="10">
+    <polygon points="175,410 315,410 315,510 175,510" fill="#f4f2ea" />
+  </g>
+  <g stroke="#111111" stroke-width="8">
+    <path d="M 195 430 L 295 490 M 295 430 L 195 490" fill="none" />
   </g>
 
-  <!-- side plates (attitude-era chunky octagons) -->
-  <g stroke="#ffffff" stroke-width="5">
-    <polygon points="130,180 230,180 250,220 250,380 230,420 130,420 110,380 110,220" fill="url(#sidePlateFace)" />
-    <polygon points="670,180 770,180 790,220 790,380 770,420 670,420 650,380 650,220" fill="url(#sidePlateFace)" />
+  <!-- right side plate (mirrored) -->
+  <g stroke="#111111" stroke-width="10">
+    <polygon points="1490,300 1270,300 1220,360 1220,560 1270,620 1490,620 1540,560 1540,360" fill="url(#hatchSide)" />
   </g>
-  <!-- side plate medallions -->
-  <g fill="#181818">
-    <polygon points="180,255 190,282 219,282 196,299 205,326 180,309 155,326 164,299 141,282 170,282" />
-    <polygon points="720,255 730,282 759,282 736,299 745,326 720,309 695,326 704,299 681,282 710,282" />
+  <g fill="#111111" stroke="#f4f2ea" stroke-width="3">
+    <circle cx="1450" cy="330" r="8" /><circle cx="1310" cy="330" r="8" />
+    <circle cx="1450" cy="590" r="8" /><circle cx="1310" cy="590" r="8" />
+  </g>
+  <g stroke="#111111" stroke-width="10">
+    <polygon points="1425,410 1285,410 1285,510 1425,510" fill="#f4f2ea" />
+  </g>
+  <g stroke="#111111" stroke-width="8">
+    <path d="M 1305 430 L 1405 490 M 1405 430 L 1305 490" fill="none" />
   </g>
 
-  <!-- center plate: big octagon nameplate -->
-  <g stroke="#ffffff" stroke-width="6">
+  <!-- connecting strap hint between plates -->
+  <g stroke="#111111" stroke-width="6" opacity="0.5">
+    <path d="M 380 460 L 480 460" />
+    <path d="M 1120 460 L 1220 460" />
+  </g>
+
+  <!-- center plate: big octagon, crosshatched, with an X cut through it -->
+  <g stroke="#111111" stroke-width="14">
     <polygon
-      points="450,140 590,140 660,210 660,390 590,460 450,460 380,390 380,210 450,140"
-      transform="translate(-90,0)"
-      fill="none"
-      opacity="0"
-    />
-    <polygon
-      points="330,150 570,150 640,220 640,380 570,450 330,450 260,380 260,220 330,150"
-      fill="url(#plateFace)"
+      points="620,160 980,160 1080,260 1080,560 980,700 800,760 620,700 520,560 520,260"
+      fill="url(#hatch)"
     />
   </g>
-
-  <!-- inner bevel line -->
-  <polygon
-    points="340,168 560,168 622,228 622,372 560,432 340,432 278,372 278,228 340,168"
-    fill="none"
-    stroke="#0f6bb0"
-    stroke-width="3"
-    opacity="0.7"
-  />
 
   <!-- corner bolts on the center plate -->
-  <g fill="#e8f6ff" stroke="#0f6bb0" stroke-width="2">
-    <circle cx="300" cy="200" r="7" />
-    <circle cx="600" cy="200" r="7" />
-    <circle cx="300" cy="400" r="7" />
-    <circle cx="600" cy="400" r="7" />
+  <g fill="#111111" stroke="#f4f2ea" stroke-width="3">
+    <circle cx="640" cy="200" r="10" /><circle cx="960" cy="200" r="10" />
+    <circle cx="545" cy="300" r="10" /><circle cx="1055" cy="300" r="10" />
+    <circle cx="545" cy="520" r="10" /><circle cx="1055" cy="520" r="10" />
+    <circle cx="660" cy="680" r="10" /><circle cx="940" cy="680" r="10" />
   </g>
 
-  <!-- crown motif above the numerals -->
-  <g fill="#ffffff" opacity="0.9">
-    <polygon points="450,205 462,238 478,215 480,250 420,250 422,215 438,238" />
+  <!-- the X: two crossing bold bands cut as clean (unhatched) negative space -->
+  <g stroke="#111111" stroke-width="14" stroke-linejoin="round">
+    <polygon points="600,210 680,210 1000,610 1000,690 920,690" fill="#f4f2ea" />
+    <polygon points="1000,210 920,210 600,610 600,690 680,690" fill="#f4f2ea" />
   </g>
 
-  <!-- makeshift nameplate: "10 FOR $10❌" on the center octagon -->
-  <text
-    x="450"
-    y="320"
-    text-anchor="middle"
-    font-family="Georgia, serif"
-    font-size="34"
-    font-weight="700"
-    fill="#ffffff"
-  >
-    10 FOR $10❌
-  </text>
-  <text
-    x="450"
-    y="352"
-    text-anchor="middle"
-    font-family="monospace"
-    font-size="14"
-    letter-spacing="3"
-    fill="#0f2a3d"
-    opacity="0.8"
-  >
-    CHAMPIONSHIP
-  </text>
-
-  <!-- hanging plates dangling below the center plate, attitude-era style -->
-  <g stroke="#ffffff" stroke-width="4">
-    <polygon points="370,450 430,450 440,510 400,540 360,510" fill="url(#plateFace)" />
-    <polygon points="470,450 530,450 540,510 500,540 460,510" fill="url(#plateFace)" />
+  <!-- football sitting into the top of the X, dripping down -->
+  <g transform="translate(800,215)">
+    <ellipse cx="0" cy="0" rx="95" ry="58" fill="#f4f2ea" stroke="#111111" stroke-width="10" />
+    <path d="M -60 0 L 60 0" stroke="#111111" stroke-width="6" />
+    <path d="M -20 -14 L -20 14 M 0 -18 L 0 18 M 20 -14 L 20 14" stroke="#111111" stroke-width="6" />
+  </g>
+  <!-- drip trails falling from the football into the X -->
+  <g stroke="#111111" stroke-width="9" stroke-linecap="round" fill="none" opacity="0.85">
+    <path d="M 760 268 Q 755 320 765 360" />
+    <path d="M 800 274 Q 796 330 806 380" />
+    <path d="M 840 268 Q 846 320 836 360" />
+  </g>
+  <g fill="#111111" opacity="0.85">
+    <circle cx="765" cy="368" r="6" />
+    <circle cx="806" cy="388" r="7" />
+    <circle cx="836" cy="368" r="6" />
   </g>
 
-  <!-- spray-painted red X graffiti over the whole belt -->
-  <g stroke="#c81424" stroke-width="26" stroke-linecap="round" opacity="0.88">
-    <path d="M 190 175 Q 340 260 300 340 Q 460 400 460 460" fill="none" />
-    <path d="M 700 185 Q 540 260 590 340 Q 440 400 440 460" fill="none" />
-  </g>
-  <!-- rough spray edge / drip texture on the X -->
-  <g stroke="#c81424" stroke-width="6" stroke-linecap="round" opacity="0.6">
-    <path d="M 205 168 Q 350 250 310 335" fill="none" />
-    <path d="M 685 178 Q 530 250 580 335" fill="none" />
-    <path d="M 300 350 l 6 22" />
-    <path d="M 420 470 l 4 26" />
-    <path d="M 460 470 l -4 24" />
-    <path d="M 590 350 l -8 20" />
-  </g>
-  <!-- spray spatter dots -->
-  <g fill="#c81424" opacity="0.7">
-    <circle cx="240" cy="200" r="4" />
-    <circle cx="330" cy="380" r="3" />
-    <circle cx="620" cy="205" r="4" />
-    <circle cx="560" cy="385" r="3" />
-    <circle cx="470" cy="500" r="3" />
-    <circle cx="400" cy="500" r="3" />
+  <!-- CHAMPION plate under the center octagon -->
+  <g stroke="#111111" stroke-width="10">
+    <polygon points="700,700 900,700 940,740 900,780 700,780 660,740" fill="url(#hatchSide)" />
   </g>
 
-  <!-- CRT-style scanlines across the whole plate -->
-  <g stroke="#000000" stroke-opacity="0.15" stroke-width="1">
-    <line x1="0" y1="120" x2="900" y2="120" />
-    <line x1="0" y1="240" x2="900" y2="240" />
-    <line x1="0" y1="360" x2="900" y2="360" />
-    <line x1="0" y1="480" x2="900" y2="480" />
-    <line x1="0" y1="600" x2="900" y2="600" />
+  <!-- ink drips hanging off the whole belt -->
+  <g stroke="#111111" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M 120 620 Q 118 670 126 710" />
+    <path d="M 220 622 Q 224 660 216 700" />
+    <path d="M 320 618 Q 318 655 326 690" />
+    <path d="M 620 700 Q 616 740 624 780" />
+    <path d="M 940 700 Q 944 740 936 780" />
+    <path d="M 1290 622 Q 1286 660 1294 700" />
+    <path d="M 1390 618 Q 1394 655 1386 690" />
+    <path d="M 1480 620 Q 1482 670 1474 710" />
   </g>
-
-  <text x="450" y="655" text-anchor="middle" font-family="monospace" font-size="22" fill="#999999" letter-spacing="4">
-    SEASON_CHAMPIONS.SYS
-  </text>
+  <g fill="#111111">
+    <circle cx="126" cy="716" r="7" />
+    <circle cx="216" cy="706" r="6" />
+    <circle cx="326" cy="696" r="6" />
+    <circle cx="624" cy="786" r="7" />
+    <circle cx="936" cy="786" r="7" />
+    <circle cx="1294" cy="706" r="6" />
+    <circle cx="1386" cy="696" r="6" />
+    <circle cx="1474" cy="716" r="7" />
+  </g>
 </svg>
