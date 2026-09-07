@@ -3,7 +3,7 @@
   "league_id": "1370188155843526656",
   "previous_league_id": "1214028632419217409",
   "draft_id": "1370188155851907072",
-  "status": "upcoming",
+  "status": "in_season",
   "num_teams": 10,
   "member_count": 10,
   "champion": null,
@@ -11,7 +11,7 @@
     {
       "user_id": "1058575263971250176",
       "display_name": "allsxxing",
-      "team_name": "NO MORE A$H ONLY TETTIES",
+      "team_name": "A$H & TETTIES",
       "roster_id": 1
     },
     {
@@ -29,7 +29,7 @@
     {
       "user_id": "1117902191370547200",
       "display_name": "Maxwellhiggens",
-      "team_name": null,
+      "team_name": "Strawberry marg pitchers",
       "roster_id": 4
     },
     {
@@ -63,17 +63,17 @@
       "roster_id": 9
     },
     {
-      "user_id": "871543078786375680",
-      "display_name": "YourDeadPixel",
-      "team_name": "Big DAWG Energy ",
+      "user_id": "729199653513433088",
+      "display_name": "trappat",
+      "team_name": null,
       "roster_id": 10
     }
   ],
   "draft": {
     "draft_id": "1370188155851907072",
-    "status": "pre_draft",
+    "status": "complete",
     "type": "snake",
-    "start_time": 1788732043000,
+    "start_time": 1788732008406,
     "rounds": 18,
     "pick_timer_seconds": 90,
     "source": "sleeper /v1/draft"
@@ -85,13 +85,6 @@
       "user_id": "1133247206179442688",
       "display_name": "nichigh",
       "team_name": null
-    },
-    {
-      "draft_position": 2,
-      "roster_id": 10,
-      "user_id": "871543078786375680",
-      "display_name": "YourDeadPixel",
-      "team_name": "Big DAWG Energy "
     },
     {
       "draft_position": 3,
@@ -112,7 +105,7 @@
       "roster_id": 1,
       "user_id": "1058575263971250176",
       "display_name": "allsxxing",
-      "team_name": "NO MORE A$H ONLY TETTIES"
+      "team_name": "A$H & TETTIES"
     },
     {
       "draft_position": 6,
@@ -140,7 +133,7 @@
       "roster_id": 4,
       "user_id": "1117902191370547200",
       "display_name": "Maxwellhiggens",
-      "team_name": null
+      "team_name": "Strawberry marg pitchers"
     },
     {
       "draft_position": 10,
@@ -151,7 +144,7 @@
     }
   ],
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
-  "synced_at": "2026-09-02T16:56:23.911Z",
+  "synced_at": "2026-09-07T18:01:15.319Z",
   "roster_changes": {
     "vs_season": "2025",
     "departures": [
@@ -175,6 +168,13 @@
         "prior_roster_id": 9,
         "status": "to_be_filled",
         "note": "In prior season, not in current roster; spot to be filled before Draft Day."
+      },
+      {
+        "user_id": "871543078786375680",
+        "display_name": "YourDeadPixel",
+        "prior_roster_id": 10,
+        "status": "to_be_filled",
+        "note": "In prior season, not in current roster; spot to be filled before Draft Day."
       }
     ],
     "additions": [
@@ -192,6 +192,11 @@
         "user_id": "1124740547148763136",
         "display_name": "Nels8951",
         "roster_id": 9
+      },
+      {
+        "user_id": "729199653513433088",
+        "display_name": "trappat",
+        "roster_id": 10
       }
     ],
     "open_spots": 0
