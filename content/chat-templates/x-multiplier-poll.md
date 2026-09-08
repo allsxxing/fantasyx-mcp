@@ -31,25 +31,15 @@ Ex:
 
 **Choice 1**
 ```
-1❌ — $10
+1❌ = $10 (remains the same; covered by $10 buy-in)
 ```
 
 **Choice 2**
 ```
-2.5❌ — $25
+2.5❌ = $25
 ```
 
 **Choice 3**
 ```
-5❌ — $50
-```
-
-**Choice 4**
-```
-10❌ — $100
-```
-
-**Choice 5**
-```
-OTHER — Comment your number
+5❌ = $50
 ```
