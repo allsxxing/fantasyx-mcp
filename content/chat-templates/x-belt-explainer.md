@@ -22,4 +22,7 @@ That dude is locked into they starting FLEX. Can't bench him.
 ➕ Lose → the team that beat you is the new ❌ Champ
 
 One League. One Crown. One ❌. Win your matchup. Defend the ❌.
+
+➕ See League HQ for more info:
+🔗 https://fantasyx-mcp.vercel.app
 ```
