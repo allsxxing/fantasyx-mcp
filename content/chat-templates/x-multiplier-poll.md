@@ -9,22 +9,17 @@ variables: []
 ```
 🗳️ ❌ BUY-IN MULTIPLIER VOTE!
 
-✅ ALL BUY-IN DUES HAVE BEEN PAID.
+✅ ALL BUY-IN DUES HAVE BEEN PAID
 
-Now let’s see how much EXTRA skin we putting in this szn.
+Now let’s see how much EXTRA skin we putting in the game this szn.
 
-Higher ❌ = bigger bag.
-League decides the skin.
+Higher ❌ Multiplier = BIGGER Bag
+League decides the BONU$!
 
-This vote only sets the ❌ bonus/multiplier.
-Paid via LeagueSafe ONLY.
+📌 NOTE: This vote only sets the ❌ bonus/multiplier. Paid via LeagueSafe ONLY. 
+The $ next to each choice is the NEW TOTAL. $10 is already PAID.
 
-📌 NOTE: The $ next to each choice is the NEW TOTAL. $10 is already PAID.
-
-Ex:
-1❌ = $10 → $0 more
-2.5❌ = $25 Total → Pay $15+ (LeagueSafe)
-5❌ = $50 Total → Pay $40+ (LeagueSafe)
+Ex: 1❌ = $10 → $0 more 2.5❌ = $25 Total → Pay $15+ (LeagueSafe) 5❌ = $50 Total → Pay $40+ (LeagueSafe)
 ```
 
 ## Choices
