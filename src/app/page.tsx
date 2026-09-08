@@ -224,7 +224,7 @@ export default async function Home() {
                 </span>
               </div>
             </div>
-            <img src="/hero-trophy.svg" alt="League trophy" className="hero-image" />
+            <img src="/hero-belt.svg" alt="X Champion belt" className="hero-image" />
           </div>
         </section>
 
