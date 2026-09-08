@@ -18,8 +18,10 @@ This the main feature. Stops anybody from running away after a hot Week 1.
 ➕ NO post = NO Lock that week
 
 <<❌-BELT>> TITLE TRANSFER
-➕ Win your matchup → keep the belt
-➕ Lose → Team that BTA becomes NEW ❌ Champ
+
+✅ WIN your matchup → keep the belt
+
+🚫 LOSE → Team that BTA is NEW ❌ Champ
 
 ➕ For more info, see League HQ
 🔗 https://fantasyx-mcp.vercel.app
