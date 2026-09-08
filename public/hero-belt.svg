@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700">
+  <defs>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#333333" />
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#1f80ff" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#1f80ff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="cupFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3aa0ff" />
+      <stop offset="100%" stop-color="#1f80ff" />
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="700" fill="#181818" />
+  <rect width="900" height="700" fill="url(#dots)" />
+  <circle cx="450" cy="300" r="260" fill="url(#glow)" />
+
+  <!-- laurel branches -->
+  <g stroke="#1f80ff" stroke-width="4" fill="none" opacity="0.8">
+    <path d="M 250 420 Q 200 340 240 240 Q 260 190 300 160" />
+    <path d="M 650 420 Q 700 340 660 240 Q 640 190 600 160" />
+    <g fill="#1f80ff" opacity="0.9">
+      <ellipse cx="240" cy="240" rx="10" ry="18" transform="rotate(-30 240 240)" />
+      <ellipse cx="222" cy="290" rx="10" ry="18" transform="rotate(-15 222 290)" />
+      <ellipse cx="220" cy="345" rx="10" ry="18" transform="rotate(5 220 345)" />
+      <ellipse cx="260" cy="195" rx="9" ry="16" transform="rotate(-45 260 195)" />
+      <ellipse cx="660" cy="240" rx="10" ry="18" transform="rotate(30 660 240)" />
+      <ellipse cx="678" cy="290" rx="10" ry="18" transform="rotate(15 678 290)" />
+      <ellipse cx="680" cy="345" rx="10" ry="18" transform="rotate(-5 680 345)" />
+      <ellipse cx="640" cy="195" rx="9" ry="16" transform="rotate(45 640 195)" />
+    </g>
+  </g>
+
+  <!-- trophy silhouette -->
+  <g stroke="#ffffff" stroke-width="4">
+    <!-- cup bowl -->
+    <path
+      d="M 340 190
+         L 560 190
+         Q 560 300 500 350
+         Q 470 375 450 375
+         Q 430 375 400 350
+         Q 340 300 340 190 Z"
+      fill="url(#cupFace)"
+    />
+    <!-- rim -->
+    <rect x="330" y="180" width="240" height="20" rx="4" fill="#ffffff" stroke="none" />
+    <!-- handles -->
+    <path d="M 340 210 Q 260 210 260 290 Q 260 350 320 360" fill="none" stroke="#1f80ff" stroke-width="10" />
+    <path d="M 560 210 Q 640 210 640 290 Q 640 350 580 360" fill="none" stroke="#1f80ff" stroke-width="10" />
+    <!-- stem -->
+    <rect x="425" y="375" width="50" height="70" fill="#1f80ff" stroke="none" />
+    <!-- collar -->
+    <rect x="395" y="445" width="110" height="22" fill="#ffffff" stroke="none" />
+    <!-- base tiers -->
+    <rect x="360" y="467" width="180" height="34" fill="#1a1a1a" stroke="#1f80ff" stroke-width="4" />
+    <rect x="320" y="501" width="260" height="40" fill="#1a1a1a" stroke="#ffffff" stroke-width="4" />
+  </g>
+
+  <!-- star medallion on cup -->
+  <g fill="#181818">
+    <polygon points="450,225 462,258 497,258 468,278 479,311 450,291 421,311 432,278 403,258 438,258" />
+  </g>
+
+  <!-- base plaque numerals -->
+  <text x="450" y="527" text-anchor="middle" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#1f80ff">
+    10 FOR $10
+  </text>
+
+  <!-- CRT-style scanlines across the whole plate -->
+  <g stroke="#000000" stroke-opacity="0.15" stroke-width="1">
+    <line x1="0" y1="120" x2="900" y2="120" />
+    <line x1="0" y1="240" x2="900" y2="240" />
+    <line x1="0" y1="360" x2="900" y2="360" />
+    <line x1="0" y1="480" x2="900" y2="480" />
+    <line x1="0" y1="600" x2="900" y2="600" />
+  </g>
+
+  <text x="450" y="640" text-anchor="middle" font-family="monospace" font-size="22" fill="#999999" letter-spacing="4">
+    SEASON_CHAMPIONS.SYS
+  </text>
+</svg>

@@ -1,8 +1,9 @@
 # FantasyX MCP — Maintenance TODO
 
-Captured: 2026-08-30
+Captured: 2026-08-30 · Updated: 2026-09-08
 League: 10 FOR $10❌ · Repo: allsxxing/fantasyx-mcp · HQ: https://fantasyx-mcp.vercel.app
-Status: OPEN (1 item already done, awaiting MCP content sync)
+Status: OPEN — draft complete (10/10 rosters), season in progress. Calendar and chat-template
+posts still blocked on commissioner action (see items 1–3).
 
 Routine commish maintenance. Do not invent dates, dues amounts, LeagueSafe codes, or X-mechanic wording. Authority stays `content/rules.md` (generated from iCloud source). Never hand-edit generated rules.
 
@@ -21,7 +22,7 @@ Routine commish maintenance. Do not invent dates, dues amounts, LeagueSafe codes
 
 ---
 
-## 1. Subscription calendar (website first, then subscribe) — CODE DONE, awaiting your Google Calendar setup
+## 1. Subscription calendar (website first, then subscribe) — CODE DONE, STILL awaiting your Google Calendar setup
 
 Goal: one canonical league calendar people can view on the HQ site and subscribe to from iCloud / Google / Outlook, updatable **without a commit**.
 
@@ -31,41 +32,55 @@ section on the landing page (`src/app/page.tsx`) — all read `content/links.jso
 `league_calendar.ics_url` **live at request time**, so Google Calendar is the write surface
 and no redeploy is needed to move a date.
 
-- [ ] **You:** create a public Google Calendar named `🏆 10 FOR $10❌ 2026`
+**Status as of 2026-09-08:** `content/links.json → league_calendar.ics_url` is still `null`.
+Both the MCP tool and the landing page correctly degrade to subscribe-links-only — that is
+the designed fallback, not a bug. The feature stays dark until the calendar exists and its
+ICS URL + label are handed over.
+
+- [ ] **You:** create a public Google Calendar and provide its **public ICS address** and its **label** (calendar name)
 - [ ] Seed events (use locked dates only; leave TBD events as tentative all-day or TBD title)
-  - Draft Day — Sun, Sept 6 @ 5:00 PM CT (from current commissioner-note)
+  - Draft Day — Sun, Sept 6 @ 5:00 PM CT (complete — historical event now)
   - Payment / buy-in deadline — 9/9 7:20 PM (from current dues-note; confirm before publishing)
-  - Regular season kickoff / Week 1
+  - Regular season kickoff / Week 1 (season is already in progress per Sleeper — confirm real date)
   - Trade deadline — Sleeper: Week 11 (confirm live setting)
   - Playoffs start — Sleeper: 6 teams from Week 15 (confirm live setting)
   - Multiplier vote window — tentative: draft day → after Week 1
   - LeagueSafe multiplier / bonus dues deadline — currently listed 10/1/26 in dues-note (confirm; still tentative)
   - X title explanation drop — after draft, before Week 1
-  - New league notes publish date — closer to draft day
-- [ ] **You:** grab the calendar's public ICS address + embed/Google URL, then set
-  `content/links.json` → `league_calendar.ics_url` / `google_url` / `webcal_url`
-  (webcal = the ICS url with `https://` swapped for `webcal://`) and commit —
-  this is the *only* commit needed; every date after that is a Google Calendar edit only.
+- [ ] **Once you hand over the ICS URL + label:** set `content/links.json` →
+  `league_calendar.ics_url` / `google_url` / `webcal_url` / `label`
+  (webcal = the ICS url with `https://` swapped for `webcal://`), run `npm run validate`,
+  verify both the landing page and `fx_get_calendar` return real events, then commit —
+  this is the *only* commit the calendar ever needs; every date after that is a Google
+  Calendar edit only.
 
 ---
 
-## 2. New league notes (replace current) — DRAFTED
+## 2. New league notes (replace current) — DRAFTED, drafts UNCONFIRMED
 
 - [x] Draft replacement commissioner note — `content/chat-templates/post-draft-note.md`
   (render via `fx_render_chat_template` with `draft_recap_note` + `calendar_subscribe_url`)
 - [x] `content/commissioner-note.json` ROSTER/FEES rows updated to match live Sleeper settings
   (3x FLEX / 7 BN, SleeperSafe buy-in + LeagueSafe-only bonus)
+- [x] `content/commissioner-note.json` DRAFT row updated to reflect completion (10/10 rosters
+  filled, draft `status: complete` in `seasons/2026.json`); added a SEASON row pointing to
+  the live calendar for kickoff/deadline dates (2026-09-08)
+- [ ] **You:** review and confirm `post-draft-note.md` before it is revised further or posted —
+  it has not been reviewed since it was drafted in `9113f8d`
 - [ ] **You:** post the rendered note to Sleeper once the draft recap text + calendar link are final
 
 ---
 
-## 3. X title explanation — chat drop before Week 1 — DRAFTED
+## 3. X title explanation — chat drop before Week 1 — DRAFTED, drafts UNCONFIRMED
 
 - [x] `content/chat-templates/x-belt-explainer.md` refreshed; confirmed sabotage mechanic +
   Friday 11:59 PM CT deadline, matches locked V5
 - [x] `content/chat-templates/x-crowning.md` (Week 2+, prior holder) and the new
   `content/chat-templates/x-crowning-week1.md` (first crowning, league-high + tiebreaker
   chain) both drafted
+- [ ] **You:** review and confirm `x-belt-explainer.md`, `x-crowning-week1.md`, and
+  `x-multiplier-poll.md` — none have been reviewed since drafting. **No further edits to
+  these files until you confirm them.**
 - [ ] **You:** post `x-belt-explainer` in league chat after the draft, before Week 1
 
 ---
@@ -104,6 +119,21 @@ Current live copy (`content/dues-note.md`) is tentative and already split:
 4. Lock dues copy as far as SleeperSafe allows; leave multiplier language tentative
 5. Run multiplier vote in the draft-day → post-Week-1 window
 6. Patch dues + calendar + notes after the vote
+
+---
+
+## 6. Hero graphic — RESTARTED from original (2026-09-08)
+
+`9113f8d` replaced `public/hero-trophy.svg` with a hand-drawn `hero-belt.svg`; `8b5b77a`
+reverted that swap back to the original trophy art. The belt attempt was scrapped, not
+resumed.
+
+- [x] `public/hero-belt.svg` recreated as an exact copy of `public/hero-trophy.svg` — the
+  original trophy art is preserved untouched; the belt file is the new working base
+- [ ] **You:** generate reference art (prompt captured in the plan file used for this
+  session) and iterate `public/hero-belt.svg` against it
+- [ ] `src/app/page.tsx` still points at `/hero-trophy.svg` — only flip to `/hero-belt.svg`
+  once the new art is approved
 
 ---
 
