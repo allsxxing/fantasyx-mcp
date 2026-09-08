@@ -7,22 +7,31 @@ variables: []
 (paste into the top “Ask something...” field)
 
 ```
-🗳️ THE ❌ VOTE — SET THE BAG 🗳️
+🗳️ ❌ BUY-IN MULTIPLIER VOTE!
 
-How much skin we putting in this year?
+✅ ALL BUY-IN DUES HAVE BEEN PAID.
 
-Higher multiplier = bigger winner bag. League decides the skin in the game.
-Buy-in ($10) stays on SleeperSafe either way — this vote only sets the ❌ bonus/multiplier,
-paid via LeagueSafe.
+Now let’s see how much EXTRA skin we putting in this szn.
 
-Note: Each of the above TOTALS include the $10 buy-in.
+Higher ❌ = bigger bag.
+League decides the skin.
+
+This vote only sets the ❌ bonus/multiplier.
+Paid via LeagueSafe ONLY.
+
+📌 NOTE: The $ next to each choice is the NEW TOTAL. $10 is already PAID.
+
+Ex:
+1❌ = $10 → $0 more
+2.5❌ = $25 Total → Pay $15+ (LeagueSafe)
+5❌ = $50 Total → Pay $40+ (LeagueSafe)
 ```
 
 ## Choices
 
 **Choice 1**
 ```
-1❌ — $10 (remains the same; covered by $10 buy-in)
+1❌ — $10
 ```
 
 **Choice 2**
