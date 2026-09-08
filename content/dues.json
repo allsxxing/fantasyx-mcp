@@ -3,12 +3,12 @@
   "structure": "winner_take_all",
   "multiplier": {
     "status": "pending_vote",
-    "options": ["1X", "2.5X", "5X", "10X", "OTHER"],
+    "options": ["1X", "2.5X", "5X"],
     "resolved": null
   },
   "payment_method": {
     "buy_in": "SleeperSafe",
     "bonus": "LeagueSafe"
   },
-  "note": "Buy-in ($10) via SleeperSafe. Bonus multiplier dues (once voted) via LeagueSafe. Buy-in scales with the ❌ multiplier once the poll resolves (1X=$10, 2.5X=$25, 5X=$50, 10X=$100). Paid/unpaid status, payment handles, and contacts are private and are served only via the admin endpoint from FANTASYX_PRIVATE_DATA — never committed to git. LeagueSafe join link: see links.json."
+  "note": "Buy-in ($10) via SleeperSafe. Bonus multiplier dues (once voted) via LeagueSafe. Choice totals include the $10 already paid (1X=$10 / $0 more, 2.5X=$25 / $15 LeagueSafe, 5X=$50 / $40 LeagueSafe). Paid/unpaid status, payment handles, and contacts are private and are served only via the admin endpoint from FANTASYX_PRIVATE_DATA — never committed to git. LeagueSafe join link: see links.json."
 }
