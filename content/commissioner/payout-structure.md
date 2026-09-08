@@ -10,8 +10,6 @@ title: Payout Structure
   - 1X → $10
   - 2.5X → $25
   - 5X → $50
-  - 10X → $100
-  - OTHER → league-defined
 - **Multiplier status:** pending the ❌ Vote poll (see `dues.json`).
 - **Payment method:** LeagueSafe.
 
