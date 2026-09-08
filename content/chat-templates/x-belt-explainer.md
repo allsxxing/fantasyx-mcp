@@ -14,7 +14,7 @@ The Champ picks ONE FLEX-eligible player on the team they play that week
 That dude is locked into they starting FLEX. Can't bench him.
 
 <<❌-BELT>> DECLARATION
-➕ Post the lock in league chat by EOD Friday (11:59 PM CT)
+➕ Champ must POST the ❌ Lock in League Chat by EOD Friday.
 ➕ No post = no lock that week
 
 <<❌-BELT>> TITLE TRANSFER
