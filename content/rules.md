@@ -5,8 +5,7 @@ locked: true
 last_updated: 2026-08-11
 source_file: 10_FOR_10X_League_Rules_2026-08-11.md
 note: >-
-  Locked V5 ruleset for the 2026 season. Supersedes V4. Update via
-  scripts/import-icloud.mjs.
+  Locked V5 ruleset for the 2026 season. Update via scripts/import-icloud.mjs.
 ---
 
 # 🗓️ '26 NFL SEASON: LEAGUE RULES — 🔟 FOR $10❌
@@ -30,8 +29,6 @@ Commissioner posts a poll for all managers.
 - **1X** — $10
 - **2.5X** — $25
 - **5X** — $50
-- **10X** — $100
-- **OTHER** — Comment your number
 
 Higher multiplier = bigger winner bag. League decides the skin in the game.
 

@@ -1,11 +1,11 @@
 ---
 status: superseded
-superseded_by: rules.md (V4, 2026-08-08)
+superseded_by: rules.md (V5, 2026-08-11)
 ---
 
 > 🗄️ **SUPERSEDED.** This is the earlier rules draft. Its X mechanic — *steal*
 > an opponent's player into your OWN flex, declare before Sunday 1pm ET — was
-> replaced by V4, where the X is **sabotage** (force a FLEX-eligible player into
+> replaced by V5, where the X is **sabotage** (force a FLEX-eligible player into
 > the *opponent's* lineup, declare by Friday 11:59 PM CT). Kept for history only.
 > Do not answer rules questions from this file.
 # 🏈 10 FOR $10❌ — 2026 NFL SEASON RULES REFERENCE
