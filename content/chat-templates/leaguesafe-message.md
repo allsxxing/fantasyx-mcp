@@ -9,52 +9,50 @@ variables: []
 Use this clean version only when the context is pure LeagueSafe / formal pin.
 
 ```
-**ANNOUNCEMENT: WELCOME!**  
-YOOO! Tap-in to the NFL Fantasy League,  
-[10 FOR $10X](https://sleeper.com/i/kMgwLBWeYeXdk)
+LEAGUESAFE NOTE — READ THIS
 
-**THE RUNDOWN**
+LEAGUESAFE TXNS ARE SOLELY FOR:
+“BONUS / VOTED MULTIPLIER”
+NOT the $10 buy-in. That already ran thru SleeperSafe.
 
-**<< LEAGUE >>**  
-+ Teams: 10 Squads  
-+ Type: Re-Draft  
+Yooo! Don’t mix the pots.
 
-**<< LEAGUE HQ / MCP SERVER >>**  
-Link: [https://fantasyx-mcp.vercel.app](https://fantasyx-mcp.vercel.app)
+<< BUY-IN (ALREADY DONE) >>
++ Buy-in: $10
++ Platform: SleeperSafe ONLY
++ ALL BUY-IN DUES PAID
++ Do NOT send the $10 to LeagueSafe
 
-**<< DRAFT >>**  
-+ Draft Date: Sun, Sept 6 @ 5:00 PM CT (Tentative)  
-+ Type: Snake  
-+ Time Per Pick: 90 Secs  
-+ Draft Order: Randomized  
+<< BONUS / VOTED MULTIPLIER >>
++ THIS is the only thing LeagueSafe is for
++ Multiplier: TBD (league vote)
++ Choices locked: 1X $10 covered / 2.5X $25 / 5X $50
++ Totals include the $10 already paid on SleeperSafe
++ Deadline: 10/1/26
++ Platform: LeagueSafe ONLY
++ Link: https://www.leaguesafe.com/join/4429630/10-for-10
 
-**<< FEES / DUES >>**  
-+ Buy-in: $10  
-+ Deadline: 9/9 7:20PM  
-+ Platform: SleeperSafe  
+IF YOU HIT LEAGUESAFE:
+send the extra amount ONLY
+1X = $0 extra on LeagueSafe (already covered by the $10)
+2.5X = $15 extra on LeagueSafe ($25 total)
+5X = $40 extra on LeagueSafe ($50 total)
 
-+ BONUS/MULTIPLIER: *TBD  
-+ Deadline: 10/1/26  
-+ Platform: LeagueSafe  
-Link: [https://www.leaguesafe.com/join/4429630/10-for-10](https://www.leaguesafe.com/join/4429630/10-for-10)  
-NOTE: USE LeagueSafe ONLY
+<< PAY-UP >>
+UNPAID Buy-In = FULL Roster Lock
+UNPAID BONUS / Multiplier = Limited Waivers, any roster txns vetoable by the league
 
-**Pay-Up Punishment Enforced!**  
-UNPAID Buy-In = FULL Roster Lock  
-UNPAID BONUS/MULTIPLIER = Limited Waivers; vetoable by League
+<< PRIZING >>
++ Prize Pot: WINNER TAKE ALL
++ Final pot scales w/ the league-voted Multiplier
 
-**<< PRIZING >>**  
-+ Prize Pot: WINNER TAKE ALL!  
-+ Final pot scales w/ League-voted Multiplier
-
-**<< INFO >>**  
-+ Scoring: Sleeper PPR  
-+ Waivers: Rolling Waivers  
-+ League Rules/Setup: [see League HQ](https://fantasyx-mcp.vercel.app)
+<< HQ >>
+https://fantasyx-mcp.vercel.app
 ```
 
-**Rules of engagement:**  
-- This clean rich-text version is for LeagueSafe-only contexts.  
-- All other notes (Commish_Note, dues-note, chat templates, HQ) keep full emoji energy.  
-- LeagueSafe = exclusive home for every multiplier & bonus pot.  
-- Base $10 buy-in stays on SleeperSafe.
+**Rules of engagement:**
+- This clean rich-text version is for LeagueSafe-only contexts.
+- All other notes (Commish_Note, dues-note, chat templates, HQ) keep full emoji energy.
+- LeagueSafe = exclusive home for the voted multiplier / bonus pot.
+- Base $10 buy-in stays on SleeperSafe. Do not resend it here.
+- Choice totals include the $10 already paid: 1X = $0 more / 2.5X = $15 LeagueSafe / 5X = $40 LeagueSafe.
