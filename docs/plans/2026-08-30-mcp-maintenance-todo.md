@@ -65,9 +65,7 @@ ICS URL + label are handed over.
 - [x] `content/commissioner-note.json` DRAFT row updated to reflect completion (10/10 rosters
   filled, draft `status: complete` in `seasons/2026.json`); added a SEASON row pointing to
   the live calendar for kickoff/deadline dates (2026-09-08)
-- [ ] **You:** review and confirm `post-draft-note.md` before it is revised further or posted —
-  it has not been reviewed since it was drafted in `9113f8d`
-- [ ] **You:** post the rendered note to Sleeper once the draft recap text + calendar link are final
+- [x] **You:** reviewed, confirmed, and posted `post-draft-note.md` to league chat (2026-09-08)
 
 ---
 
@@ -78,10 +76,9 @@ ICS URL + label are handed over.
 - [x] `content/chat-templates/x-crowning.md` (Week 2+, prior holder) and the new
   `content/chat-templates/x-crowning-week1.md` (first crowning, league-high + tiebreaker
   chain) both drafted
-- [ ] **You:** review and confirm `x-belt-explainer.md`, `x-crowning-week1.md`, and
-  `x-multiplier-poll.md` — none have been reviewed since drafting. **No further edits to
-  these files until you confirm them.**
-- [ ] **You:** post `x-belt-explainer` in league chat after the draft, before Week 1
+- [x] **You:** reviewed, confirmed, and posted `x-belt-explainer.md` in league chat (2026-09-08)
+- [x] **You:** reviewed, confirmed, and posted `x-multiplier-poll.md` in league chat (2026-09-08)
+- [ ] **You:** review and confirm `x-crowning-week1.md` — not yet reviewed since drafting.
 
 ---
 
