@@ -6,9 +6,9 @@
   "leaguesafe": "https://www.leaguesafe.com/join/4429630/10-for-10",
   "league_calendar": {
     "label": "🏆 10 FOR $10❌ 2026",
-    "ics_url": null,
-    "google_url": null,
-    "webcal_url": null
+    "ics_url": "https://calendar.google.com/calendar/ical/94b62a2dec7f01cd54bfc584ba1c5c9548a5b7bfda5b162745d4824d1d8227ec%40group.calendar.google.com/public/basic.ics",
+    "google_url": "https://calendar.google.com/calendar/embed?src=94b62a2dec7f01cd54bfc584ba1c5c9548a5b7bfda5b162745d4824d1d8227ec%40group.calendar.google.com",
+    "webcal_url": "webcal://calendar.google.com/calendar/ical/94b62a2dec7f01cd54bfc584ba1c5c9548a5b7bfda5b162745d4824d1d8227ec%40group.calendar.google.com/public/basic.ics"
   },
   "related_sleeper_leagues": [
     {
