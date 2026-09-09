@@ -75,7 +75,7 @@ export function deriveKeyDates({ state, league, draft }) {
     const end = new Date(draft.start_time + 2 * 60 * 60 * 1000).toISOString();
     events.push({
       id: EVENT_IDS.draft,
-      title: '🏆 10 FOR $10❌ — Draft Day',
+      title: '🏆Draft Day!',
       kind: 'draft',
       all_day: false,
       start,
@@ -90,7 +90,7 @@ export function deriveKeyDates({ state, league, draft }) {
   const week1Date = weekKickoffDate(seasonStartDate, 1, startWeek);
   events.push({
     id: EVENT_IDS.week1,
-    title: '🏆 10 FOR $10❌ — Week 1 Kickoff',
+    title: '🏆Kickoff! Week 1',
     kind: 'week1',
     all_day: true,
     date: week1Date,
@@ -100,7 +100,7 @@ export function deriveKeyDates({ state, league, draft }) {
   const tradeDeadlineDate = weekStartDate(seasonStartDate, tradeDeadlineWeek, startWeek);
   events.push({
     id: EVENT_IDS.tradeDeadline,
-    title: '🏆 10 FOR $10❌ — Trade Deadline (Week ' + tradeDeadlineWeek + ' Start)',
+    title: `🏆Deadline! Trades Close (Wk ${tradeDeadlineWeek})`,
     kind: 'trade_deadline',
     all_day: true,
     date: tradeDeadlineDate,
@@ -110,7 +110,7 @@ export function deriveKeyDates({ state, league, draft }) {
   const playoffsDate = weekKickoffDate(seasonStartDate, playoffWeekStart, startWeek);
   events.push({
     id: EVENT_IDS.playoffs,
-    title: '🏆 10 FOR $10❌ — Playoffs Begin (Week ' + playoffWeekStart + ')',
+    title: `🏆Playoffs! Week ${playoffWeekStart} Begins`,
     kind: 'playoffs',
     all_day: true,
     date: playoffsDate,

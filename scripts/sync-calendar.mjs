@@ -26,8 +26,11 @@ const DRY_RUN = process.argv.includes('--dry-run') || process.env.DRY_RUN === '1
 const log = (...a) => console.log('[sync-calendar]', ...a);
 const warn = (...a) => console.warn('[sync-calendar] WARN', ...a);
 
+// Required on every synced event's description, per commissioner convention.
+const LEAGUE_LINE = 'League: 🏆 10 FOR $10❌ — https://sleeper.com/leagues/1370188155843526656/team';
+
 function toGoogleEvent(e) {
-  const description = `${e.derived_from}\n\nAuto-synced from Sleeper — edits here are overwritten; change it in Sleeper.`;
+  const description = `${LEAGUE_LINE}\n\n${e.derived_from}\n\nAuto-synced from Sleeper — edits here are overwritten; change it in Sleeper.`;
   if (e.all_day) {
     // Google all-day events use exclusive end dates; a single-day event's end is start+1.
     const [y, m, d] = e.date.split('-').map(Number);
