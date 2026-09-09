@@ -20,6 +20,7 @@ const MAP = {
   'dues.json': 'dues.schema.json',
   'x-champion-log.json': 'x-champion-log.schema.json',
   'rules.meta.json': 'rules-meta.schema.json',
+  'key-dates.json': 'key-dates.schema.json',
 };
 
 const typeOf = (v) => Array.isArray(v) ? 'array' : v === null ? 'null' : typeof v === 'number' ? 'number' : typeof v;

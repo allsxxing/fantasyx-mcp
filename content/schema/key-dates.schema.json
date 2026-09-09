@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "key-dates.schema.json",
+  "title": "Key Dates",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["season", "league_id", "source", "generated_at", "anchor", "events"],
+  "properties": {
+    "season": { "type": "string" },
+    "league_id": { "type": "string" },
+    "source": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "anchor": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["season_start_date", "start_week"],
+      "properties": {
+        "season_start_date": { "type": "string" },
+        "start_week": { "type": "number" }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "title", "kind", "all_day", "derived_from"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "kind": { "type": "string", "enum": ["draft", "week1", "trade_deadline", "playoffs"] },
+          "all_day": { "type": "boolean" },
+          "date": { "type": "string" },
+          "start": { "type": "string" },
+          "end": { "type": "string" },
+          "timezone": { "type": "string" },
+          "derived_from": { "type": "string" }
+        }
+      }
+    }
+  }
+}

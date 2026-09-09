@@ -1,0 +1,50 @@
+{
+  "season": "2026",
+  "league_id": "1370188155843526656",
+  "source": "sync-sleeper.mjs — https://api.sleeper.app (state + league + draft)",
+  "generated_at": "2026-09-09T00:14:03.922Z",
+  "anchor": {
+    "season_start_date": "2026-09-09",
+    "start_week": 1
+  },
+  "assumptions": [
+    "season_start_date (2026-09-09) from /v1/state/nfl is assumed to be the Wednesday that opens NFL week 1; games are assumed to begin the following day."
+  ],
+  "warnings": [],
+  "events": [
+    {
+      "id": "leaguedraft2026",
+      "title": "🏆 10 FOR $10❌ — Draft Day",
+      "kind": "draft",
+      "all_day": false,
+      "start": "2026-09-06T22:00:08.406Z",
+      "end": "2026-09-07T00:00:08.406Z",
+      "timezone": "America/Chicago",
+      "derived_from": "draft.start_time (1788732008406) from sleeper /v1/draft/1370188155851907072"
+    },
+    {
+      "id": "leaguekickoff12026",
+      "title": "🏆 10 FOR $10❌ — Week 1 Kickoff",
+      "kind": "week1",
+      "all_day": true,
+      "date": "2026-09-10",
+      "derived_from": "weekKickoffDate(season_start_date=2026-09-09, week=1, start_week=1)"
+    },
+    {
+      "id": "leaguetradedeadline2026",
+      "title": "🏆 10 FOR $10❌ — Trade Deadline (Week 12 Start)",
+      "kind": "trade_deadline",
+      "all_day": true,
+      "date": "2026-11-25",
+      "derived_from": "weekStartDate(trade_deadline=12) from state.season_start_date=2026-09-09"
+    },
+    {
+      "id": "leaguepostseason2026",
+      "title": "🏆 10 FOR $10❌ — Playoffs Begin (Week 15)",
+      "kind": "playoffs",
+      "all_day": true,
+      "date": "2026-12-17",
+      "derived_from": "weekKickoffDate(playoff_week_start=15) from state.season_start_date=2026-09-09"
+    }
+  ]
+}

@@ -39,7 +39,7 @@
     "best_ball": false,
     "playoff_teams": 6,
     "playoff_week_start": 15,
-    "trade_deadline_week": 11,
+    "trade_deadline_week": 12,
     "trade_review_days": 2,
     "waiver_type": "faab",
     "waiver_budget_faab": 100,

@@ -1,8 +1,14 @@
-name: Sync Sleeper Roster & Draft Data
+name: Sync Sleeper → Content → Calendar
 
 # Pulls live league state from the public Sleeper API and commits the regenerated
-# content/seasons/*.json + content/managers.json. Sleeper needs no credentials, so the only
-# permission required is contents:write — scoped here rather than in repo settings.
+# content/seasons/*.json + content/managers.json + content/key-dates.json. Sleeper needs no
+# credentials, so contents:write is the only permission required for that half — scoped here
+# rather than in repo settings.
+#
+# After the commit, optionally pushes the 4 Sleeper-derived key-dates.json events (Draft Day,
+# Week 1 Kickoff, Trade Deadline, Playoffs Start) into the league's Google Calendar via a
+# service account. That step is entirely optional: GCAL_SA_KEY is empty on forks/PRs and the
+# step no-ops cleanly rather than failing. It never touches any other calendar event.
 #
 # Phase-aware schedule. GitHub cron has no per-date gating, so the phases are expressed as
 # separate entries with the same job behind them; the no-op guard below means an out-of-phase
@@ -29,6 +35,9 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    env:
+      GCAL_SA_KEY: ${{ secrets.GCAL_SA_KEY }}
+      GCAL_CALENDAR_ID: ${{ vars.GCAL_CALENDAR_ID }}
     steps:
       - uses: actions/checkout@v4
 
@@ -89,3 +98,18 @@ jobs:
           git add content/
           git commit -m "sync: Sleeper league state $(date -u +%Y-%m-%d)"
           git push
+
+      # Always shows what WOULD change on the calendar, even when the write step below is
+      # skipped (no secret) — the pending delta stays visible in the Actions run summary.
+      - name: Preview calendar changes
+        if: steps.gate.outputs.run == 'true'
+        run: npm run sync:calendar -- --dry-run >> "$GITHUB_STEP_SUMMARY"
+
+      # Pushes the 4 Sleeper-derived events (Draft Day, Week 1 Kickoff, Trade Deadline,
+      # Playoffs Start) to Google Calendar by their frozen deterministic ids only — it never
+      # lists or deletes, so it cannot touch any human-authored event. Runs after both the
+      # validate gate and the commit, so nothing reaches the calendar that hasn't landed in
+      # git. Clean no-op (not a failure) when the secret is unset, e.g. on a fork or PR.
+      - name: Sync Google Calendar
+        if: steps.gate.outputs.run == 'true' && env.GCAL_SA_KEY != ''
+        run: npm run sync:calendar

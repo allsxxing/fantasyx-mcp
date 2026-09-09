@@ -20,6 +20,7 @@ import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { deriveKeyDates } from './lib/key-dates.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CONTENT = join(__dirname, '..', 'content');
@@ -219,8 +220,66 @@ async function main() {
   }
 
   await writeManagers(chain[0]);
+  await writeKeyDates(chain[0]);
 
   log('done:', written.join(' | '));
+}
+
+// content/key-dates.json — the 4 Sleeper-derived calendar events (Draft Day, Week 1
+// Kickoff, Trade Deadline, Playoffs Start) that sync-calendar.mjs later pushes to Google
+// Calendar. Derivation itself is pure (scripts/lib/key-dates.mjs); this function's only
+// job is fetching /v1/state/nfl, passing the live bundle in, and writing the result.
+async function writeKeyDates(bundle) {
+  let state;
+  try {
+    state = await getJson('/state/nfl');
+  } catch (err) {
+    warn('could not fetch /v1/state/nfl — skipping key-dates.json:', err.message);
+    return;
+  }
+
+  let derived;
+  try {
+    derived = deriveKeyDates({ state, league: bundle.league, draft: bundle.draft });
+  } catch (err) {
+    warn('deriveKeyDates failed — leaving existing key-dates.json untouched:', err.message);
+    return;
+  }
+
+  for (const w of derived.warnings) warn(w);
+
+  // Cross-check against the static settings import-icloud.mjs wrote into league.json —
+  // that file is never refreshed by this script (exactly one authority per file), so if it
+  // disagrees with live Sleeper, a human needs to reconcile it by hand.
+  try {
+    const staticLeague = JSON.parse(await readFile(join(CONTENT, 'league.json'), 'utf8'));
+    const liveTradeDeadline = bundle.league.settings?.trade_deadline;
+    const staticTradeDeadline = staticLeague.settings?.trade_deadline_week;
+    if (staticTradeDeadline != null && liveTradeDeadline != null && staticTradeDeadline !== liveTradeDeadline) {
+      warn(`content/league.json settings.trade_deadline_week (${staticTradeDeadline}) disagrees with live Sleeper trade_deadline (${liveTradeDeadline}) — update league.json by hand.`);
+    }
+    const livePlayoffStart = bundle.league.settings?.playoff_week_start;
+    const staticPlayoffStart = staticLeague.settings?.playoff_week_start;
+    if (staticPlayoffStart != null && livePlayoffStart != null && staticPlayoffStart !== livePlayoffStart) {
+      warn(`content/league.json settings.playoff_week_start (${staticPlayoffStart}) disagrees with live Sleeper playoff_week_start (${livePlayoffStart}) — update league.json by hand.`);
+    }
+  } catch (err) {
+    warn('could not read league.json for drift check:', err.message);
+  }
+
+  const out = {
+    season: bundle.league.season,
+    league_id: bundle.league.league_id,
+    source: 'sync-sleeper.mjs — https://api.sleeper.app (state + league + draft)',
+    generated_at: new Date().toISOString(),
+    anchor: { season_start_date: state.season_start_date, start_week: bundle.league.settings?.start_week ?? 1 },
+    assumptions: derived.assumptions,
+    warnings: derived.warnings,
+    events: derived.events,
+  };
+
+  const changed = await writeIfChanged(join(CONTENT, 'key-dates.json'), out);
+  log(changed ? 'wrote' : 'unchanged', `key-dates.json (${derived.events.length} events)`);
 }
 
 // content/managers.json is the flat current-season registry. It is derived from the same live
