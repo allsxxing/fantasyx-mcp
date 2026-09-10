@@ -53,7 +53,7 @@
     {
       "user_id": "890091625635061760",
       "display_name": "AJk12",
-      "team_name": "I’m stuck step Burrow",
+      "team_name": "Griddy on ur mamas TDs",
       "roster_id": 8
     },
     {
@@ -140,11 +140,11 @@
       "roster_id": 8,
       "user_id": "890091625635061760",
       "display_name": "AJk12",
-      "team_name": "I’m stuck step Burrow"
+      "team_name": "Griddy on ur mamas TDs"
     }
   ],
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
-  "synced_at": "2026-09-07T18:01:15.319Z",
+  "synced_at": "2026-09-10T16:48:12.197Z",
   "roster_changes": {
     "vs_season": "2025",
     "departures": [
