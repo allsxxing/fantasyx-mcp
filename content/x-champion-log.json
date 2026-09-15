@@ -3,8 +3,22 @@
   "rules_ref": "rules.md",
   "seasons": {
     "2026": {
-      "status": "not_started",
-      "weeks": []
+      "status": "in_progress",
+      "weeks": [
+        {
+          "week": 1,
+          "holder_user_id": "1124740547148763136",
+          "holder_display_name": "Nels8951",
+          "crowned_by": "high_score",
+          "locked_player_id": null,
+          "locked_player_name": null,
+          "locked_into_opponent_user_id": "729199653513433088",
+          "declared_at": null,
+          "declared_on_time": null,
+          "result": null,
+          "notes": "First 2026 ❌ Champion. Week 1 league-high 189.8 PPR (beat Maxwellhiggens 189.8–129.3). Runner-up anyfoolwilldo 189.5. No tiebreaker needed. Week 2 opponent: trappat. Lock due Friday 11:59 PM CT."
+        }
+      ]
     }
   }
 }
