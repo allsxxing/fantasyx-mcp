@@ -44,9 +44,11 @@ interface Season {
 
 interface XChampionWeek {
   week: number;
-  holder: string;
-  sabotage_player?: string;
-  declared_at?: string;
+  holder_user_id?: string | null;
+  holder_display_name?: string | null;
+  crowned_by?: string;
+  locked_player_name?: string | null;
+  notes?: string;
 }
 
 interface XChampionLog {
@@ -190,7 +192,7 @@ export default async function Home() {
           <div className="hero-content">
             <p style={{ color: "var(--accent-retro)", marginBottom: "10px" }}>{"[ CONNECTING TO LEAGUE... ]"}</p>
             <h1>
-              League <span>HQ</span> &amp; MCP Server
+              League <span>HQ</span> & MCP Server
             </h1>
             <p>
               A remote Model Context Protocol server for the Sleeper fantasy football league{" "}
@@ -319,8 +321,9 @@ export default async function Home() {
             xWeeks.map((w) => (
               <div className="terminal-row" key={w.week}>
                 <span className="output">
-                  {`> WK${w.week}: ${w.holder} holds the belt` +
-                    (w.sabotage_player ? ` — sabotaged with ${w.sabotage_player}` : "")}
+                  {`> WK${w.week}: ${w.holder_display_name ?? "TBD"} holds the belt` +
+                    (w.crowned_by === "high_score" ? " — first crown (league-high score)" : "") +
+                    (w.locked_player_name ? ` — sabotaged with ${w.locked_player_name}` : "")}
                 </span>
               </div>
             ))
