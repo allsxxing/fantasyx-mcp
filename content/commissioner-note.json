@@ -1,31 +1,20 @@
 {
   "source": "COMMISSIONER_NOTE_LATEST.md",
   "source_doc_url": "https://docs.google.com/document/d/1shUD0FCC3kMTanhcp69UNHWenhME8GZ6g7pjUvO3l8U/edit",
-  "announcement": "WEEK 1 ❌ CHAMPION CROWNED",
+  "announcement": "WEEK 2 UPDATE",
+  "posted_at": "2026-09-18",
   "sections": [
     {
       "label": "LEAGUE",
       "rows": [
-        "🏈🔥💵10 FOR $10❌",
-        "Teams: 🔢10 Squads",
-        "Status: IN SEASON — Week 2"
+        "🏈💵10 FOR $10❌",
+        "Teams: 🔟 Squads"
       ]
     },
     {
       "label": "LEAGUE HQ",
       "rows": [
         "https://fantasyx-mcp.vercel.app"
-      ]
-    },
-    {
-      "label": "❌-BELT",
-      "rows": [
-        "FIRST ❌ CHAMPION: Nels8951",
-        "Week 1 league-high: 189.8 PPR",
-        "Runner-up: anyfoolwilldo 189.5",
-        "Crowned by high score — no tiebreaker",
-        "Week 2 opponent: trappat",
-        "Lock one FLEX-eligible on trappat by Friday 11:59 PM CT"
       ]
     },
     {
@@ -38,15 +27,30 @@
     {
       "label": "FEE/DUES: BONUS!",
       "rows": [
-        "❌ BUY-IN MULTIPLIER: 2.5X lock pending LeagueSafe extras",
-        "PAY USING LEAGUESAFE ONLY!",
+        "❌ BUY-IN MULTIPLIER: 2.5❌",
+        "PAY $15 USING LEAGUESAFE ONLY!",
         "https://www.leaguesafe.com/join/4429630/10-for-10"
+      ]
+    },
+    {
+      "label": "FEES/DUES: PAY-UP!",
+      "rows": [
+        "Pay-Up Punishment Enforced!",
+        "UNPAID ❌ BONUS = Limited Waivers, vetoable by League"
       ]
     },
     {
       "label": "PRIZING",
       "rows": [
         "Prize Pot: WINNER TAKE ALL!"
+      ]
+    },
+    {
+      "label": "❌-BELT",
+      "rows": [
+        "New Rules (Pinned League Chat)",
+        "See League HQ",
+        "https://fantasyx-mcp.vercel.app"
       ]
     }
   ]
