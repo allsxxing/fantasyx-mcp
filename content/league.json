@@ -1,11 +1,11 @@
 {
-  "name": "🏈💵10 FOR $10🏈",
-  "display_name": "🏈💵10 FOR $10❌",
+  "name": "🏈10 FOR $10❌",
+  "display_name": "🏈10 FOR $10❌",
   "sport": "nfl",
   "platform": "sleeper",
   "invite_url": "http://sleeper.com/i/kMgwLBWeYeXdk",
-  "generated_at": "2026-09-15T13:49:00.000Z",
-  "generated_by": "week1-x-champion-crown",
+  "generated_at": "2026-09-19T16:50:00.000Z",
+  "generated_by": "brand-name-fix",
   "commissioner": {
     "display_name": "allsxxing",
     "user_id": "1058575263971250176",
@@ -22,7 +22,7 @@
     },
     {
       "season": "2025",
-      "league_id": "1214028632419217409",
+      "league_id": "1214028632431808512",
       "draft_id": "1214028632431808512",
       "status": "complete",
       "latest_league_winner_roster_id": "10"
