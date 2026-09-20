@@ -16,6 +16,6 @@ Get the ego out the way and send that shi
 
 FOLLOW-UP (drop after if needed):
 
-If i’m in the trade i’m excludin myself from the +$10 FAAB.
-Just so nobody thinks it’s funny business.
-Other side still gets the $10.
+*IF i’m involved in the trade, i’ll exclude myself from the +$10 FAAB — just so nobody thinks im tryin to pull some shady stuff.
+
+Other side still gets the +$10
