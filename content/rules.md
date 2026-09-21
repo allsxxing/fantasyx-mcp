@@ -2,7 +2,7 @@
 version: V5
 status: locked
 locked: true
-last_updated: 2026-08-11
+last_updated: 2026-09-21
 source_file: 10_FOR_10X_League_Rules_2026-08-11.md
 note: >-
   Locked V5 ruleset for the 2026 season. Update via scripts/import-icloud.mjs.
@@ -12,7 +12,7 @@ note: >-
 
 **League:** Sleeper (http://sleeper.com/i/kMgwLBWeYeXdk)  
 **Commissioner:** ⚡️ [@allsxxing](https://x.com/allsxxing) (GJ)  
-**Version:** V5 — Updated 2026-08-11
+**Version:** V5 — Updated 2026-09-21
 
 ---
 
@@ -41,6 +41,8 @@ Higher multiplier = bigger winner bag. League decides the skin in the game.
 
 This is the league's signature mechanic. It creates weekly drama and stops any team from running away after a hot Week 1.
 
+**Scope:** Regular season ONLY. No ❌ Lock during the playoffs.
+
 **Week 1 — Crown the First X Champion**
 
 - Highest scoring team in the entire league becomes the first X Champion.
@@ -57,6 +59,7 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 
 **Declaration Rule:**
 
+- Commissioner posts the **Call for ❌ Lock on Thursday**.
 - X Champion must publicly name the locked player in the league chat **by Friday 11:59 PM CT**.
 - No declaration = no X Lock that week.
 
@@ -82,9 +85,11 @@ The X Champion gets to **force one of their opponent's FLEX players to start**.
 **Commissioner Workflow:**
 
 1. Monday after scores finalize → announce the new X Champion.
-2. X Champion declares locked player by Friday 11:59 PM CT.
-3. If opponent tries to bench the locked player → commissioner notes it in the Monday recap (or league honors the lock).
-4. Title transfers on loss automatically.
+2. Thursday → post the Call for ❌ Lock in league chat.
+3. X Champion declares locked player by Friday 11:59 PM CT.
+4. If opponent tries to bench the locked player → commissioner notes it in the Monday recap (or league honors the lock).
+5. Title transfers on loss automatically.
+6. Regular season only — no ❌ Lock in the playoffs.
 
 ---
 
