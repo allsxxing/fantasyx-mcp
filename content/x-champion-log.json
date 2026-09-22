@@ -15,8 +15,21 @@
           "locked_into_opponent_user_id": "729199653513433088",
           "declared_at": "2026-09-18T18:59:00-05:00",
           "declared_on_time": true,
+          "result": "lost",
+          "notes": "Official chat drop 2026-09-15: THE FIRST ❌ CHAMP IS CROWNED: @Nels8951. Week 1 league-high 189.8 PPR (beat Maxwellhiggens 189.8–129.3). Runner-up anyfoolwilldo 189.5. FIRST X LOCK declared 2026-09-18 before Friday 11:59 PM CT: Blake Corum (RB LAR, sleeper 11586) locked into trappat FLEX for Week 2. RESULT: lost Wk 2 to trappat 124.2–128.52. Corum 10.2 PPR on MNF. Title change chat drop 2026-09-21."
+        },
+        {
+          "week": 2,
+          "holder_user_id": "729199653513433088",
+          "holder_display_name": "trappat",
+          "crowned_by": "beat_prior_holder",
+          "locked_player_id": null,
+          "locked_player_name": null,
+          "locked_into_opponent_user_id": null,
+          "declared_at": null,
+          "declared_on_time": null,
           "result": null,
-          "notes": "Official chat drop 2026-09-15: THE FIRST ❌ CHAMP IS CROWNED: @Nels8951. Week 1 league-high 189.8 PPR (beat Maxwellhiggens 189.8–129.3). Runner-up anyfoolwilldo 189.5. FIRST X LOCK declared 2026-09-18 before Friday 11:59 PM CT: Blake Corum (RB LAR, sleeper 11586) locked into trappat FLEX for Week 2."
+          "notes": "TITLE CHANGE 2026-09-21. @Nels8951 just got his chain SNATCHED. Wk 2: trappat 128.52, Nels8951 124.2. First ❌ Lock backfired — Corum 10.2 PPR on MNF helped steal the crown. NEW ❌ CHAMP: @trappat. Wk 3 opponent: @anyfoolwilldo (467531644052434944). Call for ❌ Lock drops Thursday."
         }
       ]
     }
