@@ -1,12 +1,13 @@
 ---
-title: X Lock Declaration (by Friday 11:59 PM CT)
-variables: [holder_team, locked_player, opponent_team]
+title: X Lock Declared
+variables: [holder, player, opponent, week]
 ---
 
-📢❌ **❌ LOCK DECLARED** ❌📢
+❌ LOCK DECLARED ❌
 
-**{{holder_team}}** invokes the ❌ on **{{locked_player}}**.
+@{{holder}} just locked {{player}} into @{{opponent}} FLEX
 
-That player is **locked into {{opponent_team}}'s starting FLEX** this week. Can't bench him. Can't hide him. He's starting — good matchup or not.
+Can’t bench him. Can’t hide him.
+He’s starting this week.
 
-You're playing my guy whether you like it or not. 👑
+Wk {{week}} lock is set.

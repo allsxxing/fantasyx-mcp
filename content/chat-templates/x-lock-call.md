@@ -1,12 +1,14 @@
 ---
 title: X Lock Call (post-waivers, pre-TNF)
-variables: [holder, opponent]
+variables: [holder, week, opponent]
 ---
 
-❌ LOCK — @{{holder}}, time to lock it in!
+🚨 CALL FOR ❌ LOCK!
 
-Belt’s yours. Week opponent is @{{opponent}}.
+@{{holder}} belt’s yours dude
+Wk {{week}} opp: @{{opponent}}
 
-Name ONE FLEX-eligible on their roster and lock him into the starting lineup.
+Time to lock it in.
+Name ONE FLEX-eligible on his roster and freeze him in the starting lineup.
 
-Who’s it going to be? 👀
+Who you locking? 👀
