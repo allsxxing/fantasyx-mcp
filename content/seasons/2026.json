@@ -29,7 +29,7 @@
     {
       "user_id": "1117902191370547200",
       "display_name": "Maxwellhiggens",
-      "team_name": "Strawberry marg pitchers",
+      "team_name": "",
       "roster_id": 4
     },
     {
@@ -133,7 +133,7 @@
       "roster_id": 4,
       "user_id": "1117902191370547200",
       "display_name": "Maxwellhiggens",
-      "team_name": "Strawberry marg pitchers"
+      "team_name": ""
     },
     {
       "draft_position": 10,
@@ -144,7 +144,7 @@
     }
   ],
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
-  "synced_at": "2026-09-10T16:48:12.197Z",
+  "synced_at": "2026-09-29T18:29:48.994Z",
   "roster_changes": {
     "vs_season": "2025",
     "departures": [
