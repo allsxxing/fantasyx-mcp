@@ -3,12 +3,15 @@
 ➕ Time: 6:00 PM CDT
 ➕ Type: 🐍 Snake
 ➕ Rounds: 16
-➕ Timer: 1.5 min / pick
-➕ Order: 🔀 Randomized, not set yet
+➕ Timer: 90s / 1.5 min per pick
+➕ Order: 🔀 Randomized, NOT YET
 ➕ CPU autopick: on
+➕ Invite: http://sleeper.com/i/LVl5Eg1kXl6K0
 ➕ NBA tips / dues due: Tue 2026-10-20 2:00 PM CDT
 
-Correction 2026-10-08: Sleeper draftboard says 1.5 min per pick. Earlier lock of 60s was wrong.
+Timer was 60s. GJ moved it to 90s on 2026-10-08.
+
+Do not randomize the draft order until the headcount is committed. A drop after randomize means running it again.
 
 Calendar already holds the draft:
 ➕ FantasyX calendar event 4c74ur04fqhqlr9d3lu7o4cmm0
