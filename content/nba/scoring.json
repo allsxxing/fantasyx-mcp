@@ -1,0 +1,18 @@
+{
+  "as_of": "2026-10-08",
+  "source": "Sleeper scoring settings screenshot",
+  "note": "Non-standard values are the ones Sleeper highlighted.",
+  "points_scored": 0.5,
+  "rebound": 1,
+  "assist": 1,
+  "steal": 2,
+  "block": 2,
+  "turnover": -1,
+  "double_double": 1,
+  "triple_double": 2,
+  "technical_foul": -2,
+  "flagrant_foul": -2,
+  "three_point_made": 0.5,
+  "bonus_40_points": 2,
+  "bonus_50_points": 2
+}

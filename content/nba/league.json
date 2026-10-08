@@ -4,29 +4,57 @@
   "sport": "nba",
   "season": "2026-27",
   "status": "pre_draft",
+  "filled": "10/10",
   "size": "mini",
   "commissioner": "allsxxing",
   "platform": "sleeper",
   "live_site": false,
+  "league_id": "1408257089435959296",
+  "league_url": "https://sleeper.com/leagues/1408257089435959296",
+  "invite": null,
   "teams": 10,
   "type": "redraft",
+  "game_mode": "lock_in",
   "buy_in": 10,
   "buy_in_platform": "SleeperSafe",
   "buy_in_status": "pending",
+  "buy_in_due": "2026-10-20T14:00:00-05:00",
   "prizing": "winner_take_all",
   "pot": 100,
   "draft": {
     "date": "2026-10-18",
     "time_ct": "18:00",
-    "window": "6:00–8:00 PM CT",
+    "window": "6:00 PM CDT",
     "type": "snake",
     "rounds": 16,
-    "pick_timer_seconds": 60,
+    "pick_timer": "1.5 min",
     "order": "randomized",
-    "cpu_autopick": true
+    "cpu_autopick": true,
+    "positions_set": false
   },
   "nba_tips": "2026-10-20",
-  "league_id": null,
-  "invite": null,
-  "notes": "Backend only. league_id and invite not stored yet. Do not invent them."
+  "roster": "1 PG, 1 SG, 1 G, 1 SF, 1 PF, 1 F, 1 C, 3 UTIL, 6 BN, 3 IR, 1 TAXI",
+  "playoffs": { "teams": 6, "start_week": 18 },
+  "waivers": {
+    "type": "FAAB",
+    "budget": 200,
+    "changed_2026_10_08": "rolling -> FAAB, budget 100 -> 200",
+    "days_after_drop": 1,
+    "custom_daily": false,
+    "after_game_starts": true
+  },
+  "trades": {
+    "review_days": 1,
+    "deadline_week": 17,
+    "pick_trading": true
+  },
+  "ir": {
+    "slots": 3,
+    "out": true,
+    "suspended": true,
+    "dtd": true
+  },
+  "auto_renew": true,
+  "override_invite_capacity": true,
+  "notes": "Filled 10/08. GJ expects most mates back. 1-2 may drop and get replaced. Invite link not in the screenshots."
 }
