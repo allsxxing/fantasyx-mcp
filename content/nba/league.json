@@ -1,0 +1,32 @@
+{
+  "name": "🏀10 FOR $10🏀",
+  "display_name": "🏀10 FOR $10🏀",
+  "sport": "nba",
+  "season": "2026-27",
+  "status": "pre_draft",
+  "size": "mini",
+  "commissioner": "allsxxing",
+  "platform": "sleeper",
+  "live_site": false,
+  "teams": 10,
+  "type": "redraft",
+  "buy_in": 10,
+  "buy_in_platform": "SleeperSafe",
+  "buy_in_status": "pending",
+  "prizing": "winner_take_all",
+  "pot": 100,
+  "draft": {
+    "date": "2026-10-18",
+    "time_ct": "18:00",
+    "window": "6:00–8:00 PM CT",
+    "type": "snake",
+    "rounds": 16,
+    "pick_timer_seconds": 60,
+    "order": "randomized",
+    "cpu_autopick": true
+  },
+  "nba_tips": "2026-10-20",
+  "league_id": null,
+  "invite": null,
+  "notes": "Backend only. league_id and invite not stored yet. Do not invent them."
+}
