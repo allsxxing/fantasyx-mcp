@@ -1,18 +1,15 @@
 ---
 title: Public request-to-join description
-use: Sleeper league description only. Fires if a spot opens.
+use: Sleeper Open League custom note. Post as Request To Join. Dues slider $10.
+updated: 2026-10-10
 ---
 
 ```
-🏀10 FOR $10🏀
+🚨DRAFT PICK #8🚨
+🗓️Draft: Sun 10/18 @ 6PM CT
 
-💵 $10 Buy-In (SleeperSafe)
-🏀 10 Teams
-🏆 WINNER TAKE ALL
-
-🗓️ Draft: Sun 10/18 @ 6pm CT
-
-Interested? Hit me up.
+➕10 Team, $10 Buy-In (SleeperSafe)
+➕WINNER TAKE ALL!
 ```
 
-No "Sleeper. Request to join." The description already lives on Sleeper.
+Locked by GJ 2026-10-10. Highlights open pick #8. No extra lines.
