@@ -54,6 +54,30 @@
           "declared_on_time": null,
           "result": "held",
           "notes": "RETAINED BY ARRANGEMENT. Wk 4 vs @chandran / THE RULER (744014760877662208). X-Lock WAIVED — no force. @chandran won the matchup 128.74–93.52, first W of the year. Belt does not transfer. @trappat retains and keeps runnin the gauntlet. Wk 5 opp @kazeemfamuyide. Chat drop: content/chat-templates/x-wk4-recap-wk5-preview.md. Call for ❌ Lock drops Thursday."
+        },
+        {
+          "week": 5,
+          "holder_user_id": "729199653513433088",
+          "holder_display_name": "trappat",
+          "locked_player_id": null,
+          "locked_player_name": null,
+          "locked_into_opponent_user_id": "1005194894908018688",
+          "declared_at": null,
+          "declared_on_time": null,
+          "result": "held",
+          "notes": "RETAINED ON NO LOCK. Wk 5 vs @kazeemfamuyide. ❌ Lock: NO LOCK. Champ retains via the W. Recap/preview: content/chat-templates/x-wk5-recap-wk6-preview.md. WK6 opp @nichigh. Call for ❌ Lock drops later this week."
+        },
+        {
+          "week": 6,
+          "holder_user_id": "729199653513433088",
+          "holder_display_name": "trappat (relinquished)",
+          "locked_player_id": null,
+          "locked_player_name": null,
+          "locked_into_opponent_user_id": "1133247206179442688",
+          "declared_at": null,
+          "declared_on_time": null,
+          "result": null,
+          "notes": "trappat RELINQUISHED. Result pending. Lock NA. Opponent @nichigh. SPECIAL: Unanimous poll — HIGHEST SCORE WK6 takes the ❌. @trappat handing off the gauntlet. New Champ crowned after MNF. No traditional FLEX sabotage lock this week. Announcement: content/chat-templates/x-lock-announcement-wk6.md. Posted and pinned 2026-10-14 ~8:22 PM CT."
         }
       ]
     }
