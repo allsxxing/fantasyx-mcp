@@ -1,0 +1,11 @@
+{
+  "skill": "league-tone",
+  "test_cases": [
+    {"input": "Write a recruit DM for the league", "should_trigger": true},
+    {"input": "Commissioner note for Sleeper", "should_trigger": true},
+    {"input": "X Champion recap", "should_trigger": true},
+    {"input": "Dues reminder", "should_trigger": true},
+    {"input": "What is the weather today", "should_trigger": false},
+    {"input": "Analyze this trade in numbers only", "should_trigger": false}
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "skill": "league-tone",
+  "test_cases": [
+    {
+      "name": "recruit_request_dm",
+      "input": "Write a recruit DM for someone who requested to join the league",
+      "assertions": [
+        "Opens with Yooo!",
+        "Includes 🏈10 FOR $10❌",
+        "Uses live draft date via fx_get_calendar (not hardcoded 9/6)",
+        "Ends with Lmk if you’re down!",
+        "No formal greeting"
+      ]
+    },
+    {
+      "name": "homie_fill_spot_dm",
+      "input": "Write a homie DM to fill an open spot",
+      "assertions": [
+        "Opens with Yoo!",
+        "Uses tryna, bro, hop in",
+        "Mentions 10 teams, $10 buy-in",
+        "Ends with Lmk if you’re in!",
+        "Street-clean H-Town"
+      ]
+    },
+    {
+      "name": "run_it_back_dm",
+      "input": "Write a run-it-back message for returning managers",
+      "assertions": [
+        "Opens with Yooo!",
+        "Mentions runnin it back",
+        "Mentions $10 buy-in and multiplier poll",
+        "Ends with Lmk if you’re still down"
+      ]
+    },
+    {
+      "name": "commissioner_announcement_sleeper",
+      "input": "Write a commissioner announcement for Sleeper chat",
+      "assertions": [
+        "Opens with YOOO! or Yooo!",
+        "Uses emoji + <<SECTION>> hierarchy",
+        "Includes League HQ link",
+        "Full emoji style"
+      ]
+    },
+    {
+      "name": "same_announcement_leaguesafe_pin",
+      "input": "Rewrite that announcement as a LeagueSafe pin",
+      "assertions": [
+        "Zero emoji",
+        "Clean rich text",
+        "Same info hierarchy",
+        "No <<SECTION>> emoji headers"
+      ]
+    },
+    {
+      "name": "x_belt_weekly_recap_with_holder",
+      "input": "Write the X-Belt weekly recap when fx_get_x_champion_log returns a holder",
+      "assertions": [
+        "No Yooo",
+        "Uses runnin’ the gauntlet or locked marks",
+        "Pulls holder / result / lock from tool",
+        "Matches recap pattern",
+        "Does not invent lock status"
+      ]
+    },
+    {
+      "name": "x_belt_post_tool_fails",
+      "input": "Write an X-Belt post when the champion log tool fails",
+      "assertions": [
+        "Refuses to invent NO LOCK / WAIVED / Champ RETAINS / TITLE CHANGE",
+        "Falls back to content/x-champion-log.json only if available",
+        "States that live data is unavailable",
+        "Does not fabricate holder or result"
+      ]
+    },
+    {
+      "name": "dues_reminder",
+      "input": "Write a dues reminder",
+      "assertions": [
+        "Uses locked voice",
+        "Includes amount / method / deadline from live data",
+        "Can use signature sparingly",
+        "Short"
+      ]
+    },
+    {
+      "name": "one_off_correction_held",
+      "input": "GJ corrects a single draft once with a new phrase that has not repeated",
+      "assertions": [
+        "Logs in learning-log as held",
+        "Does not promote to SKILL.md locked rules",
+        "Can add to example-dms Approved section only"
+      ]
+    }
+  ]
+}
