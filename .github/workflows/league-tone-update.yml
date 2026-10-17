@@ -1,0 +1,22 @@
+name: League Tone Knowledge Update
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # weekly Monday 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run updater
+        run: |
+          python3 skills/league-tone/scripts/update_knowledge.py || true
+      - name: Open PR if changes
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(league-tone): knowledge update candidates"
+          title: "league-tone: candidate knowledge update"
+          body: "Automated candidate update from approved drafts. Review before merge. No locked rules auto-promoted."
+          branch: league-tone-update
