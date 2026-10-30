@@ -1,8 +1,8 @@
 {
   "source": "COMMISSIONER_NOTE_LATEST.md",
   "source_doc_url": "https://docs.google.com/document/d/1shUD0FCC3kMTanhcp69UNHWenhME8GZ6g7pjUvO3l8U/edit",
-  "announcement": "WEEK 2 UPDATE",
-  "posted_at": "2026-09-18",
+  "announcement": "Yooo! WEEK 8 UPDATE",
+  "posted_at": "2026-10-30",
   "sections": [
     {
       "label": "LEAGUE",
@@ -33,10 +33,9 @@
       ]
     },
     {
-      "label": "FEES/DUES: PAY-UP!",
+      "label": "WAIVERS",
       "rows": [
-        "Pay-Up Punishment Enforced!",
-        "UNPAID ❌ BONUS = Limited Waivers, vetoable by League"
+        "FAAB: $200"
       ]
     },
     {
@@ -48,9 +47,18 @@
     {
       "label": "❌-BELT",
       "rows": [
-        "New Rules (Pinned League Chat)",
-        "See League HQ",
-        "https://fantasyx-mcp.vercel.app"
+        "🥊 Champ: @trappat",
+        "TITLE CHANGE Wk 7 over @allsxxing 155.72 to 134.72",
+        "Wk 8 belt fight: @trappat vs @AJk12",
+        "🔒 Lock due FRI 11:59 PM CT",
+        "Rules: https://fantasyx-mcp.vercel.app"
+      ]
+    },
+    {
+      "label": "KEY DATES",
+      "rows": [
+        "🏈 Trade Deadline: 11/25 (Wk 12)",
+        "🏆 Playoffs: 12/17 (Wk 15)"
       ]
     }
   ]

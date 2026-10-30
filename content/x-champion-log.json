@@ -70,14 +70,40 @@
         {
           "week": 6,
           "holder_user_id": "729199653513433088",
-          "holder_display_name": "trappat (relinquished)",
+          "holder_display_name": "trappat",
           "locked_player_id": null,
           "locked_player_name": null,
           "locked_into_opponent_user_id": "1133247206179442688",
           "declared_at": null,
           "declared_on_time": null,
+          "result": "lost",
+          "notes": "trappat RELINQUISHED. Opponent @nichigh (trappat lost 117.9–120.04). Lock NA. SPECIAL: Unanimous poll — HIGHEST SCORE WK6 takes the ❌. WK6 high: @allsxxing / A$H & TETTIES 174.94 (Sleeper). @allsxxing crowned after MNF. No traditional FLEX sabotage lock this week. Announcement: content/chat-templates/x-lock-announcement-wk6.md. Posted and pinned 2026-10-14 ~8:22 PM CT."
+        },
+        {
+          "week": 7,
+          "holder_user_id": "1058575263971250176",
+          "holder_display_name": "allsxxing",
+          "crowned_by": "high_score",
+          "locked_player_id": null,
+          "locked_player_name": null,
+          "locked_into_opponent_user_id": "729199653513433088",
+          "declared_at": null,
+          "declared_on_time": null,
+          "result": "lost",
+          "notes": "Crowned on WK6 special (highest score). Wk 7 vs @trappat. ❌ Lock: NO LOCK (none declared). RESULT: lost to @trappat 134.72–155.72. TITLE CHANGE. WK7 high: @Nels8951 203.04 (Sleeper stat correction, was 202.04). WK8: @trappat vs @AJk12."
+        },
+        {
+          "week": 8,
+          "holder_user_id": "729199653513433088",
+          "holder_display_name": "trappat",
+          "crowned_by": "beat_prior_holder",
+          "locked_player_id": null,
+          "locked_player_name": null,
+          "locked_into_opponent_user_id": "890091625635061760",
+          "declared_at": null,
+          "declared_on_time": null,
           "result": null,
-          "notes": "trappat RELINQUISHED. Result pending. Lock NA. Opponent @nichigh. SPECIAL: Unanimous poll — HIGHEST SCORE WK6 takes the ❌. @trappat handing off the gauntlet. New Champ crowned after MNF. No traditional FLEX sabotage lock this week. Announcement: content/chat-templates/x-lock-announcement-wk6.md. Posted and pinned 2026-10-14 ~8:22 PM CT."
+          "notes": "TITLE CHANGE. @trappat won the belt off @allsxxing in Wk 7. Wk 8 vs @AJk12 (Griddy on ur mamas TDs). Lock pending; declare by Fri 11:59 PM CT."
         }
       ]
     }
