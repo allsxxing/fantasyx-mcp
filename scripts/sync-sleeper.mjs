@@ -143,6 +143,63 @@ function draftOrderOf(draft, members) {
     .sort((a, b) => a.draft_position - b.draft_position);
 }
 
+
+// Standings + weekly matchups for the in-season league. Completed weeks carry final points;
+// the current week carries pairings only (points null) so a mid-week run never commits
+// partial live scores. Never touches x-champion-log.json; the belt is human-curated.
+const pts = (whole, dec) => (whole == null ? null : Number(`${whole}.${String(dec ?? 0).padStart(2, '0')}`));
+
+function standingsOf({ rosters }, members) {
+  const byRoster = new Map(members.map(m => [m.roster_id, m]));
+  return rosters
+    .map(r => {
+      const m = byRoster.get(r.roster_id);
+      return {
+        roster_id: r.roster_id,
+        user_id: r.owner_id ?? null,
+        display_name: m?.display_name ?? null,
+        team_name: m?.team_name ?? null,
+        wins: r.settings?.wins ?? 0,
+        losses: r.settings?.losses ?? 0,
+        ties: r.settings?.ties ?? 0,
+        points_for: pts(r.settings?.fpts, r.settings?.fpts_decimal),
+        points_against: pts(r.settings?.fpts_against, r.settings?.fpts_against_decimal),
+      };
+    })
+    .sort((a, b) => b.wins - a.wins || a.losses - b.losses || (b.points_for ?? 0) - (a.points_for ?? 0))
+    .map((row, i) => ({ rank: i + 1, ...row }));
+}
+
+async function matchupsOf(leagueId, currentWeek, members) {
+  const byRoster = new Map(members.map(m => [m.roster_id, m]));
+  const weeks = [];
+  for (let week = 1; week <= currentWeek; week++) {
+    const final = week < currentWeek;
+    const rows = await getJson(`/league/${leagueId}/matchups/${week}`);
+    const groups = new Map();
+    for (const r of rows ?? []) {
+      if (r.matchup_id == null) continue;
+      if (!groups.has(r.matchup_id)) groups.set(r.matchup_id, []);
+      groups.get(r.matchup_id).push({
+        roster_id: r.roster_id,
+        display_name: byRoster.get(r.roster_id)?.display_name ?? null,
+        team_name: byRoster.get(r.roster_id)?.team_name ?? null,
+        points: final ? (r.points ?? null) : null,
+      });
+    }
+    const games = [...groups.entries()].sort((a, b) => a[0] - b[0]).map(([matchup_id, teams]) => {
+      teams.sort((a, b) => a.roster_id - b.roster_id);
+      let winner_roster_id = null;
+      if (final && teams.length === 2 && teams[0].points != null && teams[1].points != null && teams[0].points !== teams[1].points) {
+        winner_roster_id = teams[0].points > teams[1].points ? teams[0].roster_id : teams[1].roster_id;
+      }
+      return { matchup_id, teams, winner_roster_id };
+    });
+    weeks.push({ week, final, games });
+  }
+  return weeks;
+}
+
 async function walkChain(startId, maxDepth = 6) {
   const chain = [];
   let id = startId;
@@ -212,6 +269,18 @@ async function main() {
         additions,
         open_spots: (lg.settings?.num_teams ?? members.length) - members.length,
       };
+    }
+
+    if (i === 0 && lg.status === 'in_season') {
+      try {
+        const state = await getJson('/state/nfl');
+        const currentWeek = Number(state.display_week ?? state.week ?? 0);
+        out.standings = standingsOf(bundle, members);
+        out.matchups = currentWeek > 0 ? await matchupsOf(lg.league_id, currentWeek, members) : [];
+      } catch (err) {
+        // Fail loudly: a partial write would be committed by CI as a deletion of real results.
+        throw new Error(`standings/matchups unavailable; refusing to write partial season data: ${err.message}`);
+      }
     }
 
     const changed = await writeIfChanged(join(SEASONS, `${season}.json`), out);

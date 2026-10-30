@@ -144,7 +144,7 @@
     }
   ],
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
-  "synced_at": "2026-09-29T18:29:48.994Z",
+  "synced_at": "2026-10-30T12:46:27.875Z",
   "roster_changes": {
     "vs_season": "2025",
     "departures": [
@@ -200,5 +200,897 @@
       }
     ],
     "open_spots": 0
-  }
+  },
+  "standings": [
+    {
+      "rank": 1,
+      "roster_id": 4,
+      "user_id": "1117902191370547200",
+      "display_name": "Maxwellhiggens",
+      "team_name": "",
+      "wins": 5,
+      "losses": 2,
+      "ties": 0,
+      "points_for": 1134.62,
+      "points_against": 1017.36
+    },
+    {
+      "rank": 2,
+      "roster_id": 1,
+      "user_id": "1058575263971250176",
+      "display_name": "allsxxing",
+      "team_name": "A$H & TETTIES",
+      "wins": 5,
+      "losses": 2,
+      "ties": 0,
+      "points_for": 1114.1,
+      "points_against": 873.9
+    },
+    {
+      "rank": 3,
+      "roster_id": 10,
+      "user_id": "729199653513433088",
+      "display_name": "trappat",
+      "team_name": null,
+      "wins": 5,
+      "losses": 2,
+      "ties": 0,
+      "points_for": 963.54,
+      "points_against": 882.2
+    },
+    {
+      "rank": 4,
+      "roster_id": 9,
+      "user_id": "1124740547148763136",
+      "display_name": "Nels8951",
+      "team_name": null,
+      "wins": 4,
+      "losses": 3,
+      "ties": 0,
+      "points_for": 1159.66,
+      "points_against": 1010.24
+    },
+    {
+      "rank": 5,
+      "roster_id": 5,
+      "user_id": "1133247206179442688",
+      "display_name": "nichigh",
+      "team_name": null,
+      "wins": 4,
+      "losses": 3,
+      "ties": 0,
+      "points_for": 1002.46,
+      "points_against": 999.44
+    },
+    {
+      "rank": 6,
+      "roster_id": 2,
+      "user_id": "855678858756734976",
+      "display_name": "Tristanv10",
+      "team_name": null,
+      "wins": 3,
+      "losses": 4,
+      "ties": 0,
+      "points_for": 959.08,
+      "points_against": 1030.02
+    },
+    {
+      "rank": 7,
+      "roster_id": 6,
+      "user_id": "744014760877662208",
+      "display_name": "chandran",
+      "team_name": "THE RULER",
+      "wins": 3,
+      "losses": 4,
+      "ties": 0,
+      "points_for": 900.82,
+      "points_against": 928.84
+    },
+    {
+      "rank": 8,
+      "roster_id": 8,
+      "user_id": "890091625635061760",
+      "display_name": "AJk12",
+      "team_name": "Griddy on ur mamas TDs",
+      "wins": 2,
+      "losses": 5,
+      "ties": 0,
+      "points_for": 916.08,
+      "points_against": 1104.24
+    },
+    {
+      "rank": 9,
+      "roster_id": 3,
+      "user_id": "467531644052434944",
+      "display_name": "anyfoolwilldo",
+      "team_name": null,
+      "wins": 2,
+      "losses": 5,
+      "ties": 0,
+      "points_for": 907.06,
+      "points_against": 1095.06
+    },
+    {
+      "rank": 10,
+      "roster_id": 7,
+      "user_id": "1005194894908018688",
+      "display_name": "kazeemfamuyide",
+      "team_name": null,
+      "wins": 2,
+      "losses": 5,
+      "ties": 0,
+      "points_for": 877.22,
+      "points_against": 993.34
+    }
+  ],
+  "matchups": [
+    {
+      "week": 1,
+      "final": true,
+      "games": [
+        {
+          "matchup_id": 1,
+          "teams": [
+            {
+              "roster_id": 2,
+              "display_name": "Tristanv10",
+              "team_name": null,
+              "points": 140.64
+            },
+            {
+              "roster_id": 10,
+              "display_name": "trappat",
+              "team_name": null,
+              "points": 170.86
+            }
+          ],
+          "winner_roster_id": 10
+        },
+        {
+          "matchup_id": 2,
+          "teams": [
+            {
+              "roster_id": 4,
+              "display_name": "Maxwellhiggens",
+              "team_name": "",
+              "points": 129.3
+            },
+            {
+              "roster_id": 9,
+              "display_name": "Nels8951",
+              "team_name": null,
+              "points": 189.8
+            }
+          ],
+          "winner_roster_id": 9
+        },
+        {
+          "matchup_id": 3,
+          "teams": [
+            {
+              "roster_id": 3,
+              "display_name": "anyfoolwilldo",
+              "team_name": null,
+              "points": 189.5
+            },
+            {
+              "roster_id": 8,
+              "display_name": "AJk12",
+              "team_name": "Griddy on ur mamas TDs",
+              "points": 164.56
+            }
+          ],
+          "winner_roster_id": 3
+        },
+        {
+          "matchup_id": 4,
+          "teams": [
+            {
+              "roster_id": 1,
+              "display_name": "allsxxing",
+              "team_name": "A$H & TETTIES",
+              "points": 128.62
+            },
+            {
+              "roster_id": 6,
+              "display_name": "chandran",
+              "team_name": "THE RULER",
+              "points": 98.52
+            }
+          ],
+          "winner_roster_id": 1
+        },
+        {
+          "matchup_id": 5,
+          "teams": [
+            {
+              "roster_id": 5,
+              "display_name": "nichigh",
+              "team_name": null,
+              "points": 168.06
+            },
+            {
+              "roster_id": 7,
+              "display_name": "kazeemfamuyide",
+              "team_name": null,
+              "points": 124.56
+            }
+          ],
+          "winner_roster_id": 5
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "final": true,
+      "games": [
+        {
+          "matchup_id": 1,
+          "teams": [
+            {
+              "roster_id": 9,
+              "display_name": "Nels8951",
+              "team_name": null,
+              "points": 124.2
+            },
+            {
+              "roster_id": 10,
+              "display_name": "trappat",
+              "team_name": null,
+              "points": 128.52
+            }
+          ],
+          "winner_roster_id": 10
+        },
+        {
+          "matchup_id": 2,
+          "teams": [
+            {
+              "roster_id": 2,
+              "display_name": "Tristanv10",
+              "team_name": null,
+              "points": 129.44
+            },
+            {
+              "roster_id": 3,
+              "display_name": "anyfoolwilldo",
+              "team_name": null,
+              "points": 137.28
+            }
+          ],
+          "winner_roster_id": 3
+        },
+        {
+          "matchup_id": 3,
+          "teams": [
+            {
+              "roster_id": 4,
+              "display_name": "Maxwellhiggens",
+              "team_name": "",
+              "points": 218.86
+            },
+            {
+              "roster_id": 6,
+              "display_name": "chandran",
+              "team_name": "THE RULER",
+              "points": 136.22
+            }
+          ],
+          "winner_roster_id": 4
+        },
+        {
+          "matchup_id": 4,
+          "teams": [
+            {
+              "roster_id": 7,
+              "display_name": "kazeemfamuyide",
+              "team_name": null,
+              "points": 134.62
+            },
+            {
+              "roster_id": 8,
+              "display_name": "AJk12",
+              "team_name": "Griddy on ur mamas TDs",
+              "points": 106.6
+            }
+          ],
+          "winner_roster_id": 7
+        },
+        {
+          "matchup_id": 5,
+          "teams": [
+            {
+              "roster_id": 1,
+              "display_name": "allsxxing",
+              "team_name": "A$H & TETTIES",
+              "points": 174.78
+            },
+            {
+              "roster_id": 5,
+              "display_name": "nichigh",
+              "team_name": null,
+              "points": 122.1
+            }
+          ],
+          "winner_roster_id": 1
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "final": true,
+      "games": [
+        {
+          "matchup_id": 1,
+          "teams": [
+            {
+              "roster_id": 3,
+              "display_name": "anyfoolwilldo",
+              "team_name": null,
+              "points": 105.78
+            },
+            {
+              "roster_id": 10,
+              "display_name": "trappat",
+              "team_name": null,
+              "points": 143.92
+            }
+          ],
+          "winner_roster_id": 10
+        },
+        {
+          "matchup_id": 2,
+          "teams": [
+            {
+              "roster_id": 6,
+              "display_name": "chandran",
+              "team_name": "THE RULER",
+              "points": 131.76
+            },
+            {
+              "roster_id": 9,
+              "display_name": "Nels8951",
+              "team_name": null,
+              "points": 144.54
+            }
+          ],
+          "winner_roster_id": 9
+        },
+        {
+          "matchup_id": 3,
+          "teams": [
+            {
+              "roster_id": 2,
+              "display_name": "Tristanv10",
+              "team_name": null,
+              "points": 142.26
+            },
+            {
+              "roster_id": 7,
+              "display_name": "kazeemfamuyide",
+              "team_name": null,
+              "points": 135.46
+            }
+          ],
+          "winner_roster_id": 2
+        },
+        {
+          "matchup_id": 4,
+          "teams": [
+            {
+              "roster_id": 4,
+              "display_name": "Maxwellhiggens",
+              "team_name": "",
+              "points": 175.4
+            },
+            {
+              "roster_id": 5,
+              "display_name": "nichigh",
+              "team_name": null,
+              "points": 149.58
+            }
+          ],
+          "winner_roster_id": 4
+        },
+        {
+          "matchup_id": 5,
+          "teams": [
+            {
+              "roster_id": 1,
+              "display_name": "allsxxing",
+              "team_name": "A$H & TETTIES",
+              "points": 118.02
+            },
+            {
+              "roster_id": 8,
+              "display_name": "AJk12",
+              "team_name": "Griddy on ur mamas TDs",
+              "points": 133.74
+            }
+          ],
+          "winner_roster_id": 8
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "final": true,
+      "games": [
+        {
+          "matchup_id": 1,
+          "teams": [
+            {
+              "roster_id": 6,
+              "display_name": "chandran",
+              "team_name": "THE RULER",
+              "points": 128.74
+            },
+            {
+              "roster_id": 10,
+              "display_name": "trappat",
+              "team_name": null,
+              "points": 93.52
+            }
+          ],
+          "winner_roster_id": 6
+        },
+        {
+          "matchup_id": 2,
+          "teams": [
+            {
+              "roster_id": 3,
+              "display_name": "anyfoolwilldo",
+              "team_name": null,
+              "points": 108.08
+            },
+            {
+              "roster_id": 7,
+              "display_name": "kazeemfamuyide",
+              "team_name": null,
+              "points": 124.32
+            }
+          ],
+          "winner_roster_id": 7
+        },
+        {
+          "matchup_id": 3,
+          "teams": [
+            {
+              "roster_id": 5,
+              "display_name": "nichigh",
+              "team_name": null,
+              "points": 205.42
+            },
+            {
+              "roster_id": 9,
+              "display_name": "Nels8951",
+              "team_name": null,
+              "points": 136.32
+            }
+          ],
+          "winner_roster_id": 5
+        },
+        {
+          "matchup_id": 4,
+          "teams": [
+            {
+              "roster_id": 1,
+              "display_name": "allsxxing",
+              "team_name": "A$H & TETTIES",
+              "points": 199.16
+            },
+            {
+              "roster_id": 2,
+              "display_name": "Tristanv10",
+              "team_name": null,
+              "points": 123.88
+            }
+          ],
+          "winner_roster_id": 1
+        },
+        {
+          "matchup_id": 5,
+          "teams": [
+            {
+              "roster_id": 4,
+              "display_name": "Maxwellhiggens",
+              "team_name": "",
+              "points": 193.9
+            },
+            {
+              "roster_id": 8,
+              "display_name": "AJk12",
+              "team_name": "Griddy on ur mamas TDs",
+              "points": 133.88
+            }
+          ],
+          "winner_roster_id": 4
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "final": true,
+      "games": [
+        {
+          "matchup_id": 1,
+          "teams": [
+            {
+              "roster_id": 7,
+              "display_name": "kazeemfamuyide",
+              "team_name": null,
+              "points": 128.08
+            },
+            {
+              "roster_id": 10,
+              "display_name": "trappat",
+              "team_name": null,
+              "points": 153.1
+            }
+          ],
+          "winner_roster_id": 10
+        },
+        {
+          "matchup_id": 2,
+          "teams": [
+            {
+              "roster_id": 5,
+              "display_name": "nichigh",
+              "team_name": null,
+              "points": 114.9
+            },
+            {
+              "roster_id": 6,
+              "display_name": "chandran",
+              "team_name": "THE RULER",
+              "points": 165.18
+            }
+          ],
+          "winner_roster_id": 6
+        },
+        {
+          "matchup_id": 3,
+          "teams": [
+            {
+              "roster_id": 1,
+              "display_name": "allsxxing",
+              "team_name": "A$H & TETTIES",
+              "points": 183.86
+            },
+            {
+              "roster_id": 3,
+              "display_name": "anyfoolwilldo",
+              "team_name": null,
+              "points": 132.64
+            }
+          ],
+          "winner_roster_id": 1
+        },
+        {
+          "matchup_id": 4,
+          "teams": [
+            {
+              "roster_id": 8,
+              "display_name": "AJk12",
+              "team_name": "Griddy on ur mamas TDs",
+              "points": 140.52
+            },
+            {
+              "roster_id": 9,
+              "display_name": "Nels8951",
+              "team_name": null,
+              "points": 217.56
+            }
+          ],
+          "winner_roster_id": 9
+        },
+        {
+          "matchup_id": 5,
+          "teams": [
+            {
+              "roster_id": 2,
+              "display_name": "Tristanv10",
+              "team_name": null,
+              "points": 178.64
+            },
+            {
+              "roster_id": 4,
+              "display_name": "Maxwellhiggens",
+              "team_name": "",
+              "points": 130.94
+            }
+          ],
+          "winner_roster_id": 2
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "final": true,
+      "games": [
+        {
+          "matchup_id": 1,
+          "teams": [
+            {
+              "roster_id": 5,
+              "display_name": "nichigh",
+              "team_name": null,
+              "points": 120.04
+            },
+            {
+              "roster_id": 10,
+              "display_name": "trappat",
+              "team_name": null,
+              "points": 117.9
+            }
+          ],
+          "winner_roster_id": 5
+        },
+        {
+          "matchup_id": 2,
+          "teams": [
+            {
+              "roster_id": 1,
+              "display_name": "allsxxing",
+              "team_name": "A$H & TETTIES",
+              "points": 174.94
+            },
+            {
+              "roster_id": 7,
+              "display_name": "kazeemfamuyide",
+              "team_name": null,
+              "points": 107.3
+            }
+          ],
+          "winner_roster_id": 1
+        },
+        {
+          "matchup_id": 3,
+          "teams": [
+            {
+              "roster_id": 6,
+              "display_name": "chandran",
+              "team_name": "THE RULER",
+              "points": 128.28
+            },
+            {
+              "roster_id": 8,
+              "display_name": "AJk12",
+              "team_name": "Griddy on ur mamas TDs",
+              "points": 131.48
+            }
+          ],
+          "winner_roster_id": 8
+        },
+        {
+          "matchup_id": 4,
+          "teams": [
+            {
+              "roster_id": 3,
+              "display_name": "anyfoolwilldo",
+              "team_name": null,
+              "points": 106.36
+            },
+            {
+              "roster_id": 4,
+              "display_name": "Maxwellhiggens",
+              "team_name": "",
+              "points": 145.92
+            }
+          ],
+          "winner_roster_id": 4
+        },
+        {
+          "matchup_id": 5,
+          "teams": [
+            {
+              "roster_id": 2,
+              "display_name": "Tristanv10",
+              "team_name": null,
+              "points": 147.3
+            },
+            {
+              "roster_id": 9,
+              "display_name": "Nels8951",
+              "team_name": null,
+              "points": 144.2
+            }
+          ],
+          "winner_roster_id": 2
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "final": true,
+      "games": [
+        {
+          "matchup_id": 1,
+          "teams": [
+            {
+              "roster_id": 1,
+              "display_name": "allsxxing",
+              "team_name": "A$H & TETTIES",
+              "points": 134.72
+            },
+            {
+              "roster_id": 10,
+              "display_name": "trappat",
+              "team_name": null,
+              "points": 155.72
+            }
+          ],
+          "winner_roster_id": 10
+        },
+        {
+          "matchup_id": 2,
+          "teams": [
+            {
+              "roster_id": 5,
+              "display_name": "nichigh",
+              "team_name": null,
+              "points": 122.36
+            },
+            {
+              "roster_id": 8,
+              "display_name": "AJk12",
+              "team_name": "Griddy on ur mamas TDs",
+              "points": 105.3
+            }
+          ],
+          "winner_roster_id": 5
+        },
+        {
+          "matchup_id": 3,
+          "teams": [
+            {
+              "roster_id": 4,
+              "display_name": "Maxwellhiggens",
+              "team_name": "",
+              "points": 140.3
+            },
+            {
+              "roster_id": 7,
+              "display_name": "kazeemfamuyide",
+              "team_name": null,
+              "points": 122.88
+            }
+          ],
+          "winner_roster_id": 4
+        },
+        {
+          "matchup_id": 4,
+          "teams": [
+            {
+              "roster_id": 2,
+              "display_name": "Tristanv10",
+              "team_name": null,
+              "points": 96.92
+            },
+            {
+              "roster_id": 6,
+              "display_name": "chandran",
+              "team_name": "THE RULER",
+              "points": 112.12
+            }
+          ],
+          "winner_roster_id": 6
+        },
+        {
+          "matchup_id": 5,
+          "teams": [
+            {
+              "roster_id": 3,
+              "display_name": "anyfoolwilldo",
+              "team_name": null,
+              "points": 127.42
+            },
+            {
+              "roster_id": 9,
+              "display_name": "Nels8951",
+              "team_name": null,
+              "points": 203.04
+            }
+          ],
+          "winner_roster_id": 9
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "final": false,
+      "games": [
+        {
+          "matchup_id": 1,
+          "teams": [
+            {
+              "roster_id": 8,
+              "display_name": "AJk12",
+              "team_name": "Griddy on ur mamas TDs",
+              "points": null
+            },
+            {
+              "roster_id": 10,
+              "display_name": "trappat",
+              "team_name": null,
+              "points": null
+            }
+          ],
+          "winner_roster_id": null
+        },
+        {
+          "matchup_id": 2,
+          "teams": [
+            {
+              "roster_id": 1,
+              "display_name": "allsxxing",
+              "team_name": "A$H & TETTIES",
+              "points": null
+            },
+            {
+              "roster_id": 4,
+              "display_name": "Maxwellhiggens",
+              "team_name": "",
+              "points": null
+            }
+          ],
+          "winner_roster_id": null
+        },
+        {
+          "matchup_id": 3,
+          "teams": [
+            {
+              "roster_id": 2,
+              "display_name": "Tristanv10",
+              "team_name": null,
+              "points": null
+            },
+            {
+              "roster_id": 5,
+              "display_name": "nichigh",
+              "team_name": null,
+              "points": null
+            }
+          ],
+          "winner_roster_id": null
+        },
+        {
+          "matchup_id": 4,
+          "teams": [
+            {
+              "roster_id": 7,
+              "display_name": "kazeemfamuyide",
+              "team_name": null,
+              "points": null
+            },
+            {
+              "roster_id": 9,
+              "display_name": "Nels8951",
+              "team_name": null,
+              "points": null
+            }
+          ],
+          "winner_roster_id": null
+        },
+        {
+          "matchup_id": 5,
+          "teams": [
+            {
+              "roster_id": 3,
+              "display_name": "anyfoolwilldo",
+              "team_name": null,
+              "points": null
+            },
+            {
+              "roster_id": 6,
+              "display_name": "chandran",
+              "team_name": "THE RULER",
+              "points": null
+            }
+          ],
+          "winner_roster_id": null
+        }
+      ]
+    }
+  ]
 }
