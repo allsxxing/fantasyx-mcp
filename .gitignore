@@ -17,8 +17,10 @@ src/generated/
 .env.*
 !.env.example
 
+# Claude Code personal overrides
+.claude/settings.local.json
+
 # misc
 .DS_Store
 *.log
 .vercel
-.env*

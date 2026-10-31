@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(npm ci)", "Bash(npm run *)", "Bash(npm test *)",
+      "Bash(git add *)", "Bash(git commit *)", "Bash(git checkout *)", "Bash(git switch *)",
+      "mcp__fantasyx__*", "mcp__flaim__*"
+    ],
+    "ask": ["Bash(git push *)", "Bash(gh pr merge *)", "Bash(vercel *)", "Bash(npm install *)"],
+    "deny": [
+      "Bash(python3 -c *)", "Bash(sudo *)", "Bash(rm -rf *)",
+      "Bash(git push --force*)", "Bash(git push -f*)",
+      "Read(./.env)", "Read(./.env.*)"
+    ]
+  }
+}
