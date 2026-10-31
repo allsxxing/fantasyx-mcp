@@ -42,8 +42,8 @@ export function registerSleeperTools(server: McpServer): void {
     {
       title: "Get league links",
       description:
-        "League URLs: Sleeper invite and league pages, FantasyPros. Note leaguesafe is null — no " +
-        "LeagueSafe join URL has been verified; do not invent one.",
+        "League URLs: Sleeper invite and league pages, FantasyPros, and the verified LeagueSafe " +
+        "join URL (commissioner-confirmed 2026-10-30). Return links as stored; do not invent new ones.",
     },
     async () => jsonResult(requireData("links")),
   );

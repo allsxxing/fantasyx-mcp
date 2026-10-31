@@ -22,6 +22,39 @@
         "source": { "type": "string" }
       }
     },
-    "source": { "type": "string" }
+    "source": { "type": "string" },
+    "standings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["rank", "roster_id", "wins", "losses"],
+        "properties": {
+          "rank": { "type": "number" },
+          "roster_id": { "type": "number" },
+          "user_id": { "type": ["string", "null"] },
+          "display_name": { "type": ["string", "null"] },
+          "team_name": { "type": ["string", "null"] },
+          "wins": { "type": "number" },
+          "losses": { "type": "number" },
+          "ties": { "type": "number" },
+          "points_for": { "type": ["number", "null"] },
+          "points_against": { "type": ["number", "null"] }
+        }
+      }
+    },
+    "matchups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["week", "final", "games"],
+        "properties": {
+          "week": { "type": "number" },
+          "final": { "type": "boolean" },
+          "games": { "type": "array" }
+        }
+      }
+    }
   }
 }
