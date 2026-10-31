@@ -58,6 +58,9 @@ Markdown bylaws, scoring, voice guidelines, commissioner docs, and structured JS
 **Admin endpoint** (`/api/admin/mcp`)  
 Bearer-gated. Adds private payment status + contact data (never committed to git).
 
+**Live scores** (`/api/live/mcp`) — opt-in, off by default  
+Returns 404 unless `FANTASYX_LIVE` is exactly `1`. When the flag is on, requires `Authorization: Bearer <FANTASYX_LIVE_TOKEN>` (401 otherwise). Exposes only `nfl_state`, `live_matchups`, and `live_standings` from the public Sleeper API, with a 60-second in-memory cache. The public `/api/mcp` endpoint is unchanged.
+
 ---
 
 ## Local Development
@@ -70,6 +73,8 @@ npm run dev
 ```
 
 Public MCP available at `http://localhost:3000/api/mcp`.
+
+Live scores stay off unless you export `FANTASYX_LIVE=1` and `FANTASYX_LIVE_TOKEN` (see `.env.example`). With the flag unset, `http://localhost:3000/api/live/mcp` returns 404.
 
 ```bash
 # Useful scripts
@@ -99,7 +104,8 @@ scripts/          → build-content, validate, sync-sleeper, import
 src/app/page.tsx  → League HQ landing page (Server Component)
 src/app/api/mcp   → public Streamable HTTP endpoint
 src/app/api/admin → bearer-protected admin endpoint
-src/tools/        → tool registration (content + sleeper + admin)
+src/app/api/live  → opt-in live scores (FANTASYX_LIVE=1 + bearer token)
+src/tools/        → tool registration (public, admin, and opt-in live)
 src/lib/content   → typed accessors over build-time generated module
 ```
 
