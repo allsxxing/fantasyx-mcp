@@ -34,5 +34,10 @@
   },
   "engines": {
     "node": ">=22"
+  },
+  "overrides": {
+    "mcp-handler": {
+      "@modelcontextprotocol/sdk": "$@modelcontextprotocol/sdk"
+    }
   }
 }
