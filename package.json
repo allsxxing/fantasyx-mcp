@@ -18,7 +18,7 @@
     "sync:calendar": "node scripts/sync-calendar.mjs"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.26.0",
+    "@modelcontextprotocol/sdk": "^1.32.0",
     "mcp-handler": "^1.0.2",
     "next": "^15.1.6",
     "react": "^19.0.0",
@@ -33,6 +33,6 @@
     "typescript": "^5.7.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   }
 }
