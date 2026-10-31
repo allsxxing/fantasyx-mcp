@@ -81,6 +81,16 @@ npm run import:icloud   # re-sync rules from source document
 
 ---
 
+## Claude Code on the web
+
+- Connect this repo at [claude.ai/code](https://claude.ai/code).
+- Set the env vars listed in `.env.example` in the cloud environment's own secret settings — not in a global shell profile.
+- Node 22 is required.
+- Sessions can be driven from the Claude iPhone app and open PRs.
+- Permissions live in `.claude/settings.json`: pushes, merges, and deploys always ask first. Personal overrides go in `.claude/settings.local.json` (gitignored).
+
+---
+
 ## Architecture
 
 ```
