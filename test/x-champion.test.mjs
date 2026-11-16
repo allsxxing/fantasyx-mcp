@@ -297,6 +297,44 @@ test('second pass is a no-op and other seasons stay untouched', () => {
   assert.deepEqual(second.log.seasons['2025'].weeks, prior.weeks);
 });
 
+test('custom_points overrides the raw total and can change who takes the belt', () => {
+  const { log, changed } = advanceXChampion(logOf([
+    entry({ week: 9, notes: AUTO_NOTE, locked_into_opponent_user_id: 'Maxwellhiggens' }),
+  ]), ctx({
+    stateWeek: 10,
+    matchupsByWeek: {
+      9: [
+        { roster_id: 10, matchup_id: 1, points: 110, custom_points: 90 },
+        { roster_id: 4, matchup_id: 1, points: 100, custom_points: null },
+      ],
+      10: LIVE_WEEKS[10],
+    },
+  }));
+  assert.equal(changed, true);
+  const [week9, week10] = log.seasons['2026'].weeks;
+  assert.equal(week9.result, 'lost');
+  assert.match(week9.notes, /RESULT: lost to @Maxwellhiggens, @trappat 90 to @Maxwellhiggens 100\./);
+  assert.equal(week10.holder_user_id, 'Maxwellhiggens');
+  assert.equal(week10.crowned_by, 'beat_prior_holder');
+});
+
+test('a custom_points override of zero is a real score', () => {
+  const { log } = advanceXChampion(logOf([
+    entry({ week: 9, notes: AUTO_NOTE }),
+  ]), ctx({
+    stateWeek: 10,
+    matchupsByWeek: {
+      9: [
+        { roster_id: 10, matchup_id: 1, points: 110, custom_points: 0 },
+        { roster_id: 4, matchup_id: 1, points: 10, custom_points: null },
+      ],
+      10: LIVE_WEEKS[10],
+    },
+  }));
+  assert.equal(log.seasons['2026'].weeks[0].result, 'lost');
+  assert.match(log.seasons['2026'].weeks[0].notes, /@trappat 0 to @Maxwellhiggens 10/);
+});
+
 test('does not delete an existing later week', () => {
   const week9 = entry({
     week: 9,

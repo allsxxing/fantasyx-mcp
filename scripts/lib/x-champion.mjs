@@ -9,6 +9,7 @@
 // week after week 7 is filled held/lost. The score is written into notes only when
 // the note is still the auto placeholder (or empty). The next week is appended only
 // when that week's matchups are published and the week is still before playoffs.
+// A commissioner override (custom_points, including 0) replaces the raw total.
 
 export const AUTO_NOTE = 'No lock recorded; chat unverified.';
 export const PROTECTED_WEEK_MAX = 7;
@@ -32,6 +33,16 @@ function formatPoints(n) {
   return String(Math.round(Number(n) * 100) / 100);
 }
 
+// Sleeper's matchup `points` is the scored total. `custom_points` is the commissioner
+// override and is null when unused. Zero is a real override, so this uses ??.
+function matchupScore(row) {
+  if (!row) return null;
+  const raw = row.custom_points ?? row.points;
+  if (raw == null) return null;
+  const n = Number(raw);
+  return Number.isFinite(n) ? n : null;
+}
+
 function findSide(userId, rows, members) {
   if (!isPublished(rows)) return null;
   const holder = members.find(m => m.user_id === userId);
@@ -48,10 +59,9 @@ function findSide(userId, rows, members) {
 function resolveOutcome(entry, ctx) {
   const side = findSide(entry.holder_user_id, rowsFor(ctx, entry.week), ctx.members ?? []);
   if (!side) return null;
-  if (side.holderRow.points == null || side.oppRow.points == null) return null;
-  const holderPoints = Number(side.holderRow.points);
-  const opponentPoints = Number(side.oppRow.points);
-  if (!Number.isFinite(holderPoints) || !Number.isFinite(opponentPoints)) return null;
+  const holderPoints = matchupScore(side.holderRow);
+  const opponentPoints = matchupScore(side.oppRow);
+  if (holderPoints == null || opponentPoints == null) return null;
   const holderCents = Math.round(holderPoints * 100);
   const opponentCents = Math.round(opponentPoints * 100);
   return {

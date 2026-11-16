@@ -367,6 +367,8 @@ async function syncXChampion(bundle) {
       roster_id: r.roster_id,
       matchup_id: r.matchup_id ?? null,
       points: r.points ?? null,
+      // Null when the commissioner has not edited the score. Zero is a real override.
+      custom_points: r.custom_points ?? null,
     }));
   }
 
