@@ -102,8 +102,33 @@
           "locked_into_opponent_user_id": "890091625635061760",
           "declared_at": null,
           "declared_on_time": null,
+          "result": "held",
+          "notes": "TITLE CHANGE. @trappat won the belt off @allsxxing in Wk 7. Wk 8 vs @AJk12 (Griddy on ur mamas TDs). RESULT: held, trappat 146.08 to AJk12 135.9. Lock declaration not recorded in this log; chat unverified."
+        },
+        {
+          "week": 9,
+          "holder_user_id": "729199653513433088",
+          "holder_display_name": "trappat",
+          "locked_player_id": null,
+          "locked_player_name": null,
+          "locked_into_opponent_user_id": "1117902191370547200",
+          "declared_at": null,
+          "declared_on_time": null,
+          "result": "lost",
+          "notes": "Wk 9 vs @Maxwellhiggens. No lock recorded; chat unverified. RESULT: lost to @Maxwellhiggens 112.06 to 126.9 (Sleeper). TITLE CHANGE."
+        },
+        {
+          "week": 10,
+          "holder_user_id": "1117902191370547200",
+          "holder_display_name": "Maxwellhiggens",
+          "crowned_by": "beat_prior_holder",
+          "locked_player_id": null,
+          "locked_player_name": null,
+          "locked_into_opponent_user_id": "1124740547148763136",
+          "declared_at": null,
+          "declared_on_time": null,
           "result": null,
-          "notes": "TITLE CHANGE. @trappat won the belt off @allsxxing in Wk 7. Wk 8 vs @AJk12 (Griddy on ur mamas TDs). Lock pending; declare by Fri 11:59 PM CT."
+          "notes": "TITLE CHANGE. @Maxwellhiggens won the belt off @trappat in Wk 9. Wk 10 vs @Nels8951. No lock recorded; chat unverified. RESULT pending (week in progress)."
         }
       ]
     }

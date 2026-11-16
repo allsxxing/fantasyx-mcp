@@ -1,7 +1,8 @@
 name: Sync Sleeper → Content → Calendar
 
 # Pulls live league state from the public Sleeper API and commits the regenerated
-# content/seasons/*.json + content/managers.json + content/key-dates.json. Sleeper needs no
+# content/seasons/*.json + content/managers.json + content/key-dates.json, and any
+# x-champion-log.json weeks the belt advance appended or filled. Sleeper needs no
 # credentials, so contents:write is the only permission required for that half — scoped here
 # rather than in repo settings.
 #
@@ -13,15 +14,21 @@ name: Sync Sleeper → Content → Calendar
 # Phase-aware schedule. GitHub cron has no per-date gating, so the phases are expressed as
 # separate entries with the same job behind them; the no-op guard below means an out-of-phase
 # run just exits clean. All times UTC — the league runs on CT.
+#
+# In season the daily 13:00 run is the one that lands a finished week. display_week often
+# has not rolled by Tuesday, and sync-sleeper withholds the current display_week's points,
+# so a Tuesday-only cron never sees those scores. writeIfChanged still skips empty commits.
 
 on:
   workflow_dispatch:
   schedule:
-    # Preseason / draft window: once daily. Catches the draft randomization and the last
-    # open seat filling without doubling up cron entries at the same hour.
+    # Preseason through the regular season: daily 13:00 UTC, in phase Aug 1 – Jan 10
+    # (the window wraps the year). Also catches draft randomization and the last open seat.
     - cron: '0 13 * * *'
-    # In-season: Tuesday 13:00 UTC (~8am CT), after Monday night finalizes.
+    # In-season keep-alive: Tuesday 13:00 UTC (~8am CT). Same Sep 11 – Jan 10 window as before.
     - cron: '0 13 * * 2'
+    # In-season, after Monday Night Football: Tuesday 06:00 UTC (~1am CT), Sep 11 – Jan 10.
+    - cron: '0 6 * * 2'
     # Offseason baseline: the 1st of each month.
     - cron: '0 13 1 * *'
 
@@ -58,10 +65,10 @@ jobs:
           fi
           MD=$(date -u +%m%d)
           case "$SCHED" in
-            # Preseason / draft window: Aug 1 – Sep 10
-            '0 13 * * *')    [ "$MD" \> "0731" ] && [ "$MD" \< "0911" ] && OK=1 ;;
-            # In-season: Sep 11 – Jan 10 (wraps the year end)
-            '0 13 * * 2')    { [ "$MD" \> "0910" ] || [ "$MD" \< "0111" ]; } && OK=1 ;;
+            # Preseason through regular season: Aug 1 – Jan 10 (wraps the year end)
+            '0 13 * * *')    { [ "$MD" \> "0731" ] || [ "$MD" \< "0111" ]; } && OK=1 ;;
+            # In-season keep-alive and post-MNF: Sep 11 – Jan 10 (wraps the year end)
+            '0 13 * * 2'|'0 6 * * 2')    { [ "$MD" \> "0910" ] || [ "$MD" \< "0111" ]; } && OK=1 ;;
             # Offseason: Jan 11 – Jul 31
             '0 13 1 * *')    [ "$MD" \> "0110" ] && [ "$MD" \< "0801" ] && OK=1 ;;
           esac
