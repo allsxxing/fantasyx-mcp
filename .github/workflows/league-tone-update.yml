@@ -7,11 +7,6 @@ on:
   schedule:
     - cron: '0 6 * * 1'  # weekly Monday 06:00 UTC
   workflow_dispatch:
-  # Temporary: prove a second off-main run fast-forwards league-tone-update.
-  # Removed after that run. This ref is not main.
-  push:
-    branches:
-      - cursor/league-tone-commit-main-3625
 
 # main is unprotected and has no ruleset, so contents: write is enough to
 # commit there — the same opt-in sync-sleeper.yml uses. This repo will not
