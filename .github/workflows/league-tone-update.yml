@@ -1,22 +1,52 @@
 name: League Tone Knowledge Update
 
+# schedule and workflow_dispatch only. There is no push trigger, so a commit
+# this job pushes cannot start another run. GITHUB_TOKEN pushes also do not
+# create workflow runs.
 on:
   schedule:
     - cron: '0 6 * * 1'  # weekly Monday 06:00 UTC
   workflow_dispatch:
+
+# main is unprotected and has no ruleset, so contents: write is enough to
+# commit there — the same opt-in sync-sleeper.yml uses. This repo will not
+# allow Actions to open pull requests, so this job does not request
+# pull-requests: write and does not call create-pull-request.
+permissions:
+  contents: write
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run updater
+
+      - name: Commit knowledge updates
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # On main, commit onto main. Off main, commit onto the existing
+          # league-tone-update tip when it exists so the push fast-forwards.
+          # A plain push of the triggering ref is not a descendant of that tip.
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "Ref is ${GITHUB_REF}. Updating league-tone-update, not main."
+            if git fetch --depth=1 origin refs/heads/league-tone-update:refs/remotes/origin/league-tone-update; then
+              git checkout -B league-tone-update origin/league-tone-update
+            fi
+          fi
           python3 skills/league-tone/scripts/update_knowledge.py || true
-      - name: Open PR if changes
-        uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: "chore(league-tone): knowledge update candidates"
-          title: "league-tone: candidate knowledge update"
-          body: "Automated candidate update from approved drafts. Review before merge. No locked rules auto-promoted."
-          branch: league-tone-update
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No knowledge updates — nothing to commit."
+            exit 0
+          fi
+          git add skills/league-tone/references/learning-log.md
+          if git diff --cached --quiet; then
+            echo "No staged knowledge updates — nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore(league-tone): knowledge update candidates ($(date -u +%Y-%m-%d))"
+          if [ "$GITHUB_REF" = "refs/heads/main" ]; then
+            git push origin HEAD:main
+          else
+            git push origin HEAD:league-tone-update
+          fi
