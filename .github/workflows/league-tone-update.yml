@@ -5,6 +5,20 @@ on:
     - cron: '0 6 * * 1'  # weekly Monday 06:00 UTC
   workflow_dispatch:
 
+# Repo Actions default is read-only (Contents: read). This job pushes a branch
+# and opens a PR, so it opts into write here — same pattern as sync-sleeper.yml.
+# Unspecified scopes stay none. contents: write is the branch push;
+# pull-requests: write is the PR API call.
+#
+# Opening the PR also requires a repository checkbox that workflow permissions
+# cannot turn on: Settings → Actions → General → Workflow permissions →
+# "Allow GitHub Actions to create and approve pull requests".
+# When that is off, the push succeeds and the step below fails with a
+# pointer to that checkbox.
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -14,9 +28,21 @@ jobs:
         run: |
           python3 skills/league-tone/scripts/update_knowledge.py || true
       - name: Open PR if changes
+        id: cpr
+        continue-on-error: true
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "chore(league-tone): knowledge update candidates"
           title: "league-tone: candidate knowledge update"
           body: "Automated candidate update from approved drafts. Review before merge. No locked rules auto-promoted."
           branch: league-tone-update
+          base: main
+
+      - name: Explain a blocked pull request
+        if: steps.cpr.outcome == 'failure'
+        run: |
+          echo "::error::Could not open the league-tone pull request. The step above has the API error."
+          echo "If that error is 'GitHub Actions is not permitted to create or approve pull requests', the token permissions in this file are already enough to push the branch."
+          echo "Owner setting required: repository Settings → Actions → General → Workflow permissions → enable \"Allow GitHub Actions to create and approve pull requests\"."
+          echo "No repository secret is involved. Re-run this workflow after the checkbox is on."
+          exit 1
