@@ -217,8 +217,9 @@ npm run validate       # validate-content.mjs — every content file vs its JSON
 npm run build:content  # content/ → src/generated/content.ts (bundled; never read at runtime)
 npm run import:icloud  # RE-SYNC path for rules: edit source doc, run this, commit the diff
 npm run sync:sleeper   # walk previous_league_id chain → seasons/*.json + managers.json
-                        # (champions, roster diffs, draft, draft order). Also runs on a schedule
-                        # via .github/workflows/sync-sleeper.yml — validate gates every commit.
+                        # (champions, roster diffs, draft, draft order) and append/fill final
+                        # weeks in x-champion-log.json. Also runs on a schedule via
+                        # .github/workflows/sync-sleeper.yml — validate gates every commit.
 npm run snapshot:upstream # refreshes the Flaim/FantasyPros tool-schema snapshot the Grok
                         # bridge's proxy-tools.ts registers from; personal use, runs automatically
                         # on every dev/build so it rarely needs a manual invocation
@@ -248,11 +249,14 @@ risk** — do not `npm audit fix --force`. The security-relevant pin (SDK ≥ 1.
 `.github/workflows/sync-sleeper.yml` runs `npm run sync:sleeper` on a cron and **commits +
 pushes `content/` directly as `github-actions[bot]`** when Sleeper state changed — expect
 unattributed `sync: Sleeper league state YYYY-MM-DD` commits in `git log` that nobody in this
-session authored. The cron fires year-round on three schedules but self-gates to one active
-phase by date (preseason/draft daily, in-season Tuesdays, offseason monthly) since GitHub cron
-has no per-date conditionals — an out-of-phase firing exits as a no-op. It never pushes content
-that fails `npm run validate`. Vercel is git-connected, so each of these commits triggers a
-production redeploy same as a human push.
+session authored. The cron fires year-round on four schedules but self-gates by date
+(daily 13:00 UTC from Aug 1 through Jan 10, wrapping the year; Tuesday 13:00 UTC keep-alive
+and Tuesday 06:00 UTC after MNF from Sep 11 through Jan 10; offseason monthly) since GitHub
+cron has no per-date conditionals — an out-of-phase firing exits as a no-op. It never pushes
+content that fails `npm run validate`. Vercel is git-connected, so each of these commits
+triggers a production redeploy same as a human push. The belt half of the sync only fills a
+null result on a final regular-season week after week 7, and only appends the next week when
+that week's matchups are published. It does not rewrite weeks 1–7, lock fields, or human notes.
 
 ## Phase gates (observed results, not "it ran")
 

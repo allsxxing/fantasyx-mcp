@@ -7,6 +7,8 @@
 // each season's champion, roster membership and draft, and writes content/seasons/<year>.json
 // plus content/managers.json. For the newest (upcoming) season it diffs membership against the
 // prior season to derive departures / additions / open spots — no hardcoded roster changes.
+// For the current season it also appends/fills content/x-champion-log.json from final
+// matchups (scripts/lib/x-champion.mjs). Lock fields and human notes are never rewritten.
 //
 // Everything this script writes is GENERATED. Never hand-edit content/seasons/*.json or
 // content/managers.json — edit nothing, re-run this instead. Draft order in particular is
@@ -21,6 +23,7 @@ import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { deriveKeyDates } from './lib/key-dates.mjs';
+import { advanceXChampion, PROTECTED_WEEK_MAX } from './lib/x-champion.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CONTENT = join(__dirname, '..', 'content');
@@ -146,7 +149,9 @@ function draftOrderOf(draft, members) {
 
 // Standings + weekly matchups for the in-season league. Completed weeks carry final points;
 // the current week carries pairings only (points null) so a mid-week run never commits
-// partial live scores. Never touches x-champion-log.json; the belt is human-curated.
+// partial live scores. display_week is the gate here: it often lags state.week, and a
+// Tuesday-only cron used to snapshot the finished week before it rolled. The belt log is
+// separate and uses state.week (see syncXChampion).
 const pts = (whole, dec) => (whole == null ? null : Number(`${whole}.${String(dec ?? 0).padStart(2, '0')}`));
 
 function standingsOf({ rosters }, members) {
@@ -290,8 +295,98 @@ async function main() {
 
   await writeManagers(chain[0]);
   await writeKeyDates(chain[0]);
+  await syncXChampion(chain[0]);
 
   log('done:', written.join(' | '));
+}
+
+// Fill final-week belt results and append the next holder. Weeks 1–7 stay as written.
+// A failure here aborts the process before CI commits, same as a partial standings write.
+async function syncXChampion(bundle) {
+  const status = bundle.league.status;
+  if (status !== 'in_season' && status !== 'complete') {
+    log('belt skipped — league status', status);
+    return;
+  }
+
+  const season = String(bundle.league.season);
+  const path = join(CONTENT, 'x-champion-log.json');
+  let logDoc;
+  try {
+    logDoc = JSON.parse(await readFile(path, 'utf8'));
+  } catch (err) {
+    throw new Error(`x-champion-log.json unreadable: ${err.message}`);
+  }
+  const loggedWeeks = logDoc.seasons?.[season]?.weeks;
+  if (!loggedWeeks?.length) {
+    log(`no x-champion weeks for ${season} — skipping belt`);
+    return;
+  }
+
+  const playoffWeekStart = Number(bundle.league.settings?.playoff_week_start);
+  if (!Number.isInteger(playoffWeekStart)) {
+    throw new Error('league.settings.playoff_week_start missing — refusing to advance the belt');
+  }
+
+  let state;
+  try {
+    state = await getJson('/state/nfl');
+  } catch (err) {
+    throw new Error(`belt sync needs /state/nfl: ${err.message}`);
+  }
+  const stateWeek = Number(state.week ?? 0);
+  const seasonOver = status === 'complete';
+  const members = membersOf(bundle).filter(m => m.roster_id != null);
+
+  const lastWeek = loggedWeeks[loggedWeeks.length - 1].week;
+  const firstOpen = loggedWeeks.find(w => w.week > PROTECTED_WEEK_MAX && w.result == null)?.week ?? lastWeek;
+  const from = Math.min(lastWeek, firstOpen);
+  const horizon = seasonOver ? playoffWeekStart - 1 : Math.max(stateWeek, lastWeek + 1);
+  const to = Math.max(from, Math.min(playoffWeekStart - 1, horizon));
+
+  const matchupsByWeek = {};
+  for (let week = from; week <= to; week++) {
+    const mustExist = seasonOver || week < stateWeek;
+    let rows;
+    try {
+      rows = await getJson(`/league/${bundle.league.league_id}/matchups/${week}`);
+    } catch (err) {
+      if (!mustExist) {
+        warn(`belt week ${week} matchups unavailable — not walking past it: ${err.message}`);
+        break;
+      }
+      throw new Error(`belt matchups week ${week} unavailable: ${err.message}`);
+    }
+    const published = Array.isArray(rows) && rows.some(r => r?.matchup_id != null);
+    if (!published) {
+      if (mustExist) throw new Error(`belt matchups week ${week} unpublished while that week is final`);
+      warn(`belt week ${week} matchups not published — stopping`);
+      break;
+    }
+    matchupsByWeek[week] = rows.map(r => ({
+      roster_id: r.roster_id,
+      matchup_id: r.matchup_id ?? null,
+      points: r.points ?? null,
+      // Null when the commissioner has not edited the score. Zero is a real override.
+      custom_points: r.custom_points ?? null,
+    }));
+  }
+
+  const { log: updated, changed, warnings } = advanceXChampion(logDoc, {
+    season,
+    stateWeek,
+    seasonOver,
+    playoffWeekStart,
+    members,
+    matchupsByWeek,
+  });
+  for (const w of warnings) warn(w);
+  if (!changed) {
+    log('unchanged', 'x-champion-log.json');
+    return;
+  }
+  const wrote = await writeIfChanged(path, updated);
+  log(wrote ? 'wrote' : 'unchanged', 'x-champion-log.json');
 }
 
 // content/key-dates.json — the 4 Sleeper-derived calendar events (Draft Day, Week 1
