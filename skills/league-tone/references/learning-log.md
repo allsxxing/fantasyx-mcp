@@ -9,6 +9,7 @@ One row per candidate update.
 | 2026-10-17 | x-lock-announcement-wk6.md | Special highest-score handoff phrasing | held | One-off special week. Not a permanent rule. |
 
 | 2026-11-23 | rebuild-scan | Baseline scan complete. No new patterns promoted. | held | Updater ready. Promote only on 2+ repeats or explicit lock. |
+| 2026-11-23 | rebuild-scan | Baseline scan complete. No new patterns promoted. | held | Updater ready. Promote only on 2+ repeats or explicit lock. |
 last_run: 2026-11-23
 
 Promote to SKILL.md only on 2+ approved repeats or explicit GJ lock.
