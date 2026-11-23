@@ -7,6 +7,11 @@ on:
   schedule:
     - cron: '0 6 * * 1'  # weekly Monday 06:00 UTC
   workflow_dispatch:
+  # Temporary: prove a second off-main run fast-forwards league-tone-update.
+  # Removed after that run. This ref is not main.
+  push:
+    branches:
+      - cursor/league-tone-commit-main-3625
 
 # main is unprotected and has no ruleset, so contents: write is enough to
 # commit there — the same opt-in sync-sleeper.yml uses. This repo will not
@@ -21,29 +26,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run updater
-        run: |
-          python3 skills/league-tone/scripts/update_knowledge.py || true
-
       - name: Commit knowledge updates
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # On main, commit onto main. Off main, commit onto the existing
+          # league-tone-update tip when it exists so the push fast-forwards.
+          # A plain push of the triggering ref is not a descendant of that tip.
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "Ref is ${GITHUB_REF}. Updating league-tone-update, not main."
+            if git fetch --depth=1 origin refs/heads/league-tone-update:refs/remotes/origin/league-tone-update; then
+              git checkout -B league-tone-update origin/league-tone-update
+            fi
+          fi
+          python3 skills/league-tone/scripts/update_knowledge.py || true
           if [ -z "$(git status --porcelain)" ]; then
             echo "No knowledge updates — nothing to commit."
             exit 0
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add skills/league-tone/references/learning-log.md
           if git diff --cached --quiet; then
             echo "No staged knowledge updates — nothing to commit."
             exit 0
           fi
           git commit -m "chore(league-tone): knowledge update candidates ($(date -u +%Y-%m-%d))"
-          # A scheduled or manual run checks out main and commits there.
-          # workflow_dispatch of any other ref must not update main.
           if [ "$GITHUB_REF" = "refs/heads/main" ]; then
             git push origin HEAD:main
           else
-            echo "Ref is ${GITHUB_REF}. Pushing candidates to league-tone-update, not main."
             git push origin HEAD:league-tone-update
           fi
