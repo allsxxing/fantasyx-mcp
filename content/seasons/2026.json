@@ -144,7 +144,7 @@
     }
   ],
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
-  "synced_at": "2026-11-24T00:30:22.737Z",
+  "synced_at": "2026-11-24T17:20:53.451Z",
   "roster_changes": {
     "vs_season": "2025",
     "departures": [
@@ -209,70 +209,70 @@
       "display_name": "allsxxing",
       "team_name": "A$H & TETTIES",
       "wins": 8,
-      "losses": 2,
+      "losses": 3,
       "ties": 0,
-      "points_for": 1573.56,
-      "points_against": 1264.3
+      "points_for": 1707.22,
+      "points_against": 1426.2
     },
     {
       "rank": 2,
+      "roster_id": 5,
+      "user_id": "1133247206179442688",
+      "display_name": "nichigh",
+      "team_name": null,
+      "wins": 8,
+      "losses": 3,
+      "ties": 0,
+      "points_for": 1686.56,
+      "points_against": 1546.9
+    },
+    {
+      "rank": 3,
+      "roster_id": 10,
+      "user_id": "729199653513433088",
+      "display_name": "trappat",
+      "team_name": null,
+      "wins": 8,
+      "losses": 3,
+      "ties": 0,
+      "points_for": 1593.04,
+      "points_against": 1428.86
+    },
+    {
+      "rank": 4,
       "roster_id": 4,
       "user_id": "1117902191370547200",
       "display_name": "Maxwellhiggens",
       "team_name": "",
       "wins": 7,
-      "losses": 3,
+      "losses": 4,
       "ties": 0,
-      "points_for": 1537.94,
-      "points_against": 1388.4
-    },
-    {
-      "rank": 3,
-      "roster_id": 5,
-      "user_id": "1133247206179442688",
-      "display_name": "nichigh",
-      "team_name": null,
-      "wins": 7,
-      "losses": 3,
-      "ties": 0,
-      "points_for": 1524.66,
-      "points_against": 1413.24
-    },
-    {
-      "rank": 4,
-      "roster_id": 10,
-      "user_id": "729199653513433088",
-      "display_name": "trappat",
-      "team_name": null,
-      "wins": 7,
-      "losses": 3,
-      "ties": 0,
-      "points_for": 1439.5,
-      "points_against": 1320.76
+      "points_for": 1658.04,
+      "points_against": 1553.76
     },
     {
       "rank": 5,
-      "roster_id": 9,
-      "user_id": "1124740547148763136",
-      "display_name": "Nels8951",
-      "team_name": null,
-      "wins": 4,
-      "losses": 6,
-      "ties": 0,
-      "points_for": 1553.99,
-      "points_against": 1483.62
-    },
-    {
-      "rank": 6,
       "roster_id": 2,
       "user_id": "855678858756734976",
       "display_name": "Tristanv10",
       "team_name": null,
-      "wins": 4,
+      "wins": 5,
       "losses": 6,
       "ties": 0,
-      "points_for": 1428.78,
-      "points_against": 1511.44
+      "points_for": 1573.74,
+      "points_against": 1627.58
+    },
+    {
+      "rank": 6,
+      "roster_id": 6,
+      "user_id": "744014760877662208",
+      "display_name": "chandran",
+      "team_name": "THE RULER",
+      "wins": 5,
+      "losses": 6,
+      "ties": 0,
+      "points_for": 1456.86,
+      "points_against": 1450.3
     },
     {
       "rank": 7,
@@ -280,23 +280,23 @@
       "user_id": "1005194894908018688",
       "display_name": "kazeemfamuyide",
       "team_name": null,
-      "wins": 4,
+      "wins": 5,
       "losses": 6,
       "ties": 0,
-      "points_for": 1302.98,
-      "points_against": 1438.36
+      "points_for": 1434.14,
+      "points_against": 1539.72
     },
     {
       "rank": 8,
-      "roster_id": 6,
-      "user_id": "744014760877662208",
-      "display_name": "chandran",
-      "team_name": "THE RULER",
+      "roster_id": 9,
+      "user_id": "1124740547148763136",
+      "display_name": "Nels8951",
+      "team_name": null,
       "wins": 4,
-      "losses": 6,
+      "losses": 7,
       "ties": 0,
-      "points_for": 1291.5,
-      "points_against": 1330.2
+      "points_for": 1662.1,
+      "points_against": 1637.16
     },
     {
       "rank": 9,
@@ -305,10 +305,10 @@
       "display_name": "AJk12",
       "team_name": "Griddy on ur mamas TDs",
       "wins": 3,
-      "losses": 7,
+      "losses": 8,
       "ties": 0,
-      "points_for": 1312.48,
-      "points_against": 1534.44
+      "points_for": 1413.84,
+      "points_against": 1665.6
     },
     {
       "rank": 10,
@@ -317,10 +317,10 @@
       "display_name": "anyfoolwilldo",
       "team_name": null,
       "wins": 2,
-      "losses": 8,
+      "losses": 9,
       "ties": 0,
-      "points_for": 1293.9,
-      "points_against": 1574.54
+      "points_for": 1410.04,
+      "points_against": 1719.5
     }
   ],
   "matchups": [

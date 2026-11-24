@@ -139,6 +139,19 @@
           "locked_into_opponent_user_id": "744014760877662208",
           "declared_at": null,
           "declared_on_time": null,
+          "result": "lost",
+          "notes": "RESULT: lost to @chandran, @Maxwellhiggens 120.1 to @chandran 165.36. No lock recorded; chat unverified."
+        },
+        {
+          "week": 12,
+          "holder_user_id": "744014760877662208",
+          "holder_display_name": "chandran",
+          "crowned_by": "beat_prior_holder",
+          "locked_player_id": null,
+          "locked_player_name": null,
+          "locked_into_opponent_user_id": "1124740547148763136",
+          "declared_at": null,
+          "declared_on_time": null,
           "result": null,
           "notes": "No lock recorded; chat unverified."
         }
