@@ -129,6 +129,18 @@
           "declared_on_time": null,
           "result": "held",
           "notes": "TITLE CHANGE. @Maxwellhiggens won the belt off @trappat in Wk 9. Wk 10 vs @Nels8951. No lock recorded; chat unverified. RESULT: held, Maxwellhiggens 154.12 to Nels8951 111.52 (Sleeper)."
+        },
+        {
+          "week": 11,
+          "holder_user_id": "1117902191370547200",
+          "holder_display_name": "Maxwellhiggens",
+          "locked_player_id": null,
+          "locked_player_name": null,
+          "locked_into_opponent_user_id": "744014760877662208",
+          "declared_at": null,
+          "declared_on_time": null,
+          "result": null,
+          "notes": "No lock recorded; chat unverified."
         }
       ]
     }

@@ -144,7 +144,7 @@
     }
   ],
   "source": "sync-sleeper.mjs — https://api.sleeper.app",
-  "synced_at": "2026-11-17T21:32:52.826Z",
+  "synced_at": "2026-11-24T00:30:22.737Z",
   "roster_changes": {
     "vs_season": "2025",
     "departures": [
@@ -1190,7 +1190,7 @@
     },
     {
       "week": 10,
-      "final": false,
+      "final": true,
       "games": [
         {
           "matchup_id": 1,
@@ -1198,6 +1198,102 @@
             {
               "roster_id": 2,
               "display_name": "Tristanv10",
+              "team_name": null,
+              "points": 175.76
+            },
+            {
+              "roster_id": 10,
+              "display_name": "trappat",
+              "team_name": null,
+              "points": 217.82
+            }
+          ],
+          "winner_roster_id": 10
+        },
+        {
+          "matchup_id": 2,
+          "teams": [
+            {
+              "roster_id": 4,
+              "display_name": "Maxwellhiggens",
+              "team_name": "",
+              "points": 154.12
+            },
+            {
+              "roster_id": 9,
+              "display_name": "Nels8951",
+              "team_name": null,
+              "points": 111.52
+            }
+          ],
+          "winner_roster_id": 4
+        },
+        {
+          "matchup_id": 3,
+          "teams": [
+            {
+              "roster_id": 3,
+              "display_name": "anyfoolwilldo",
+              "team_name": null,
+              "points": 126.16
+            },
+            {
+              "roster_id": 8,
+              "display_name": "AJk12",
+              "team_name": "Griddy on ur mamas TDs",
+              "points": 165.82
+            }
+          ],
+          "winner_roster_id": 8
+        },
+        {
+          "matchup_id": 4,
+          "teams": [
+            {
+              "roster_id": 1,
+              "display_name": "allsxxing",
+              "team_name": "A$H & TETTIES",
+              "points": 149.1
+            },
+            {
+              "roster_id": 6,
+              "display_name": "chandran",
+              "team_name": "THE RULER",
+              "points": 128.44
+            }
+          ],
+          "winner_roster_id": 1
+        },
+        {
+          "matchup_id": 5,
+          "teams": [
+            {
+              "roster_id": 5,
+              "display_name": "nichigh",
+              "team_name": null,
+              "points": 176.16
+            },
+            {
+              "roster_id": 7,
+              "display_name": "kazeemfamuyide",
+              "team_name": null,
+              "points": 124.74
+            }
+          ],
+          "winner_roster_id": 5
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "final": false,
+      "games": [
+        {
+          "matchup_id": 1,
+          "teams": [
+            {
+              "roster_id": 9,
+              "display_name": "Nels8951",
               "team_name": null,
               "points": null
             },
@@ -1214,14 +1310,14 @@
           "matchup_id": 2,
           "teams": [
             {
-              "roster_id": 4,
-              "display_name": "Maxwellhiggens",
-              "team_name": "",
+              "roster_id": 2,
+              "display_name": "Tristanv10",
+              "team_name": null,
               "points": null
             },
             {
-              "roster_id": 9,
-              "display_name": "Nels8951",
+              "roster_id": 3,
+              "display_name": "anyfoolwilldo",
               "team_name": null,
               "points": null
             }
@@ -1232,8 +1328,26 @@
           "matchup_id": 3,
           "teams": [
             {
-              "roster_id": 3,
-              "display_name": "anyfoolwilldo",
+              "roster_id": 4,
+              "display_name": "Maxwellhiggens",
+              "team_name": "",
+              "points": null
+            },
+            {
+              "roster_id": 6,
+              "display_name": "chandran",
+              "team_name": "THE RULER",
+              "points": null
+            }
+          ],
+          "winner_roster_id": null
+        },
+        {
+          "matchup_id": 4,
+          "teams": [
+            {
+              "roster_id": 7,
+              "display_name": "kazeemfamuyide",
               "team_name": null,
               "points": null
             },
@@ -1247,7 +1361,7 @@
           "winner_roster_id": null
         },
         {
-          "matchup_id": 4,
+          "matchup_id": 5,
           "teams": [
             {
               "roster_id": 1,
@@ -1256,26 +1370,8 @@
               "points": null
             },
             {
-              "roster_id": 6,
-              "display_name": "chandran",
-              "team_name": "THE RULER",
-              "points": null
-            }
-          ],
-          "winner_roster_id": null
-        },
-        {
-          "matchup_id": 5,
-          "teams": [
-            {
               "roster_id": 5,
               "display_name": "nichigh",
-              "team_name": null,
-              "points": null
-            },
-            {
-              "roster_id": 7,
-              "display_name": "kazeemfamuyide",
               "team_name": null,
               "points": null
             }
